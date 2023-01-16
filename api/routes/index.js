@@ -1,16 +1,28 @@
 const { Router } = require("express");
 const route = Router();
-// llassa
-const router_access = require("./admin/freeAccess");
-const route_crea = require("./admin/createdProducts")
-const route_elimina= require('./admin/delete')
-const route_put= require('./admin/put')
 
 
-route.use("/free", router_access);
-route.use("/crea", route_crea);
-route.use("/eliminar", route_elimina);
-route.use("/actualizar", route_put);
+const adminGetProducts = require('./Admin/Products/GetProducts');
+const adminPostProducts = require('./Admin/Products/PostProducts');
+const adminDeleteProducts = require('./Admin/Products/DeleteProducts');
+const adminPutProducts = require('./Admin/Products/PutProducts');
+const adminDeleteUser = require('./Admin/Users/DeleteUsers');
+const adminGetUser = require('./Admin/Users/GetUsers');
+const adminPutLockedUser = require('./Admin/Users/PutLockedUser');
+const adminPutUser = require('./Admin/Users/PutUser');
+const adminDeleteComment = require('./Admin/PQRS/DeleteComment');
+const adminGetComment = require('./Admin/PQRS/GetComment');
+const adminPostAnswer = require('./Admin/PQRS/PostAnswer');
+const adminPutComment= require('./Admin/PQRS/PutComment');
+
+
+
+
+
+route.use("/adminGetProducts", adminGetProducts);
+route.use("/adminPostProducts", adminPostProducts);
+route.use("/adminDeleteProducts", adminDeleteProducts);
+route.use("/adminPutProducts", adminPutProducts);
 
 
 module.exports = route;

@@ -11,7 +11,13 @@ const commentSchema = new Schema({
       //response: String,
       //response: String,
       //response: String,
+      products: {
+            type: Schema.Types.ObjectId,
+            ref: 'Products'
+        }
+    
 });
+
 
 
 module.exports = model('Comment', commentSchema);

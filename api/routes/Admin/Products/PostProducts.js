@@ -1,10 +1,10 @@
 const express = require("express");
-const crea = express.Router();
+const admin = express.Router();
 
 
-const Products = require("../../models/Products.js");
+const Products = require("../../../models/Products.js");
 
-crea.use("/", async (req,res)=>{
+admin.use("/", async (req,res)=>{
     const {name, price,description,category,image}=req.body;
     if (!name || !price || !description || !category || !image) // valido para crear si falta un dato no permite crear 
       return res.status(400).json({ msg: "Faltan datos" });
@@ -19,4 +19,4 @@ crea.use("/", async (req,res)=>{
    
     
   })
-  module.exports = crea;
+  module.exports = admin;

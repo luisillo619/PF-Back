@@ -50,7 +50,8 @@ const userSchema = new Schema({
     },
     status : {
       type : String,
-      default : 'activated'
+      enum: ['Active', 'inactive'],
+      default: 'Active'
     },
     // premium : {
     //     type : Boolean

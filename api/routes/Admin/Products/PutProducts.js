@@ -1,11 +1,11 @@
 const express = require("express");
-const put = express.Router();
+const admin = express.Router();
 //const putName= express.Router();
 
 
-const Products = require("../../models/Products.js");
+const Products = require("../../../models/Products.js");
 
-put.use('/:id', (req, res) => {
+admin.use('/:id', (req, res) => {
     
     Products.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, datos) => {
         if (error) {
@@ -26,4 +26,4 @@ put.use('/:id', (req, res) => {
 //     });
 // });
 
-module.exports= put;
+module.exports= admin;
