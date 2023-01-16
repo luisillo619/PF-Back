@@ -1,8 +1,8 @@
 const express = require("express");
 const { model } = require("mongoose");
-const elimina = express.Router();
+const admin = express.Router();
 
-const Products = require("../../models/Products.js");
+const Products = require("../../../models/Products.js");
 
 //  elimina.use('/:id', async (req, res) => {
 //     console.log("req.params.name")
@@ -15,7 +15,7 @@ const Products = require("../../models/Products.js");
 //         }
 //     });
 // });
-elimina.use('/:nombre', (req, res) => {
+admin.use('/:nombre', (req, res) => {
     console.log(req.params.nombre)
     Products.deleteOne({name: req.params.nombre}, (error) => {
         if (error) {
@@ -25,4 +25,4 @@ elimina.use('/:nombre', (req, res) => {
         }
     });
 })
-module.exports = elimina;
+module.exports = admin;

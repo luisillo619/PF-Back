@@ -1,3 +1,4 @@
+
 const { Schema, model } = require("mongoose");
 
 const productsSchema = new Schema(
@@ -33,7 +34,6 @@ const productsSchema = new Schema(
     stock: {
       type: Number,
     },
-
     news: {
       type: String,
     },

@@ -1,10 +1,10 @@
 const express = require("express");
-const Prueba = express.Router();
+const admin = express.Router();
 
 
-const Products = require("../../models/Products.js");
+const Products = require("../../../models/Products.js");
 
-Prueba.use("/", async (req, res) => {
+admin.use("/", async (req, res) => {
  
   const products = await Products.find();
   
@@ -19,4 +19,4 @@ Prueba.use("/", async (req, res) => {
 //         "description":"Alpaca, also known as german silver, bottle saver with ﻿Gallonado motifs.",
 //         "image":"https://login.eltero.net/modules/products/uploads/product_40.jpeg",
 //         "category
-module.exports = Prueba;
+module.exports = admin;
