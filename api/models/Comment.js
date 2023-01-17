@@ -11,7 +11,15 @@ const commentSchema = new Schema({
       products: {
             type: Schema.Types.ObjectId,
             ref: 'Products'
+
+        },
+      users: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+      }
+
         }
+
 });
 
 
