@@ -15,21 +15,6 @@ const productsSchema = new Schema(
     image: {
       type: String,
     },
-    category: {
-      type: String,
-      enum: [
-        "Mates",
-        "Bombillas",
-        "Matepa",
-        "Materas",
-        "Yerberas",
-        "Combos",
-        "Corkscrew",
-        "Wine set",
-        "Knives",
-        "Bottle saver gallonado",
-      ],
-    },
     stock: {
       type: Number,
     },
@@ -38,10 +23,10 @@ const productsSchema = new Schema(
       type: String,
     },
 
-    salesoff: {
+    salesOff: {
       type: Schema.Types.Mixed,
       default: {
-        offert: false,
+        salesOff: false,
         stock: 0,
         newPrice: 0,
         oldPrice: 0,
@@ -52,14 +37,18 @@ const productsSchema = new Schema(
       default: {
         comment: 0,
         rating: 0,
-        email: "",
+        userName: "",
       },
     },
     createdInDb: {
-      type: DataTypes.BOOLEAN,
+      type: Boolean,
       defaultValue: true,
       allowNull: false,
     },
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: 'Category'
+  },
   },
   {
     versionKey: false,

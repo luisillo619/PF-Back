@@ -5,9 +5,6 @@ const { Schema, model } = require('mongoose');
 
 //Datos de los usuarios que van a comprar
 const userSchema = new Schema({
-    // Products: [products],     //Así se hace la relación entre tablas en MongoDB
-    // userinfo: [userinfo],     //Así se hace la relación entre tablas en MongoDB
-
     //Usuario
     docIdentity: {
       type: Number,
@@ -26,12 +23,6 @@ const userSchema = new Schema({
         type: String,
         unique : true,
         required: true
-    },
-    
-    plan: {     //Plan para los usuarios con el fin de tener prioridad en evíos y promociones
-        type: String,
-        enum: ['Free', 'Premium'],
-        default: 'normal'
     },
     signupDate: {    //fecha de registro
         type: Date,
@@ -52,16 +43,6 @@ const userSchema = new Schema({
       type : String,
       enum: ['Active', 'inactive'],
       default: 'Active'
-    },
-    // premium : {
-    //     type : Boolean
-    // },
-
-
-    //Administrador (Empresa)
-    superAdmin : {
-      type : Boolean,
-      default : false
     },
     admin: {
       type: Boolean,  
