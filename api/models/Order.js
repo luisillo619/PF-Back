@@ -14,5 +14,10 @@ const orderSchema = new Schema(
         type: Number,
         allownull: false,
       },
+    total: {
+      type: Number,
+      allownull: false,
+    }
+    
   })
   module.exports = model("Order", orderSchema);
