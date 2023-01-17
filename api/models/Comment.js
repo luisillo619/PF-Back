@@ -8,19 +8,19 @@ const commentSchema = new Schema({
       email : String,
       asunto: String,
       response: String,
-      //response: String,
-      //response: String,
-      //response: String,
       products: {
             type: Schema.Types.ObjectId,
             ref: 'Products'
+
         },
       users: {
             type: Schema.Types.ObjectId,
             ref: 'User'
       }
-});
 
+        }
+
+});
 
 
 module.exports = model('Comment', commentSchema);
