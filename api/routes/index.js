@@ -19,11 +19,13 @@ const register = require('./register')
 
 
 
-
+// Rutas Admin
 route.use("/adminGetProducts", adminGetProducts);
 route.use("/adminPostProducts", adminPostProducts);
 route.use("/adminDeleteProducts", adminDeleteProducts);
 route.use("/adminPutProducts", adminPutProducts);
+
+
 route.use("/userRegister", register);
 
 
