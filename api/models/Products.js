@@ -16,6 +16,7 @@ const productsSchema = new Schema(
     image: {
       type: String,
     },
+    // OTRA TABLA AQUI PONER REF: products
     category: {
       type: String,
       enum: [
@@ -47,12 +48,12 @@ const productsSchema = new Schema(
         oldPrice: 0,
       },
     },
-    feedback: {
+    review: {
       type: Schema.Types.Mixed,
       default: {
         comment: 0,
         rating: 0,
-        email: "",
+        user: "",
       },
     },
   },

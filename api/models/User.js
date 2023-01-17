@@ -7,9 +7,9 @@ const userSchema = new Schema({
   //Usuario
   docIdentity: {
     type: Number,
-    required: true,
+    // required: true,
   },
-  name: {
+  userName: {
     type: String,
     required: true,
   },
