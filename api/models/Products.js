@@ -16,6 +16,24 @@ const productsSchema = new Schema(
     image: {
       type: String,
     },
+
+    // OTRA TABLA AQUI PONER REF: products
+    category: {
+      type: String,
+      enum: [
+        "Mates",
+        "Bombillas",
+        "Matepa",
+        "Materas",
+        "Yerberas",
+        "Combos",
+        "Corkscrew",
+        "Wine set",
+        "Knives",
+        "Bottle saver gallonado",
+      ],
+    },
+
     stock: {
       type: Number,
     },
@@ -32,12 +50,20 @@ const productsSchema = new Schema(
         oldPrice: 0,
       },
     },
+
+    review: {
+
     reviews: {
+
       type: Schema.Types.Mixed,
       default: {
         comment: 0,
         rating: 0,
+
+        user: "",
+
         userName: "",
+
       },
     },
     createdInDb: {
