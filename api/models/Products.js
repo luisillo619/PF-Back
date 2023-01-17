@@ -38,7 +38,7 @@ const productsSchema = new Schema(
       type: String,
     },
 
-    offert: {
+    salesoff: {
       type: Schema.Types.Mixed,
       default: {
         offert: false,
@@ -47,13 +47,18 @@ const productsSchema = new Schema(
         oldPrice: 0,
       },
     },
-    feedback: {
+    reviews: {
       type: Schema.Types.Mixed,
       default: {
         comment: 0,
         rating: 0,
         email: "",
       },
+    },
+    createdInDb: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+      allowNull: false,
     },
   },
   {
