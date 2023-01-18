@@ -16,10 +16,7 @@ const addressSchema = new Schema({
         type: String,
         allowNull: false,
     },
-    Country:{
-        type: String,
-        allowNull: false,
-    },
+    
     Street:{
         type: String,
         allowNull: false,
@@ -36,4 +33,4 @@ const addressSchema = new Schema({
 
 
 
-module.exports = model('address', addressSchema);
+module.exports = model('Address', addressSchema);
