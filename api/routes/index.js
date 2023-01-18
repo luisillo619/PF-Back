@@ -32,9 +32,14 @@ route.use("/adminDeleteProducts", adminDeleteProducts);
 route.use("/adminPutProducts", adminPutProducts);
 
 
+route.use("/adminGetComment", adminGetComment);
+route.use("/postComent", adminPostAnswer);
+
+
 route.use("/userRegister", register);
 route.use("/putUser", adminPutUser);
 route.use("/GetUsers", adminGetUser);
+
 
 
 

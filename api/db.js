@@ -5,6 +5,8 @@ const dotenv = require ('dotenv');
 dotenv.config();
 
 // paso 1, todos los modelos se sincronizan con mongo Atlas(base de datos en la nube)
+mongoose.set("strictQuery", false); // para que no me presente error al conectarme con el servidor de atlas
+
 mongoose
 .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
