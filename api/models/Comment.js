@@ -19,7 +19,6 @@ const commentSchema = new Schema({
       }
 
         }
-
 });
 
 
