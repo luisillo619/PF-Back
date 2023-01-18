@@ -1,2 +1,14 @@
-const express = require("express");
-const admin = express.Router();
+const express = require("express");                       //Express
+const user = express.Router();                           //Ruta administrador
+const User = require("../../../models/User.js");        //Model
+
+
+user.use("/", async (req, res) => {
+ 
+  const users = await User.find();
+  
+  res.status(200).send(users);
+});
+
+
+module.exports = user;
