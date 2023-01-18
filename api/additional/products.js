@@ -1,3 +1,9 @@
+// tenemos que buscar el id de la categoria que coincida con el nombre de la categoria para ingresar el id y no el nombre como tal al modelo Products.
+// Pero antes se tienen que crear los datos del modelo category
+// let category = await Category.findOne({name: "name_of_category"})
+
+
+
 const products = [
   // Mates
   {
