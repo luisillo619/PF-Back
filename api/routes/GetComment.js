@@ -1,7 +1,7 @@
 const express = require("express");
 const coment = express.Router();
                       //Ruta administrador
-const Comment = require("../models/Comment");        //Model
+const Comment = require("../models/Comments");        //Model
 
 
 coment.use("/", async (req, res) => {

@@ -1,5 +1,5 @@
 const express = require("express");                                       //Express
-const User = require("../models/User");                                   //Importamos el modelo 'User', aquí le ponemos el mismo nombre
+const User = require("../models/Users");                                   //Importamos el modelo 'User', aquí le ponemos el mismo nombre
 const bcrypt = require("bcrypt");                                         //Importamos la librería 'bcrypt' para encriptar las contraseñas de los usuarios antes de almacenarlas en la base de datos
 const jwt = require("jsonwebtoken");                                      //'jwt' codifica y decodificar de manera segura información en formato JSON para la autenticación y la autorización en aplicaciones web, para que el usuario pueda navegar de forma segura en nuestro sitio web
 const register = express.Router();                                        //Nombre para identificar la ruta de 'register'
