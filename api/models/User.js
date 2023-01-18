@@ -1,9 +1,10 @@
 const { Schema, model } = require("mongoose");
-//const userinfo = require('./UserInfo.js');
-// const routines = require('./Routines.js');
+
 
 //Datos de los usuarios que van a comprar
 const userSchema = new Schema({
+
+
   //Usuario
   docIdentity: {
     type: Number,
@@ -53,6 +54,7 @@ const userSchema = new Schema({
     type: Boolean,
     default: false,
   },
-});
+
+
 
 module.exports = model("User", userSchema);

@@ -36,4 +36,4 @@ const addressSchema = new Schema({
 
 
 
-module.exports = model('address', addressSchema);
+module.exports = model('Address', addressSchema);
