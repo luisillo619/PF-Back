@@ -1,11 +1,11 @@
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
-
 const express = require("express");
 const register = express.Router();
 const jwt = require("jsonwebtoken");
 
-// // Genera el token de cada ususario en cada registro
+
+// Genera el token de cada ususario en cada registro
 const generateAuthToken = (user) => {
   const jwtSecretKey = "!dA+Ikay6kHPX$ph9XF@Ak&VBcHGQSrD7csV@4m#VYv%";
   const token = jwt.sign(
@@ -48,7 +48,6 @@ register.post("/", async (req, res) => {
       await user.save();
       const token = generateAuthToken(user);
 
-    
       res.send({userName, password, token});
     }
   } else {
@@ -56,5 +55,5 @@ register.post("/", async (req, res) => {
   }
 });
 
-// // module.exports = generateAuthToken;
+
 module.exports = register;

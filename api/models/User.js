@@ -49,7 +49,12 @@ const userSchema = new Schema({
       default: false
     },
 
+
     docIdentity: {
+
+  //Usuario
+  docIdentity: {
+
     type: Number,
     // required: true,
     },
