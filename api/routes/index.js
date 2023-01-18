@@ -1,29 +1,22 @@
 const { Router } = require("express");
 const route = Router();
 
+const adminGetProducts = require("./GetProducts"); //Creada
+const adminPostProducts = require("./Admin/Products/PostProducts"); //Creada
+const adminDeleteProducts = require("./Admin/Products/DeleteProducts"); //creada
+const adminPutProducts = require("./Admin/Products/PutProducts"); //Creada
+const adminDeleteUser = require("./Admin/Users/DeleteUsers");
+const adminGetUser = require("./Admin/Users/GetAllUsers"); //creada
+// const adminPutLockedUser = require("./Admin/Users/PutLockedUser");
+const adminPutUser = require("./Admin/Users/PutUser");
+const adminDeleteComment = require("./Admin/Comments Admin/DeleteComment");
+const adminGetComment = require("./GetComment");
+const postComment = require("./PostComment");
+const putComment = require("./PutComment");
 
-const adminGetProducts = require('./GetProducts');           //Creada
-const adminPostProducts = require('./Admin/Products/PostProducts');         //Creada
-const adminDeleteProducts = require('./Admin/Products/DeleteProducts');     //creada
-const adminPutProducts = require('./Admin/Products/PutProducts');           //Creada
-const adminDeleteUser = require('./Admin/Users/DeleteUsers');
-const adminGetUser = require('./Admin/Users/GetUsers');                     //creada
-const adminPutLockedUser = require('./Admin/Users/PutLockedUser');
-const adminPutUser = require('./Admin/Users/PutUser');
-const adminDeleteComment = require('./Admin/PQRS/DeleteComment');
-const adminGetComment = require('./GetComment');
-const adminPostAnswer = require('./Admin/PQRS/PostAnswer');
-const adminPutComment= require('./Admin/PQRS/PutComment');
+route.use("/deleteUser", adminDeleteUser);
 
-
-
-
-
-route.use("/deleteUser",adminDeleteUser)
-
-
-const register = require('./register');                                     //Creada
-
+const register = require("./register"); //Creada
 
 // Rutas Admin
 route.use("/adminGetProducts", adminGetProducts);
@@ -33,16 +26,14 @@ route.use("/adminPutProducts", adminPutProducts);
 
 // rutas adminPQRS
 route.use("/adminGetComment", adminGetComment);
-route.use("/postComent", adminPostAnswer);
-route.use("/updateComent", adminPutComment);
+route.use("/postComent", postComment);
+route.use("/updateComent", putComment);
 route.use("/deleteComent", adminDeleteComment);
-
 
 route.use("/userRegister", register);
 route.use("/putUser", adminPutUser);
-route.use("/GetUsers", adminGetUser);
+route.use("/getUsers", adminGetUser);
 
 //deleteComent
-
 
 module.exports = route;

@@ -1,7 +1,7 @@
 const express = require("express");
 const postComent = express.Router();
 
-const Comment = require("../../../models/Comment");  
+const Comment = require("../models/Comments");  
 
 postComent.use("/", async (req,res)=>{
     const { comment}=req.body;

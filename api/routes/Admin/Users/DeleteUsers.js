@@ -1,7 +1,7 @@
 const express = require("express");
 const admin = express.Router();
 
-const User = require("../../../models/User.js");
+const User = require("../../../models/Users.js");
 
 admin.use('/:id', async (req, res) =>{
     User.findByIdAndRemove(req.params.id, (error) => {

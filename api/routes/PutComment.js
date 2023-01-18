@@ -2,7 +2,7 @@ const express = require("express");
 const updateComent = express.Router();
 
 
-const Comment = require("../../../models/Comment");
+const Comment = require("../models/Comments");
 
 updateComent.use('/:id', (req, res) => {
     console.log("hola",Comment)

@@ -9,7 +9,7 @@ require('dotenv').config();
 // const superAdminRoutes = require('./routes/superAdminRoutes');      //Componentes
 const jwt = require('jsonwebtoken');                                //Instalar
 const querystring = require('node:querystring');                    //Instalar
-const User = require('./models/User.js');
+const User = require('./models/Users.js');
 
 const { SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, REDIRECT_URI } = process.env;     //Variables de entorno
 
