@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-
 const productsSchema = new Schema(
   {
     name: {
@@ -50,36 +49,29 @@ const productsSchema = new Schema(
       },
     },
     review: {
+      reviews: {
+        type: Schema.Types.Mixed,
+        default: {
+          comment: 0,
+          rating: 0,
 
-    reviews: {
+          user: "",
 
-      type: Schema.Types.Mixed,
-      default: {
-        comment: 0,
-        rating: 0,
-
-        user: "",
-
-        userName: "",
-
+          userName: "",
+        },
       },
-    },
-    createdInDb: {
-      type: Boolean,
-      defaultValue: true,
-      allowNull: false,
+      createdInDb: {
+        type: Boolean,
+        defaultValue: true,
+        allowNull: false,
+      },
     },
     category: {
       type: Schema.Types.ObjectId,
       ref: "Category",
     },
   },
-  
-    versionKey: false,
-    },
-  
-  
+  { versionKey: false }
 );
-
 
 module.exports = model("Products", productsSchema);

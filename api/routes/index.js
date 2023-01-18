@@ -2,7 +2,7 @@ const { Router } = require("express");
 const route = Router();
 
 
-const adminGetProducts = require('./Admin/Products/GetProducts');           //Creada
+const adminGetProducts = require('./GetProducts');           //Creada
 const adminPostProducts = require('./Admin/Products/PostProducts');         //Creada
 const adminDeleteProducts = require('./Admin/Products/DeleteProducts');     //creada
 const adminPutProducts = require('./Admin/Products/PutProducts');           //Creada
@@ -16,7 +16,7 @@ const adminPostAnswer = require('./Admin/PQRS/PostAnswer');
 const adminPutComment= require('./Admin/PQRS/PutComment');
 
 
-const register = require('./register')
+
 
 
 route.use("/deleteUser",adminDeleteUser)
