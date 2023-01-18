@@ -1,5 +1,5 @@
-
 const { Schema, model } = require("mongoose");
+
 
 const productsSchema = new Schema(
   {
@@ -33,14 +33,12 @@ const productsSchema = new Schema(
         "Bottle saver gallonado",
       ],
     },
-
     stock: {
       type: Number,
     },
     news: {
       type: String,
     },
-
     salesOff: {
       type: Schema.Types.Mixed,
       default: {
@@ -50,21 +48,16 @@ const productsSchema = new Schema(
         oldPrice: 0,
       },
     },
-
     review: {
-
-    reviews: {
-
-      type: Schema.Types.Mixed,
-      default: {
-        comment: 0,
-        rating: 0,
-
-        user: "",
-
-        userName: "",
-
-      },
+      reviews: {
+        type: Schema.Types.Mixed,
+        default: {
+          comment: 0,
+          rating: 0,
+          user: "",
+          userName: "",
+        }
+      }
     },
     createdInDb: {
       type: Boolean,
@@ -78,7 +71,12 @@ const productsSchema = new Schema(
   },
   
     versionKey: false,
+    },
+    versionKey: {
+      versionKey: false,
+    }
   }
 );
+
 
 module.exports = model("Products", productsSchema);
