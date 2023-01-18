@@ -1,5 +1,5 @@
-
 const { Schema, model } = require("mongoose");
+
 
 const productsSchema = new Schema(
   {
@@ -16,6 +16,8 @@ const productsSchema = new Schema(
     image: {
       type: String,
     },
+
+    // OTRA TABLA AQUI PONER REF: products
     category: {
       type: String,
       enum: [
@@ -37,28 +39,40 @@ const productsSchema = new Schema(
     news: {
       type: String,
     },
-
-    offert: {
+    salesOff: {
       type: Schema.Types.Mixed,
       default: {
-        offert: false,
+        salesOff: false,
         stock: 0,
         newPrice: 0,
         oldPrice: 0,
       },
     },
-    feedback: {
-      type: Schema.Types.Mixed,
-      default: {
-        comment: 0,
-        rating: 0,
-        email: "",
-      },
+    review: {
+      reviews: {
+        type: Schema.Types.Mixed,
+        default: {
+          comment: 0,
+          rating: 0,
+          user: "",
+          userName: "",
+        }
+      }
     },
-  },
-  {
-    versionKey: false,
+    createdInDb: {
+      type: Boolean,
+      defaultValue: true,
+      allowNull: false,
+    },
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: 'Category'
+    },
+    versionKey: {
+      versionKey: false,
+    }
   }
 );
+
 
 module.exports = model("Products", productsSchema);
