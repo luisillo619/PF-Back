@@ -42,28 +42,28 @@ async function loaderProducts() {
     // const relacionadas = await Products.find({}).populate("category").exec();
     // console.log(relacionadas);
 
-    console.log("products in mongo Atlas");
+    //console.log("products in mongo Atlas");
   } catch (err) {
     console.log("Productos cargados anteriormente");
     return;
   }
 }
 
-// reinician la base de datos
-Products.remove({}, (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("All products removed successfully!");
-  }
-});
+//reinician la base de datos
+// Products.remove({}, (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("All products removed successfully!");
+//   }
+// });
 
-Categories.remove({}, (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("All products removed successfully!");
-  }
-});
+// Categories.remove({}, (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("All products removed successfully!");
+//   }
+// });
 
 module.exports = { loaderProducts, loaderCategories };
