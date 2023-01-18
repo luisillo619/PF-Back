@@ -76,7 +76,7 @@ const productsSchema = new Schema(
       ref: 'Category'
   },
   },
-  {
+  
     versionKey: false,
   }
 );

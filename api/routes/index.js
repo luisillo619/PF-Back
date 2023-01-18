@@ -25,6 +25,7 @@ route.use("/adminPostProducts", adminPostProducts);
 route.use("/adminDeleteProducts", adminDeleteProducts);
 route.use("/adminPutProducts", adminPutProducts);
 route.use("/userRegister", register);
+route.use("/putUser", adminPutUser);
 
 
 module.exports = route;
