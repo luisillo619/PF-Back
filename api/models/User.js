@@ -1,10 +1,7 @@
 const { Schema, model } = require("mongoose");
 
-
 //Datos de los usuarios que van a comprar
 const userSchema = new Schema({
-
-
   //Usuario
   docIdentity: {
     type: Number,
@@ -33,13 +30,8 @@ const userSchema = new Schema({
     //fecha del ultimo login
     type: Date,
   },
-  fav: [
-    {
-      id: {
-        type: String,
-      },
-    },
-  ],
+  fav: [{ type: Array }],
+
   feedback: {
     type: String,
   },
@@ -54,7 +46,6 @@ const userSchema = new Schema({
     type: Boolean,
     default: false,
   },
+});
 
-})
-
-module.exports = model("User", userSchema)
+module.exports = model("User", userSchema);
