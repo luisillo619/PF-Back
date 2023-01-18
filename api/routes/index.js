@@ -15,6 +15,7 @@ const adminGetComment = require('./Admin/PQRS/GetComment');
 const adminPostAnswer = require('./Admin/PQRS/PostAnswer');
 const adminPutComment= require('./Admin/PQRS/PutComment');
 
+const register = require('./register')
 
 
 
@@ -23,6 +24,7 @@ route.use("/adminGetProducts", adminGetProducts);
 route.use("/adminPostProducts", adminPostProducts);
 route.use("/adminDeleteProducts", adminDeleteProducts);
 route.use("/adminPutProducts", adminPutProducts);
+route.use("/userRegister", register);
 
 
 module.exports = route;

@@ -16,6 +16,8 @@ const productsSchema = new Schema(
     image: {
       type: String,
     },
+
+    // OTRA TABLA AQUI PONER REF: products
     category: {
       type: String,
       enum: [
@@ -31,6 +33,7 @@ const productsSchema = new Schema(
         "Bottle saver gallonado",
       ],
     },
+
     stock: {
       type: Number,
     },
@@ -38,23 +41,40 @@ const productsSchema = new Schema(
       type: String,
     },
 
-    offert: {
+    salesOff: {
       type: Schema.Types.Mixed,
       default: {
-        offert: false,
+        salesOff: false,
         stock: 0,
         newPrice: 0,
         oldPrice: 0,
       },
     },
-    feedback: {
+
+    review: {
+
+    reviews: {
+
       type: Schema.Types.Mixed,
       default: {
         comment: 0,
         rating: 0,
-        email: "",
+
+        user: "",
+
+        userName: "",
+
       },
     },
+    createdInDb: {
+      type: Boolean,
+      defaultValue: true,
+      allowNull: false,
+    },
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: 'Category'
+  },
   },
   {
     versionKey: false,
