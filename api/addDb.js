@@ -36,7 +36,7 @@ async function loaderProducts() {
       }
     }
 
-    // console.log(products)
+    console.log(products)
 
     await Products.insertMany(products);
     // const relacionadas = await Products.find({}).populate("category").exec();
