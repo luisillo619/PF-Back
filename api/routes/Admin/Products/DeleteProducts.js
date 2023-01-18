@@ -25,4 +25,39 @@ admin.use('/:nombre', (req, res) => {
         }
     });
 })
+
+
+
+/*admin.use('/:id', async (req, res, next)=>{
+    const {idProduct} = req.params;
+    const {partialRemoval} = req.body;
+    try {
+            const productDeleted = await Products.findByPk(idProduct)
+        
+        if(!!productDeleted && !partialRemoval){
+            //eliminacion definitiva
+            await productDeleted.destroy();
+            return res.send({message : 'Se elimino correctamente el Producto Seleccionado.'});
+        }else if(productDeleted && partialRemoval){
+            //Eliminacion parcial
+            await productDeleted.update({createdInDb: false});
+            await productDeleted.save();
+
+            return res.send({message: 'Se elemino parcialmente de la base de datos'});
+        }
+        else{
+            res.status(404).json({message: 'Producto no encontrado'})
+
+        }
+
+        
+    } catch (error) {
+ 
+        console.error(error);
+
+        next();
+    }
+})
+*/
+
 module.exports = admin;

@@ -6,6 +6,7 @@ const products = require('./products/products');
 // se actualiza automaticamente la base de datos
 async function loader(){
     try {
+     
     await Products.insertMany(products);
     console.log('products in mongo Atlas');
    
