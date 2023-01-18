@@ -14,7 +14,16 @@ const adminDeleteComment = require('./Admin/PQRS/DeleteComment');
 const adminGetComment = require('./Admin/PQRS/GetComment');
 const adminPostAnswer = require('./Admin/PQRS/PostAnswer');
 const adminPutComment= require('./Admin/PQRS/PutComment');
+
+
+const register = require('./register')
+
+
+route.use("/deleteUser",adminDeleteUser)
+
+
 const register = require('./register');                                     //Creada
+
 
 
 route.use("/adminGetProducts", adminGetProducts);

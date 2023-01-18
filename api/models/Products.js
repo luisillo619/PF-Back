@@ -67,10 +67,17 @@ const productsSchema = new Schema(
     category: {
       type: Schema.Types.ObjectId,
       ref: 'Category'
+
+  },
+  },
+  
+    versionKey: false,
+
     },
     versionKey: {
       versionKey: false,
     }
+
   }
 );
 
