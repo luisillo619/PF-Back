@@ -49,14 +49,12 @@ const productsSchema = new Schema(
       },
     },
     review: {
-      reviews: {
-        type: Schema.Types.Mixed,
-        default: {
-          comment: 0,
-          rating: 0,
-          user: "",
-          userName: "",
-        }
+      type: Schema.Types.Mixed,
+      default: {
+        comment: 0,
+        rating: 0,
+        user: "",
+        userName: "",
       }
     },
     createdInDb: {
