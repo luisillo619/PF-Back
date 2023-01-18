@@ -1,6 +1,4 @@
 const { Schema, model } = require("mongoose");
-//const userinfo = require('./UserInfo.js');
-// const routines = require('./Routines.js');
 
 
 //Datos de los usuarios que van a comprar
@@ -11,7 +9,7 @@ const userSchema = new Schema({
       type: Number,
       required: true,
     },
-    name: {
+    userName: {
         type: String,
         required: true,
     },
