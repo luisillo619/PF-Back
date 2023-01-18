@@ -18,6 +18,8 @@ const adminPutComment= require('./Admin/PQRS/PutComment');
 const register = require('./register')
 
 
+route.use("/deleteUser",adminDeleteUser)
+
 
 
 route.use("/adminGetProducts", adminGetProducts);
