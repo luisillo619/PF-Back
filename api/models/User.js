@@ -48,49 +48,54 @@ const userSchema = new Schema({
       type: Boolean,  
       default: false
     },
+
+
+    docIdentity: {
+
   //Usuario
   docIdentity: {
+
     type: Number,
     // required: true,
-  },
-  userName: {
+    },
+    userName: {
     type: String,
     required: true,
-  },
-  email: {
+    },
+    email: {
     type: String,
     required: true,
     unique: true,
-  },
-  password: {
+    },
+    password: {
     type: String,
     unique: true,
     required: true,
-  },
-  signupDate: {
+    },
+    signupDate: {
     //fecha de registro
     type: Date,
     default: Date.now(),
-  },
-  lastLogin: {
+    },
+    lastLogin: {
     //fecha del ultimo login
     type: Date,
-  },
-  fav: [
+    },
+    fav: [
     {
       id: {
         type: String,
       },
     },
-  ],
-  feedback: {
+    ],
+    feedback: {
     type: String,
-  },
-  status: {
+   },
+   status: {
     type: String,
     enum: ["Active", "inactive"],
     default: "Active",
-  },
+   },
 
   //Administrador (Empresa)
   admin: {
