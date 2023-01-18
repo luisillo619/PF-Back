@@ -33,6 +33,7 @@ const productsSchema = new Schema(
         "Bottle saver gallonado",
       ],
     },
+
     stock: {
       type: Number,
     },
@@ -49,15 +50,19 @@ const productsSchema = new Schema(
       },
     },
     review: {
-      reviews: {
-        type: Schema.Types.Mixed,
-        default: {
-          comment: 0,
-          rating: 0,
-          user: "",
-          userName: "",
-        }
-      }
+
+    reviews: {
+
+      type: Schema.Types.Mixed,
+      default: {
+        comment: 0,
+        rating: 0,
+
+        user: "",
+
+        userName: "",
+
+      },
     },
     createdInDb: {
       type: Boolean,
@@ -66,12 +71,14 @@ const productsSchema = new Schema(
     },
     category: {
       type: Schema.Types.ObjectId,
-      ref: 'Category'
+      ref: "Category",
     },
-    versionKey: {
-      versionKey: false,
-    }
-  }
+  },
+  
+    versionKey: false,
+    },
+  
+  
 );
 
 

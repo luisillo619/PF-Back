@@ -14,15 +14,28 @@ const adminDeleteComment = require('./Admin/PQRS/DeleteComment');
 const adminGetComment = require('./Admin/PQRS/GetComment');
 const adminPostAnswer = require('./Admin/PQRS/PostAnswer');
 const adminPutComment= require('./Admin/PQRS/PutComment');
+
+
+const register = require('./register')
+
+
+route.use("/deleteUser",adminDeleteUser)
+
+
 const register = require('./register');                                     //Creada
 
 
+// Rutas Admin
 route.use("/adminGetProducts", adminGetProducts);
 route.use("/adminPostProducts", adminPostProducts);
 route.use("/adminDeleteProducts", adminDeleteProducts);
 route.use("/adminPutProducts", adminPutProducts);
+
+
 route.use("/userRegister", register);
+route.use("/putUser", adminPutUser);
 route.use("/GetUsers", adminGetUser);
+
 
 
 module.exports = route;
