@@ -1,8 +1,7 @@
-const express = require("express");
-const admin = express.Router();
+const express = require("express");                       //Express
+const admin = express.Router();                           //Ruta administrador
+const Products = require("../models/Products.js");  //Model
 
-
-const Products = require("../../../models/Products.js");
 
 admin.use("/", async (req, res) => {
  
