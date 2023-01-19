@@ -20,23 +20,16 @@ const addressSchema = new Schema(
       type: String,
       allowNull: false,
     },
-    ZipCode:{
-        type: Number,
-        allowNull: false,
-
+    ZipCode: {
+      type: Number,
+      allowNull: false,
     },
     user: {
-            type: Schema.Types.ObjectId,
-            ref: 'Users'
+      type: Schema.Types.ObjectId,
+      ref: "Users",
     },
-},
-{ versionKey: false });
+  },
+  { versionKey: false }
+);
 
-    },    
-    
-});
-
-
-
-
-module.exports = model('Address', addressSchema);
+module.exports = model("Address", addressSchema);
