@@ -25,10 +25,7 @@ const addressSchema = new Schema({
         type: Number,
         allowNull: false,
     },
-    users: {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-    },
+    
 });
 
 
