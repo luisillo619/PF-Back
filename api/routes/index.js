@@ -14,6 +14,13 @@ const adminGetComment = require("./GetComment");
 const postComment = require("./PostComment");
 const putComment = require("./PutComment");
 
+
+const userGetAddres= require('./User/Address/GetAddress')
+const userPostAddres= require('./User/Address/PostAddress')
+const userDeleteAddres= require('./User/Address/DeleteAddress')
+const userPutAddres= require('./User/Address/PutAddress')
+
+
 route.use("/deleteUser", adminDeleteUser);
 
 const register = require("./register"); //Creada
@@ -34,6 +41,11 @@ route.use("/userRegister", register);
 route.use("/putUser", adminPutUser);
 route.use("/getUsers", adminGetUser);
 
-//deleteComent
+//adrres putAdress
+route.use("/getAdres", userGetAddres);
+route.use("/postAdres", userPostAddres);
+route.use("/deleteAddres", userDeleteAddres);
+route.use("/putAdress", userPutAddres);
+
 
 module.exports = route;

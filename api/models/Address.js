@@ -24,11 +24,8 @@ const addressSchema = new Schema({
     ZipCode:{
         type: Number,
         allowNull: false,
-    },
-    users: {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-    },
+    },    
+    
 });
 
 

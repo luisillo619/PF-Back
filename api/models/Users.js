@@ -40,6 +40,10 @@ const userSchema = new Schema({
     enum: ["Active", "inactive"],
     default: "Active",
   },
+ address:{
+  type: Schema.Types.ObjectId,
+  ref: "Address",
+ },
 
   //Administrador (Empresa)
   admin: {
