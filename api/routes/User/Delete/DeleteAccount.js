@@ -13,7 +13,7 @@ userDelete.use('/:id', async (req, res) =>{
     });
 });
 //POST a http://localhost:3001/userRegister { "userName": "CarlosMario", "email": "carlos@gmail.com", "password": "carlos123" } para crear un usuario                   63c8a8845fdcd142f4f6417c
-//GET a http://localhost:3001/getUsers para consultar los usuarios
+//GET a http://localhost:3001/getUsers para consultar todos los usuarios
 //DELETE a http://localhost:3001/deleteAccount/63c8b4268ad0a4159e7821a9
 
 
