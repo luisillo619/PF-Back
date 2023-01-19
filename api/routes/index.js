@@ -20,16 +20,15 @@ const postFavorites = require("./User/Fav/PostFav");
 
 
 
-
-const userGetAddres= require('./User/Address/GetAddress')
-const userPostAddres= require('./User/Address/PostAddress')
-const userDeleteAddres= require('./User/Address/DeleteAddress')
-const userPutAddres= require('./User/Address/PutAddress')
-
+const userGetAddres = require("./User/Address/GetAddress");
+const userPostAddres = require("./User/Address/PostAddress");
+const userDeleteAddres = require("./User/Address/DeleteAddress");
+const userPutAddres = require("./User/Address/PutAddress");
 
 route.use("/deleteUser", adminDeleteUser);
 
 const register = require("./register"); //Creada
+const login = require("./login");
 
 // Rutas Admin producId
 route.use("/adminGetProducts", adminGetProducts);
@@ -44,7 +43,8 @@ route.use("/postComent", postComment);
 route.use("/updateComent", putComment);
 route.use("/deleteComent", adminDeleteComment);
 
-route.use("/userRegister", register);
+route.use("/register", register);
+route.use("/login", login);
 route.use("/putUser", adminPutUser);
 route.use("/getUsers", adminGetUser);
 
@@ -63,6 +63,7 @@ route.use("/postAdres", userPostAddres);
 route.use("/deleteAddres", userDeleteAddres);
 route.use("/putAdress", userPutAddres);
 
+//fav
 
 
 module.exports = route;

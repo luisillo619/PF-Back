@@ -3,17 +3,21 @@ const User = require("../models/Users");                                   //Imp
 const bcrypt = require("bcrypt");                                         //Importamos la librería 'bcrypt' para encriptar las contraseñas de los usuarios antes de almacenarlas en la base de datos
 const jwt = require("jsonwebtoken");                                      //'jwt' codifica y decodificar de manera segura información en formato JSON para la autenticación y la autorización en aplicaciones web, para que el usuario pueda navegar de forma segura en nuestro sitio web
 const register = express.Router();                                        //Nombre para identificar la ruta de 'register'
-
+require('dotenv').config();
 
 // Genera el token de cada ususario en cada registro
 const generateAuthToken = (user) => {                                     //La función "generateAuthToken" recibe como parámetro un objeto llamado "user"
-  const jwtSecretKey = "!dA+Ikay6kHPX$ph9XF@Ak&VBcHGQSrD7csV@4m#VYv%";    //"jwtSecretKey" es una cadena de caracteres utilizada como clave secreta para codificar el token JWT
+  const jwtSecretKey = process.env.JWT_SECRET_KEY;;    //"jwtSecretKey" es una cadena de caracteres utilizada como clave secreta para codificar el token JWT
   const token = jwt.sign(                                                 //'token' contiene la función "sign()" de la librería 'jwt' para codificar el objeto JSON que contiene información del usuario
     {
-      _id: user._id,                                                      //'id' del usuario
-      name: user.name,                                                    //'name' del usuario
-      email: user.email,                                                  //'email' del usuario
-      isAdmin: user.isAdmin,                                              //Información de si es 'administrador' o no
+      // _id: user._id,                                                      //'id' del usuario
+      // name: user.name,                                                    //'name' del usuario
+      // email: user.email,                                                  //'email' del usuario
+      // isAdmin: user.isAdmin,                                              //Información de si es 'administrador' o no
+      _id: user._id,
+      name: user.userName,
+      email: user.email,
+      isAdmin: user.admin,
     },
     jwtSecretKey                                                          //El objeto JSON es firmado con la clave secreta 'jwtSecretKey' antes generada
   );
