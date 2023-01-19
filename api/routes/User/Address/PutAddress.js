@@ -16,6 +16,6 @@ putAdress.use("/:id", (req, res) => {
       }
     }
   );
-});
+}); 
 
 module.exports = putAdress;

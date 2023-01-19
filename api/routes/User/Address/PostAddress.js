@@ -23,7 +23,7 @@ postAddres.use("/:id", async (req, res) => {
     )
     res.status(200).send(updatedProduct);
     
-    } catch (error) {
+    } catch (error) { 
         console.log(error)
     }
     

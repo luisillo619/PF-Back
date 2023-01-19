@@ -24,7 +24,7 @@ const addressSchema = new Schema({
     ZipCode:{
         type: Number,
         allowNull: false,
-    },
+    },    
     
 });
 

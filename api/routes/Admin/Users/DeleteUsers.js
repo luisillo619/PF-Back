@@ -14,4 +14,4 @@ admin.use('/:id', async (req, res) =>{
 
 });
 
-module.exports = admin;
+module.exports = admin; 
