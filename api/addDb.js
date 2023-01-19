@@ -77,4 +77,5 @@ async function loaderProducts() {
 //   }
 // });
 
+
 module.exports = { loaderProducts, loaderCategories };
