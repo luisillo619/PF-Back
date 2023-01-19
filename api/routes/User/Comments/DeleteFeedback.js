@@ -12,7 +12,7 @@ deleteFeedback.use('/:id', async (req, res) =>{
         }
     });
 });
-//POST http://localhost:3001/postComent/63c845df062e77faa9b946f4 --> Primero creo un comentario JSON {"comment": "Henry es muy caro"} con el id de un producto (63c845df062e77faa9b946f4)    
+//POST http://localhost:3001/postComent/63c845df062e77faa9b946f4 --> Primero creo un comentario JSON {"comment": "El producto es bueno"} con el id de un producto (63c845df062e77faa9b946f4)    
 //Se genera un id para el comemtario (63c8b178f780fa0da4d279f9)
 //DELETE http://localhost:3001/deleteFeedback/63c8b178f780fa0da4d279f9
 
