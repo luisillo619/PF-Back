@@ -11,8 +11,9 @@ const commentsSchema = new Schema({
   },
   users: {
     type: Schema.Types.ObjectId,
-    ref: "User",
+    ref: "Users",
   },
-});
+},
+{ versionKey: false });
 
 module.exports = model("Comments", commentsSchema);

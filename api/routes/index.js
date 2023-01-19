@@ -19,6 +19,13 @@ const postFavorites = require("./User/Fav/PostFav");
 
 
 
+
+const userGetAddres= require('./User/Address/GetAddress')
+const userPostAddres= require('./User/Address/PostAddress')
+const userDeleteAddres= require('./User/Address/DeleteAddress')
+const userPutAddres= require('./User/Address/PutAddress')
+
+
 route.use("/deleteUser", adminDeleteUser);
 
 const register = require("./register"); //Creada
@@ -47,5 +54,13 @@ route.use("/deleteFav",deleteFavorites);
 route.use("/postFav",postFavorites);
 
 //deleteComent
+
+//adrres putAdress
+route.use("/getAdres", userGetAddres);
+route.use("/postAdres", userPostAddres);
+route.use("/deleteAddres", userDeleteAddres);
+route.use("/putAdress", userPutAddres);
+
+
 
 module.exports = route;

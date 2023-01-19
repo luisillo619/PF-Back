@@ -4,21 +4,22 @@ const products = require("./additional/products"); // datos
 const categories = require("./additional/categories"); // datos
 const Categories = require("./models/Categories"); // datos
 
-
-
 const Favorites = require("./models/Favorites")
 
-const Users = require("./models/Products")
 
 // paso 3, se agregan los productos al modelo dentro de mongoose y por lo tanto a mongo Atlas
 
 async function loaderCategories() {
   try {
-    //Insert products
+    const count = await Categories.countDocuments();
+    if (count > 0) {
+      console.log("categories cargadas anteriormente");
+      return;
+    }
     await Categories.insertMany(categories);
     console.log("categories in mongo Atlas");
   } catch (err) {
-    console.log("categories cargados anteriormente");
+    console.log(err);
     return;
   }
 }
@@ -26,6 +27,12 @@ async function loaderCategories() {
 // se hace la relacion PRODUCTS-CATEGORY Y SE INSERTAN LOS DATOS A LA TABLA PRODUCTS
 async function loaderProducts() {
   try {
+    const count = await Products.countDocuments();
+    if (count > 0) {
+      console.log("Productos cargados anteriormente");
+      return;
+    }
+
     const promesas = products.map((e) => {
       return Categories.findOne({ category: e.category }).exec();
     });
@@ -42,15 +49,15 @@ async function loaderProducts() {
       }
     }
 
-    console.log(products)
+    // console.log(products)
 
     await Products.insertMany(products);
     // const relacionadas = await Products.find({}).populate("category").exec();
     // console.log(relacionadas);
 
-    //console.log("products in mongo Atlas");
+    console.log("products in mongo Atlas");
   } catch (err) {
-    console.log("Productos cargados anteriormente");
+    console.log(err);
     return;
   }
 }

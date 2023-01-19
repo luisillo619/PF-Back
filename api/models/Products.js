@@ -2,6 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const productsSchema = new Schema(
   {
+    // Información básica del producto
     name: {
       type: String,
       unique: true,
@@ -16,29 +17,15 @@ const productsSchema = new Schema(
       type: String,
     },
 
-    // OTRA TABLA AQUI PONER REF: products
-    category: {
-      type: String,
-      enum: [
-        "Mates",
-        "Bombillas",
-        "Matepa",
-        "Materas",
-        "Yerberas",
-        "Combos",
-        "Corkscrew",
-        "Wine set",
-        "Knives",
-        "Bottle saver gallonado",
-      ],
-    },
-
+    // Estado de existencias
     stock: {
       type: Number,
     },
     news: {
       type: String,
     },
+
+    // Promociones
     salesOff: {
       type: Schema.Types.Mixed,
       default: {
@@ -48,27 +35,24 @@ const productsSchema = new Schema(
         oldPrice: 0,
       },
     },
+
+    // Opiniones del usuario
     review: {
       reviews: {
         type: Schema.Types.Mixed,
         default: {
           comment: 0,
           rating: 0,
-
           user: "",
-
           userName: "",
         },
       },
-      createdInDb: {
-        type: Boolean,
-        defaultValue: true,
-        allowNull: false,
-      },
     },
+
+    // Categoría
     category: {
       type: Schema.Types.ObjectId,
-      ref: "Category",
+      ref: "Categories",
     },
   },
   { versionKey: false }
