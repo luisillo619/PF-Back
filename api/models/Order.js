@@ -21,11 +21,11 @@ const orderSchema = new Schema(
   {
     products: [{
       type: Schema.Types.ObjectId,
-      ref: 'Product'
+      ref: 'Products'
     }],
     Users: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'Users'
     },
     amount: {
         type: Number,
@@ -36,5 +36,6 @@ const orderSchema = new Schema(
       allownull: false,
     }
     
-  })
+  },
+  { versionKey: false })
   module.exports = model("Order", orderSchema);
