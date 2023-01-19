@@ -13,6 +13,11 @@ const adminDeleteComment = require("./Admin/Comments Admin/DeleteComment");
 const adminGetComment = require("./GetComment");
 const postComment = require("./PostComment");
 const putComment = require("./PutComment");
+const getFavorites = require("./User/Fav/getFav");
+const deleteFavorites = require("./User/Fav/DeleteFav");
+const postFavorites = require("./User/Fav/PostFav");
+
+
 
 
 const userGetAddres= require('./User/Address/GetAddress')
@@ -41,11 +46,21 @@ route.use("/userRegister", register);
 route.use("/putUser", adminPutUser);
 route.use("/getUsers", adminGetUser);
 
+
+
+//favoritos
+route.use("/getFav",getFavorites);
+route.use("/deleteFav",deleteFavorites);
+route.use("/postFav",postFavorites);
+
+//deleteComent
+
 //adrres putAdress
 route.use("/getAdres", userGetAddres);
 route.use("/postAdres", userPostAddres);
 route.use("/deleteAddres", userDeleteAddres);
 route.use("/putAdress", userPutAddres);
+
 
 
 module.exports = route;
