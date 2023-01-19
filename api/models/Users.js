@@ -31,8 +31,6 @@ const userSchema = new Schema(
       //fecha del ultimo login
       type: Date,
     },
-    fav: [{ type: Array }],
-
 
     feedback: {
       type: String,
@@ -43,10 +41,15 @@ const userSchema = new Schema(
       default: "Active",
     },
 
- address:{
-  type: Schema.Types.ObjectId,
-  ref: "Address",
- },
+    address: {
+      type: Schema.Types.ObjectId,
+      ref: "Address",
+    },
+
+    fav: {
+      type: Schema.Types.ObjectId,
+      ref: "Address",
+    },
     //Administrador (Empresa)
     admin: {
       type: Boolean,

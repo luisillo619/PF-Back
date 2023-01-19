@@ -5,11 +5,11 @@ const Products = require("../../../models/Products.js");
 
 admin.use("/", async (req, res) => {
   // hacer un metodo findOrCreate para buscar o crear las categorias
-  const updatedProduct = await Products.findOneAndUpdate(
-    {name: name}, 
-    {$set: {price: 10}}, 
-    {new: true, upsert: true}
-  );
+  // const updatedProduct = await Products.findOneAndUpdate(
+  //   {name: name}, 
+  //   {$set: {price: 10}}, 
+  //   {new: true, upsert: true}
+  // );
  
   const { name, price, description, category, image } = req.body;
   if (!name || !price || !description || !category || !image)
