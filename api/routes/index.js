@@ -18,7 +18,11 @@ const getFavorites = require("./User/Fav/getFav");
 const deleteFavorites = require("./User/Fav/DeleteFav");
 const postFavorites = require("./User/Fav/PostFav");
 
-
+const deleteFeedback = require("./User/Comments/DeleteFeedback");
+const deleteAccount = require("./User/Delete/DeleteAccount");
+const getAccountProfile = require("./User/InfoPerfilUser/GetAccountProfile");
+//const putPassword= require('./User/Info Perfil User/PutPassword');
+const putUserInfoEdit = require("./User/InfoPerfilUser/PutUserInfoEdit");
 
 const userGetAddres = require("./User/Address/GetAddress");
 const userPostAddres = require("./User/Address/PostAddress");
@@ -48,12 +52,10 @@ route.use("/login", login);
 route.use("/putUser", adminPutUser);
 route.use("/getUsers", adminGetUser);
 
-
-
 //favoritos
-route.use("/getFav",getFavorites);
-route.use("/deleteFav",deleteFavorites);
-route.use("/postFav",postFavorites);
+route.use("/getFav", getFavorites);
+route.use("/deleteFav", deleteFavorites);
+route.use("/postFav", postFavorites);
 
 //deleteComent
 
@@ -65,5 +67,10 @@ route.use("/putAdress", userPutAddres);
 
 //fav
 
+// lo otro
+route.use("/deleteFeedback", deleteFeedback);
+route.use("/deleteAccount", deleteAccount);
+route.use("/getAccountProfile", getAccountProfile);
+route.use("/putUserInfoEdit", putUserInfoEdit);
 
 module.exports = route;
