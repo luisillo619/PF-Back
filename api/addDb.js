@@ -4,6 +4,10 @@ const products = require("./additional/products"); // datos
 const categories = require("./additional/categories"); // datos
 const Categories = require("./models/Categories"); // datos
 
+
+
+const Favorites = require("./models/Favorites")
+
 const Users = require("./models/Products")
 
 // paso 3, se agregan los productos al modelo dentro de mongoose y por lo tanto a mongo Atlas
@@ -51,6 +55,7 @@ async function loaderProducts() {
   }
 }
 
+
 //reinician la base de datos
 // Products.remove({}, (err) => {
 //   if (err) {
@@ -67,6 +72,15 @@ async function loaderProducts() {
 //     console.log("All products removed successfully!");
 //   }
 // });
+
+//reinician la base de datos
+ /*Favorites.remove({}, (err) => {
+   if (err) {
+     console.log(err);
+   } else {
+     console.log("All favorites removed successfully!");
+   }
+ });*/
 
 
 module.exports = { loaderProducts, loaderCategories };

@@ -30,7 +30,7 @@ const userSchema = new Schema({
     //fecha del ultimo login
     type: Date,
   },
-  fav: [{ type: Array }],
+  favorites: [{ type: Schema.Types.ObjectId, ref: 'Favorites' }],
 
   feedback: {
     type: String,
