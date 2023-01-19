@@ -24,6 +24,7 @@ const addressSchema = new Schema({
     ZipCode:{
         type: Number,
         allowNull: false,
+
     },
     user: {
             type: Schema.Types.ObjectId,
@@ -31,6 +32,11 @@ const addressSchema = new Schema({
     },
 },
 { versionKey: false });
+
+    },    
+    
+});
+
 
 
 

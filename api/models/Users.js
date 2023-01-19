@@ -33,6 +33,7 @@ const userSchema = new Schema(
     },
     fav: [{ type: Array }],
 
+
     feedback: {
       type: String,
     },
@@ -42,6 +43,10 @@ const userSchema = new Schema(
       default: "Active",
     },
 
+ address:{
+  type: Schema.Types.ObjectId,
+  ref: "Address",
+ },
     //Administrador (Empresa)
     admin: {
       type: Boolean,

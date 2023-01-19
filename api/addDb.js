@@ -60,7 +60,6 @@ async function loaderProducts() {
     return;
   }
 }
-
 //reinician la base de datos
 // Products.remove({}, (err) => {
 //   if (err) {
@@ -77,5 +76,6 @@ async function loaderProducts() {
 //     console.log("All products removed successfully!");
 //   }
 // });
+
 
 module.exports = { loaderProducts, loaderCategories };
