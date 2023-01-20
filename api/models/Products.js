@@ -21,12 +21,15 @@ const productsSchema = new Schema(
     stock: {
       type: Number,
     },
-    news: {
-      type: String,
-    },
+
+    // Novedad
+    news:{
+      Type: Boolean,
+      default: false,
+  },
 
     // Promociones
-    salesOff: {
+    promotions: {
       type: Schema.Types.Mixed,
       default: {
         salesOff: false,
@@ -37,17 +40,17 @@ const productsSchema = new Schema(
     },
 
     // Opiniones del usuario
-    review: {
-      reviews: {
-        type: Schema.Types.Mixed,
-        default: {
-          comment: 0,
-          rating: 0,
-          user: "",
-          userName: "",
-        },
-      },
-    },
+   
+      // reviews: {
+      //   type: Schema.Types.Mixed,
+      //   default: {
+      //     comment: 0,
+      //     rating: 0,
+      //     user: "",
+      //     userName: "",
+      //   },
+      // },
+  
 
     // Categoría
     category: {

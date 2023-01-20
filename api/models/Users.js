@@ -31,6 +31,11 @@ const userSchema = new Schema({
     type: Date,
   },
   favorites: [{ type: Schema.Types.ObjectId, ref: 'Favorites' }],
+
+  admin:{
+    Type: Boolean,
+    default: false,
+},
   },
   { versionKey: false }
 );

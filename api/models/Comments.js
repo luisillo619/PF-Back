@@ -13,6 +13,9 @@ const commentsSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Users",
   },
+  rating: {
+    type: Number
+  }
 },
 { versionKey: false });
 
