@@ -30,22 +30,14 @@ const userSchema = new Schema({
     //fecha del ultimo login
     type: Date,
   },
-  fav: [{ type: Array }],
+  favorites: [{ type: Schema.Types.ObjectId, ref: 'Favorites' }],
 
-  feedback: {
-    type: String,
-  },
-  status: {
-    type: String,
-    enum: ["Active", "inactive"],
-    default: "Active",
-  },
-
-  //Administrador (Empresa)
-  admin: {
-    type: Boolean,
+  admin:{
+    Type: Boolean,
     default: false,
+},
   },
-});
+  { versionKey: false }
+);
 
-module.exports = model("User", userSchema);
+module.exports = model("Users", userSchema);

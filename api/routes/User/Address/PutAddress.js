@@ -1,10 +1,10 @@
 const express = require("express");
-const putUser = express.Router();
+const putAdress= express.Router();
 
-const User = require("../../../models/Users");
+const Addres = require("../../../models/Address");   
 
-putUser.use("/:id", (req, res) => {
-  User.findByIdAndUpdate(
+putAdress.use("/:id", (req, res) => {
+    Addres.findByIdAndUpdate(
     req.params.id,
     req.body,
     { new: true },
@@ -16,6 +16,6 @@ putUser.use("/:id", (req, res) => {
       }
     }
   );
-});
+}); 
 
-module.exports = putUser;
+module.exports = putAdress;

@@ -13,6 +13,7 @@ const statusSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Order'
     },
-})
+},
+{ versionKey: false })
 
 module.exports = model("Status", statusSchema);

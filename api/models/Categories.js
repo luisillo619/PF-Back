@@ -1,13 +1,11 @@
-const {Schema, model} = require('mongoose');
-
+const { Schema, model } = require("mongoose");
 
 //Comentarios de los usuarios sobre los productos comprados
-const categorySchema = new Schema({
-
+const categoriesSchema = new Schema({
   category: {
     type: String,
   },
+},
+{ versionKey: false });
 
-})
-
-module.exports = model('Category', categorySchema);
+module.exports = model("Categories", categoriesSchema);
