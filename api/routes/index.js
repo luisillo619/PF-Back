@@ -2,6 +2,7 @@ const { Router } = require("express");
 const route = Router();
 
 const adminGetProducts = require("./GetProducts"); //Creada
+const adminGetCategories = require("./GetCategories")
 const adminIdProducts = require("./getProducId");
 const adminPostProducts = require("./Admin/Products/PostProducts"); //Creada
 const adminDeleteProducts = require("./Admin/Products/DeleteProducts"); //creada
@@ -36,6 +37,7 @@ const login = require("./login");
 
 // Rutas Admin producId
 route.use("/adminGetProducts", adminGetProducts);
+route.use("/adminGetCategories", adminGetCategories)
 route.use("/producId", adminIdProducts);
 route.use("/adminPostProducts", adminPostProducts);
 route.use("/adminDeleteProducts", adminDeleteProducts);
