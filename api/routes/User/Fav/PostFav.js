@@ -9,10 +9,12 @@ postFav.use('/', async (req, res) => {
     product: req.body.product
   });
 
+  // el ususario tiene que hacer una peticion por una peticion
   newFavorite.save((err, favorite) => {
     if (err) {
       return res.status(500).send(err);
     }
+    // posible cambio a id
     User.findByIdAndUpdate(req.body.user, { $push: { favorites: favorite._id } }, (err) => {
       if (err) {
         return res.status(500).send(err);

@@ -50,7 +50,9 @@ const productsSchema = new Schema(
       //     userName: "",
       //   },
       // },
-  
+
+      //hacer comments similar a ruta postFavorites 
+      Comments: [{ type: Schema.Types.ObjectId, ref: 'comments' }],
 
     // Categoría
     category: {
