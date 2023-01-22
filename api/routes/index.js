@@ -29,7 +29,7 @@ const userGetAddres = require("./User/Address/GetAddress");
 const userPostAddres = require("./User/Address/PostAddress");
 const userDeleteAddres = require("./User/Address/DeleteAddress");
 const userPutAddres = require("./User/Address/PutAddress");
-
+const userPostCompleteInfo = require("./User/InfoPerfilUser/PostCompleteInfo")
 route.use("/deleteUser", adminDeleteUser);
 
 const register = require("./register"); //Creada
@@ -74,5 +74,6 @@ route.use("/deleteFeedback", deleteFeedback);
 route.use("/deleteAccount", deleteAccount);
 route.use("/getAccountProfile", getAccountProfile);
 route.use("/putUserInfoEdit", putUserInfoEdit);
+route.use("/postCompleteInfo", userPostCompleteInfo)
 
 module.exports = route;
