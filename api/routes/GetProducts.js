@@ -6,8 +6,8 @@ const Products = require("../models/Products.js");  //Model
 admin.use("/", async (req, res) => {
  
   const products = await Products.find({}).populate("category").exec();
-  
-  res.status(200).send(products);
+  const response = products.filter(e => e.isDeleted === false)
+  res.status(200).send(response);
 });
 
 
