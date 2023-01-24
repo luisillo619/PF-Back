@@ -13,7 +13,10 @@ const generateAuthToken = (user) => {
       email: user.email,
       isAdmin: user.admin,
     },
-    jwtSecretKey
+    jwtSecretKey,
+    {
+      expiresIn: '1h'
+    }
   );
   return token;
 };

@@ -1,7 +1,7 @@
 const express = require("express");
 const { model } = require("mongoose");
 const admin = express.Router();
-
+const { auth, isUser, isAdmin } = require("../../../middleware/auth");
 const Products = require("../../../models/Products.js");
 
 //  elimina.use('/:id', async (req, res) => {
@@ -16,8 +16,8 @@ const Products = require("../../../models/Products.js");
 //     });
 // });
 
+admin.use('/:nombre',isAdmin, (req, res) => {
 
-/*admin.use('/:nombre', (req, res) => {
     console.log(req.params.nombre)
     Products.deleteOne({name: req.params.nombre}, (error) => {
         if (error) {
