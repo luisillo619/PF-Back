@@ -47,6 +47,7 @@ const productsSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Categories",
     },
+    isDeleted: { type: Boolean, default: false }
   },
   { versionKey: false }
 );
