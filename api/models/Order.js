@@ -2,11 +2,11 @@ const { Schema, model } = require("mongoose");
 
 const orderSchema = new Schema(
   {
-    products: [{
+    product: [{
       type: Schema.Types.ObjectId,
       ref: 'Products'
     }],
-    Users: {
+    user: {
         type: Schema.Types.ObjectId,
         ref: 'Users'
     },

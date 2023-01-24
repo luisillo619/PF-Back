@@ -26,7 +26,7 @@ admin.use('/:nombre',isAdmin, (req, res) => {
             res.status(200).send({ message: 'Documento eliminado' });
         }
     });
-})*/
+})
 
 admin.use('/:id', async (req, res) => {
     // busca el producto a eliminar

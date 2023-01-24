@@ -32,6 +32,17 @@ const userPutAddres = require("./User/Address/PutAddress");
 const userPostCompleteInfo = require("./User/InfoPerfilUser/PostCompleteInfo")
 route.use("/deleteUser", adminDeleteUser);
 
+//order
+const orderPost = require("./Order/OrderPost")
+route.use("/orderPost",orderPost)
+const orderGet = require("./Order/OrderGet")
+route.use("/orderGet",orderGet)
+
+
+
+
+
+
 const register = require("./register"); //Creada
 const login = require("./login")
 const loginGoogle = require("./loginGoogle.js")
