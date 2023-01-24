@@ -30,9 +30,16 @@ const userPostAddres = require("./User/Address/PostAddress");
 const userDeleteAddres = require("./User/Address/DeleteAddress");
 const userPutAddres = require("./User/Address/PutAddress");
 const userPostCompleteInfo = require("./User/InfoPerfilUser/PostCompleteInfo")
-route.use("/deleteUser", adminDeleteUser);
 
 const register = require("./register"); //Creada
+
+//Order
+
+const orderPost = require("./OrderPost")
+route.use("/orderPost",orderPost)
+const orderGet = require("./OrderGet")
+route.use("/orderGet",orderGet)
+
 
 
 // Rutas Admin producId
@@ -49,10 +56,13 @@ route.use("/postComent", postComment);
 route.use("/updateComent", putComment);
 route.use("/deleteComent", adminDeleteComment);
 
-route.use("/register", register);
+
 // route.use("/auth", login);
+route.use("/register", register);
 route.use("/putUser", adminPutUser);
 route.use("/getUsers", adminGetUser);
+route.use("/deleteUser", adminDeleteUser);
+
 
 //favoritos
 route.use("/getFav", getFavorites);
@@ -67,7 +77,6 @@ route.use("/postAdres", userPostAddres);
 route.use("/deleteAddres", userDeleteAddres);
 route.use("/putAdress", userPutAddres);
 
-//fav
 
 // lo otro
 route.use("/deleteFeedback", deleteFeedback);
