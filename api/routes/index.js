@@ -33,7 +33,8 @@ const userPostCompleteInfo = require("./User/InfoPerfilUser/PostCompleteInfo")
 route.use("/deleteUser", adminDeleteUser);
 
 const register = require("./register"); //Creada
-
+const login = require("./login")
+const loginGoogle = require("./loginGoogle.js")
 
 // Rutas Admin producId
 route.use("/adminGetProducts", adminGetProducts);
@@ -50,7 +51,8 @@ route.use("/updateComent", putComment);
 route.use("/deleteComent", adminDeleteComment);
 
 route.use("/register", register);
-// route.use("/auth", login);
+route.use("/loginCorreo", login);
+route.use("/auth",loginGoogle)
 route.use("/putUser", adminPutUser);
 route.use("/getUsers", adminGetUser);
 

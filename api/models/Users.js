@@ -41,7 +41,7 @@ const userSchema = new Schema(
     address: [{ type: Schema.Types.ObjectId, ref: "Address" }],
     comments: [{ type: Schema.Types.ObjectId, ref: "Comments" }],
     admin: {
-      Type: Boolean,
+      type: Boolean,
       default: false,
     },
   },
