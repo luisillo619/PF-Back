@@ -1,32 +1,6 @@
 const jwt = require("jsonwebtoken");
 require('dotenv').config();
 
-const express = require('express');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const app = express();
-
-
-passport.use(new GoogleStrategy({
-  clientID: 'YOUR_CLIENT_ID',
-  clientSecret: 'YOUR_CLIENT_SECRET',
-  callbackURL: 'http://localhost:3000/auth/google/callback'
-}, (accessToken, refreshToken, profile, cb) => {
-  // aqui podrias guardar el perfil del usuario en una base de datos
-  return cb(null, profile);
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.serializeUser((user, cb) => {
-  cb(null, user);
-});
-
-passport.deserializeUser((obj, cb) => {
-  cb(null, obj);
-});
-
 
 const auth = (req, res, next) => {
   const token = req.header("x-auth-token");
@@ -46,9 +20,6 @@ const auth = (req, res, next) => {
 // For User Profile
 const isUser = (req, res, next) => { 
    
-
-
-
   auth(req, res, () => {
     if (req.user._id === req.params.id || req.user.admin) {
       next();
