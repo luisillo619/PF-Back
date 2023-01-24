@@ -9,6 +9,8 @@ const Favorites = require("./models/Favorites");
 const Address = require("./models/Address.js");
 const Comments = require("./models/Comments");
 
+const Order = require("./models/Order")
+
 // paso 3, se agregan los productos al modelo dentro de mongoose y por lo tanto a mongo Atlas
 
 async function loaderCategories() {
@@ -112,5 +114,15 @@ async function loaderProducts() {
 //     console.log("All Comments removed successfully!");
 //   }
 // });
+
+
+
+/* Order.remove({}, (err) => {
+  if (err) {
+     console.log(err);
+   } else {
+    console.log("All Favorites removed successfully!");
+   }
+ });*/
 
 module.exports = { loaderProducts, loaderCategories };
