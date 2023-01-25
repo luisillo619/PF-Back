@@ -7,7 +7,7 @@ const { auth } = require("../../middleware/auth");
 //Ruta para eliminar un producto del carrito de compras
 deleteOrder.use('/', auth, (req, res) => {
     try {
-        const { product, order }=req.body
+        const { product, order }= req.body
         Order.findByIdAndUpdate(order, { $pull: { product: product } }, (err) => {
             if (err) {
                 return res.status(500).send(err);
