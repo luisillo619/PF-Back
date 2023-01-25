@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 
+//Model Order
 const ordersSchema = new Schema({
   amount: {
     type: Number,
