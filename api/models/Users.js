@@ -1,7 +1,14 @@
 const { Schema, model } = require("mongoose");
 
+
 //Datos de los usuarios que van a comprar
 const userSchema = new Schema({
+  name: {
+    type: String,
+  },
+  lastName: {
+    type: String,
+  },
   //Usuario
   docIdentity: {
     type: Number,
@@ -30,14 +37,16 @@ const userSchema = new Schema({
     //fecha del ultimo login
     type: Date,
   },
-  favorites: [{ type: Schema.Types.ObjectId, ref: 'Favorites' }],
-
-  admin:{
-    Type: Boolean,
+  admin: {
+    type: Boolean,
     default: false,
-},
   },
-  { versionKey: false }
-);
+
+  favorites: [{ type: Schema.Types.ObjectId, ref: "Favorites" }],
+  address: [{ type: Schema.Types.ObjectId, ref: "Address" }],
+  comments: [{ type: Schema.Types.ObjectId, ref: "Comments" }]
+},
+{ versionKey: false });
+
 
 module.exports = model("Users", userSchema);

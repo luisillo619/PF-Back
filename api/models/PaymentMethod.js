@@ -1,33 +1,31 @@
 const { Schema, model } = require("mongoose");
 
-const paymentSchema = new Schema(
-  {
-    paymentMethod:{
-        type: String,
-        allownull: false,
-      },
-    expirationDate:{
-        type: Date,
-        allownull:false,
-      },
-    CCV:{
-        type: Number,
-        allownull:false,
-    },
-    provider:{
-          type: String,
-          allownull:false,
-      },
-    accountNumber:{
-          type: Number,
-          allownull:false,
-      },
-    users: {
-        type: Schema.Types.ObjectId,
-        ref: 'Users'
-  }
 
+const paymentSchema = new Schema({
+  paymentMethod:{
+    type: String,
+    allownull: false,
   },
-  { versionKey: false })
+  expirationDate:{
+    type: Date,
+    allownull: false,
+  },
+  CVV:{
+    type: Number,
+    allownull: false,
+  },
+  provider:{
+    type: String,
+    allownull: false,
+  },
+  cardNumber:{
+    type: Number,
+    allownull: false,
+  },
 
-  module.exports = model("PaymentMethod", paymentSchema);
+  user: { type: Schema.Types.ObjectId, ref: 'Users' }
+},
+{ versionKey: false })
+
+
+module.exports = model("PaymentMethod", paymentSchema);
