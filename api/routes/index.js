@@ -16,7 +16,7 @@ const adminPutUser = require("./Admin/Users/PutUser");
 //ORDER 
 const deleteOrder = require("./Order/DeleteOrder");
 const getOrder = require("./Order/GetOrder");
-const postOrder = require("./Order/OrderPost");
+const postOrder = require("./Order/PostOrder");
 
 
 //USER

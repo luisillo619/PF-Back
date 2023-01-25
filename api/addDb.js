@@ -1,5 +1,5 @@
 const Products = require("./models/Products"); //modelo
-const products = require("./additional/products"); // datos
+const products = require("./additional/ProductsDB"); // datos
 
 const categories = require("./additional/categories"); // datos
 const Categories = require("./models/Categories"); // datos
