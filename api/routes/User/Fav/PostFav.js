@@ -4,6 +4,10 @@ const User = require('../../../models/Users');
 const Favorites = require("../../../models/Favorites");
 
 postFav.use('/', async (req, res) => {
+  const existingFavorite = await Favorites.findOne({ user: req.body.user, product: req.body.product });
+  if (existingFavorite) {
+    return res.status(400).send({ message: 'Este producto ya se encuentra en tus favoritos' });
+  }
   const newFavorite = new Favorites({
     user: req.body.user,
     product: req.body.product
