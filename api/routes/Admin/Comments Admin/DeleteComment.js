@@ -4,6 +4,7 @@ const Comment = require("../../../models/Comments");
 const { isAdmin } = require("../../../middleware/auth");
 
 
+
 //Ruta para eliminar comentarios por parte del Admin
 deleteComent.delete('/:id', isAdmin, async (req, res) =>{
     try {

@@ -34,8 +34,6 @@ const userPostCompleteInfo = require("./User/InfoPerfilUser/PostCompleteInfo")
 //const putPassword= require('./User/Info Perfil User/PutPassword');
 const putUserInfoEdit = require("./User/InfoPerfilUser/PutUserInfoEdit");
 
-
-//AMBOS
 const adminGetCategories = require("./GetCategories")
 const adminGetComment = require("./GetComment");
 const adminIdProducts = require("./getProducId");
@@ -47,7 +45,7 @@ const putComment = require("./PutComment");
 const register = require("./register");
 
 
-/*--------------Rutas--------------*/
+/--------------Rutas--------------/
 //ADMIN
 route.use("/deleteComent", adminDeleteComment);
 route.use("/adminDeleteProducts", adminDeleteProducts);
@@ -63,8 +61,6 @@ route.use("/putUser", adminPutUser);
 route.use("/deleteOrder",deleteOrder);
 route.use("/getOrder",getOrder);
 route.use("/postOrder", postOrder);
-
-
 //USER
 route.use("/deleteAddres", userDeleteAddress);
 route.use("/getAdres", userGetAddress);
