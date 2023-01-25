@@ -1,5 +1,4 @@
 const express = require("express");
-const { model } = require("mongoose");
 const deleteProduct = express.Router();
 const Products = require("../../../models/Products.js");
 const { isAdmin } = require("../../../middleware/auth");
