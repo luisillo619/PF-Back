@@ -1,9 +1,12 @@
 const express = require("express");
 const deleteFeedback = express.Router();
 const Comment = require("../../../models/Comments");
+const { isUser } = require("../../../middleware/auth");
 
 
-deleteFeedback.use('/:id', async (req, res) =>{
+//!REVISAR
+//Ruta para eliminar un comentario por parte del usuario
+deleteFeedback.use('/:id', isUser, async (req, res) =>{
     Comment.findByIdAndRemove(req.params.id, (error) => {
         if (error) { 
             res.status(500).send(error);
