@@ -1,12 +1,18 @@
-const express = require("express"); //Express
-const user = express.Router(); //Ruta administrador
-const User = require("../../../models/Users.js"); //Model
+const express = require("express");
+const getAllUsers = express.Router();
+const User = require("../../../models/Users.js");
+const { isAdmin } = require("../../../middleware/auth");
 
-user.use("/", async (req, res) => {
-  const users = await User.find();
 
-  res.status(200).send(users);
+//Ruta para traer todos los usuarios
+getAllUsers.get("/", isAdmin, async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).send(users);
+  } catch (error) {
+    res.status(500).send('Error interno del servidor.');
+  }
 });
 
-module.exports = user;
-    
+
+module.exports = getAllUsers;
