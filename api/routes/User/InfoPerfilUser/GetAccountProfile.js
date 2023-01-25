@@ -1,6 +1,6 @@
 const express = require("express");
 const getAccount = express.Router();
-const User = require("../../../models/Address");
+const User = require("../../../models/Users");
 
 
 getAccount.use("/:id", async (req, res) => {

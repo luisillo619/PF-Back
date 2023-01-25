@@ -1,11 +1,11 @@
 const express = require("express");
 const admin = express.Router();
 //const putName= express.Router();
-
+const { auth, isUser, isAdmin } = require("../../../middleware/auth");
 
 const Products = require("../../../models/Products.js");
 
-admin.use('/:id', (req, res) => {
+admin.use('/:id',isAdmin, (req, res) => {
     
     Products.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, datos) => {
         if (error) {
