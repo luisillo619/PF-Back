@@ -37,7 +37,8 @@ const orderPost = require("./Order/OrderPost")
 route.use("/orderPost",orderPost)
 const orderGet = require("./Order/OrderGet")
 route.use("/orderGet",orderGet)
-
+const updateOrder = require("./Order/putOrder")
+route.use("/putOrder",updateOrder)
 
 
 
