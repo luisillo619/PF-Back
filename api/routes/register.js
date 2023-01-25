@@ -26,7 +26,7 @@ const generateAuthToken = (user) => {                                     //La f
 
 
 register.post("/", async (req, res) => {
-  const { userName, email, password } = req.body;                         //Traigo por destructuring el 'userName', 'email', 'password'
+  const { userName, email, password, isAdmin } = req.body;                         //Traigo por destructuring el 'userName', 'email', 'password'
 
   if (userName && email && password) {                                    //Si tengo 'userName' && 'email' && 'password'
     let userName2 = await User.findOne({ userName: userName });           //Esperamos respuesta de la búsqueda en el modelo 'User' que la propiedad 'userName' tenga el 'userName' pasado por body
@@ -39,9 +39,13 @@ register.post("/", async (req, res) => {
     } else if (!userEmail2 && userName2) {                                //Si no tenemos '!userEmail2' y tenemos 'userName2'
       res.status(404).send("Username already in use");                    //Respondemos con error 404
     } else {                                                              //De lo contrario, es decir, si no hay 'userEmail2' y 'userName2'
-      const user = new User({ userName, email, password });               //Constante 'user' setea en el modelo 'User' el { userName, email, password }
+      let admin;
+      if(isAdmin === "True") admin = true
+      
+      const user = new User({ userName, email, password, admin });               //Constante 'user' setea en el modelo 'User' el { userName, email, password }
       const salt = await bcrypt.genSalt(10);                              //Este es el encriptador
       user.password = await bcrypt.hash(user.password, salt);             //De la variable 'user', tomamos la 'password' y hacemos hash con bcrypt a la 'password' para encriptarla
+      console.log(user)
       await user.save();                                                  //Esperamos para guardar en la variable 'user'
       const token = generateAuthToken(user);                              //Y generamos un token con todo encriptado
 

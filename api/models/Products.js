@@ -23,10 +23,10 @@ const productsSchema = new Schema(
     },
 
     // Novedad
-    news:{
+    news: {
       Type: Boolean,
       default: false,
-  },
+    },
 
     // Promociones
     promotions: {
@@ -39,24 +39,15 @@ const productsSchema = new Schema(
       },
     },
 
-    // Opiniones del usuario
-   
-      // reviews: {
-      //   type: Schema.Types.Mixed,
-      //   default: {
-      //     comment: 0,
-      //     rating: 0,
-      //     user: "",
-      //     userName: "",
-      //   },
-      // },
-  
+    //hacer comments similar a ruta postFavorites
+    comments: [{ type: Schema.Types.ObjectId, ref: "comments" }],
 
     // Categoría
     category: {
       type: Schema.Types.ObjectId,
       ref: "Categories",
     },
+    isDeleted: { type: Boolean, default: false }
   },
   { versionKey: false }
 );

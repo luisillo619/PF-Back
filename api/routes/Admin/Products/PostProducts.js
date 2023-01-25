@@ -1,16 +1,9 @@
 const express = require("express");
 const admin = express.Router();
-
 const Products = require("../../../models/Products.js");
+const { auth, isUser, isAdmin } = require("../../../middleware/auth");
 
-admin.use("/", async (req, res) => {
-  // hacer un metodo findOrCreate para buscar o crear las categorias
-  // const updatedProduct = await Products.findOneAndUpdate(
-  //   {name: name}, 
-  //   {$set: {price: 10}}, 
-  //   {new: true, upsert: true}
-  // );
- 
+admin.use("/", isAdmin ,async (req, res) => {
   const { name, price, description, category, image } = req.body;
   if (!name || !price || !description || !category || !image)
     // valido para crear si falta un dato no permite crear
@@ -20,9 +13,9 @@ admin.use("/", async (req, res) => {
     if (error) {
       res.status(500).send(error);
     } else {
- 
       res.status(201).send(datos);
     }
   });
 });
 module.exports = admin;
+

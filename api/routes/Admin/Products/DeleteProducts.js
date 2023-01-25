@@ -1,7 +1,7 @@
 const express = require("express");
 const { model } = require("mongoose");
 const admin = express.Router();
-
+const { auth, isUser, isAdmin } = require("../../../middleware/auth");
 const Products = require("../../../models/Products.js");
 
 //  elimina.use('/:id', async (req, res) => {
@@ -15,7 +15,9 @@ const Products = require("../../../models/Products.js");
 //         }
 //     });
 // });
-admin.use('/:nombre', (req, res) => {
+
+admin.use('/:nombre',isAdmin, (req, res) => {
+
     console.log(req.params.nombre)
     Products.deleteOne({name: req.params.nombre}, (error) => {
         if (error) {
@@ -26,38 +28,19 @@ admin.use('/:nombre', (req, res) => {
     });
 })
 
+admin.use('/:id', async (req, res) => {
+    // busca el producto a eliminar
+    const product = await Products.findById(req.params.id);
+    if (!product) return res.status(404).send('Producto no encontrado.');
+    // marca el producto como eliminado
+    product.isDeleted = true;
+    await product.save();
+    // devuelve una respuesta
+    res.send('Producto Fuera de Inventario');
+});
 
 
-/*admin.use('/:id', async (req, res, next)=>{
-    const {idProduct} = req.params;
-    const {partialRemoval} = req.body;
-    try {
-            const productDeleted = await Products.findByPk(idProduct)
-        
-        if(!!productDeleted && !partialRemoval){
-            //eliminacion definitiva
-            await productDeleted.destroy();
-            return res.send({message : 'Se elimino correctamente el Producto Seleccionado.'});
-        }else if(productDeleted && partialRemoval){
-            //Eliminacion parcial
-            await productDeleted.update({createdInDb: false});
-            await productDeleted.save();
 
-            return res.send({message: 'Se elemino parcialmente de la base de datos'});
-        }
-        else{
-            res.status(404).json({message: 'Producto no encontrado'})
 
-        }
-
-        
-    } catch (error) {
- 
-        console.error(error);
-
-        next();
-    }
-})
-*/
 
 module.exports = admin;

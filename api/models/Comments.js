@@ -3,13 +3,13 @@ const { Schema, model } = require("mongoose");
 //Comentarios de los usuarios sobre los productos comprados
 const commentsSchema = new Schema({
   comment: String,
-  email: String,
+  email: String, //comentar esto
   response: String,
   products: {
     type: Schema.Types.ObjectId,
     ref: "Products",
   },
-  users: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: "Users",
   },
