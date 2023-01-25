@@ -11,6 +11,7 @@ deleteComent.use('/:id', async (req, res) =>{
             res.status(200).send({ message: 'Comentario  eliminado'});
         }
     });
-
 });
+
+
 module.exports = deleteComent;

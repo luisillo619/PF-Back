@@ -5,7 +5,6 @@ const categories = [
   {
     category: "Bombillas",
   },
-
   {
     category: "Matepa",
   },
@@ -15,7 +14,6 @@ const categories = [
   {
     category: "Yerberas",
   },
-
   {
     category: "Combos",
   },
@@ -25,7 +23,6 @@ const categories = [
   {
     category: "Wine set",
   },
-
   {
     category: "Knives",
   },
@@ -33,5 +30,6 @@ const categories = [
     category: "Bottle saver gallonado",
   },
 ];
+
 
 module.exports = categories;
