@@ -1,7 +1,7 @@
 const express = require("express");
 const deleteComent = express.Router();
-
 const Comment = require("../../../models/Comments");
+
 
 deleteComent.use('/:id', async (req, res) =>{
     Comment.findByIdAndRemove(req.params.id, (error) => {

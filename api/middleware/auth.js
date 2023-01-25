@@ -1,15 +1,18 @@
 const jwt = require("jsonwebtoken");
 require('dotenv').config();
 
+// para autenticar que el ususario esta luego
 const auth = (req, res, next) => {
+ 
   const token = req.header("x-auth-token");
   if (!token)
     return res.status(401).send("Access denied. Not authenticated...");
   try {
     const jwtSecretKey = process.env.JWT_SECRET_KEY;
-    const decoded = jwt.verify(token, jwtSecretKey); // me trae el ususario de la base de datos automaticamente
+    const decoded = jwt.verify(token, jwtSecretKey); // me junta el objeto de req, con la codificacion del token, por eso sigue teniendo la propiedad admin
 
     req.user = decoded;
+    console.log(req.user)
     next(); // ejecuta la funcion del tercer parametro de auth en isUser y isAdmin
   } catch (ex) {
     res.status(400).send("Invalid auth token...");
@@ -18,8 +21,9 @@ const auth = (req, res, next) => {
 
 // For User Profile
 const isUser = (req, res, next) => { 
+   
   auth(req, res, () => {
-    if (req.user._id === req.params.id || req.user.admin) {
+    if (req.user._id === req.params.id || req.user.isAdmin) {
       next();
     } else {
       res.status(403).send("Access denied. Not authorized...");
@@ -29,8 +33,9 @@ const isUser = (req, res, next) => {
 
 // For Admin
 const isAdmin = (req, res, next) => {
+
   auth(req, res, () => {
-    if (req.user.admin) {
+    if (req.user.isAdmin) {
       next();
     } else {
       res.status(403).send("Access denied. Not authorized...");

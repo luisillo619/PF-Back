@@ -2,6 +2,7 @@ const { Router } = require("express");
 const route = Router();
 
 const adminGetProducts = require("./GetProducts"); //Creada
+const adminGetCategories = require("./GetCategories")
 const adminIdProducts = require("./getProducId");
 const adminPostProducts = require("./Admin/Products/PostProducts"); //Creada
 const adminDeleteProducts = require("./Admin/Products/DeleteProducts"); //creada
@@ -28,14 +29,27 @@ const userGetAddres = require("./User/Address/GetAddress");
 const userPostAddres = require("./User/Address/PostAddress");
 const userDeleteAddres = require("./User/Address/DeleteAddress");
 const userPutAddres = require("./User/Address/PutAddress");
-
+const userPostCompleteInfo = require("./User/InfoPerfilUser/PostCompleteInfo")
 route.use("/deleteUser", adminDeleteUser);
 
+//order
+const orderPost = require("./Order/OrderPost")
+route.use("/orderPost",orderPost)
+const orderGet = require("./Order/OrderGet")
+route.use("/orderGet",orderGet)
+
+
+
+
+
+
 const register = require("./register"); //Creada
-const login = require("./login");
+const login = require("./login")
+const loginGoogle = require("./loginGoogle.js")
 
 // Rutas Admin producId
 route.use("/adminGetProducts", adminGetProducts);
+route.use("/adminGetCategories", adminGetCategories)
 route.use("/producId", adminIdProducts);
 route.use("/adminPostProducts", adminPostProducts);
 route.use("/adminDeleteProducts", adminDeleteProducts);
@@ -48,7 +62,8 @@ route.use("/updateComent", putComment);
 route.use("/deleteComent", adminDeleteComment);
 
 route.use("/register", register);
-route.use("/login", login);
+route.use("/loginCorreo", login);
+route.use("/auth",loginGoogle)
 route.use("/putUser", adminPutUser);
 route.use("/getUsers", adminGetUser);
 
@@ -72,5 +87,6 @@ route.use("/deleteFeedback", deleteFeedback);
 route.use("/deleteAccount", deleteAccount);
 route.use("/getAccountProfile", getAccountProfile);
 route.use("/putUserInfoEdit", putUserInfoEdit);
+route.use("/postCompleteInfo", userPostCompleteInfo)
 
 module.exports = route;
