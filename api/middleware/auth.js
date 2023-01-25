@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 require('dotenv').config();
 
+
 // para autenticar que el ususario esta luego
 const auth = (req, res, next) => {
  
@@ -19,6 +20,7 @@ const auth = (req, res, next) => {
   }
 };
 
+
 // For User Profile
 const isUser = (req, res, next) => { 
    
@@ -31,6 +33,7 @@ const isUser = (req, res, next) => {
   });
 };
 
+
 // For Admin
 const isAdmin = (req, res, next) => {
 
@@ -42,5 +45,6 @@ const isAdmin = (req, res, next) => {
     }
   });
 };
+
 
 module.exports = { auth, isUser, isAdmin };

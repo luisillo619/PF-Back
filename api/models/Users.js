@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 
+
 //Datos de los usuarios que van a comprar
 const userSchema = new Schema(
   {
@@ -47,5 +48,6 @@ const userSchema = new Schema(
   },
   { versionKey: false }
 );
+
 
 module.exports = model("Users", userSchema);

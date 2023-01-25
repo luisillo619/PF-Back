@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 
+
 const statusSchema = new Schema({
     OrderComplete:{
         Type: Boolean,
@@ -15,5 +16,6 @@ const statusSchema = new Schema({
     },
 },
 { versionKey: false })
+
 
 module.exports = model("Status", statusSchema);

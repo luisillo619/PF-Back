@@ -1,11 +1,12 @@
 const { Schema, model } = require("mongoose");
 
+
 //Comentarios de los usuarios sobre los productos comprados
 const commentsSchema = new Schema({
   comment: String,
-  email: String, //comentar esto
+  // email: String,
   response: String,
-  products: {
+  product: {
     type: Schema.Types.ObjectId,
     ref: "Products",
   },
@@ -18,5 +19,6 @@ const commentsSchema = new Schema({
   }
 },
 { versionKey: false });
+
 
 module.exports = model("Comments", commentsSchema);

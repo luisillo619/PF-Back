@@ -2,10 +2,12 @@ const express = require("express");
 const deleteFav = express.Router();
 const User = require('../../../models/Users');
 const Favorites = require("../../../models/Favorites");
+const { isUser } = require("../../../middleware/auth");
 
 
-//delete one
-deleteFav.use('/:id', (req, res) => {
+//Ruta para eliminar un favorito
+deleteFav.delete('/:id', isUser, (req, res) => {
+  try {
     Favorites.findByIdAndDelete(req.params.id, (err, favorite) => {
       if (err) {
         return res.status(500).send(err);
@@ -14,9 +16,13 @@ deleteFav.use('/:id', (req, res) => {
         if (err) {
           return res.status(500).send(err);
         }
-        return res.send({ message: 'Producto eliminado de favoritos' });
+        return res.send('Producto eliminado de favoritos');
       });
     });
-  });
+  } catch (error) {
+    res.status(500).send('Error interno del servidor.');
+  }
+});
   
-  module.exports = deleteFav;
+
+module.exports = deleteFav;

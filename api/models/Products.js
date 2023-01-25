@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 
+
 const productsSchema = new Schema(
   {
     // Información básica del producto
@@ -29,7 +30,7 @@ const productsSchema = new Schema(
     },
 
     // Promociones
-    promotions: {
+    promotion: {
       type: Schema.Types.Mixed,
       default: {
         salesOff: false,
@@ -51,5 +52,6 @@ const productsSchema = new Schema(
   },
   { versionKey: false }
 );
+
 
 module.exports = model("Products", productsSchema);

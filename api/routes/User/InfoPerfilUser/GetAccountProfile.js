@@ -1,9 +1,11 @@
 const express = require("express");
 const getAccount = express.Router();
 const User = require("../../../models/Users");
+const { isUser } = require("../../../middleware/auth");
 
 
-getAccount.use("/:id", async (req, res) => {
+//Ruta para 
+getAccount.use("/:id", isUser, async (req, res) => {
     try {
         const adre = await User.findOne({ _id: req.params.id });
         res.status(200).send(adre);

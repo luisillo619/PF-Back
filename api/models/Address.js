@@ -1,26 +1,26 @@
 const { Schema, model } = require("mongoose");
 
+
 //Comentarios de los usuarios sobre los productos comprados
 const addressSchema = new Schema(
   {
-    Country: {
+    country: {
       type: String,
       allowNull: false,
     },
-    City: {
+    city: {
       type: String,
       allowNull: false,
     },
-    State: {
+    state: {
       type: String,
       allowNull: false,
     },
-
-    Street: {
+    street: {
       type: String,
       allowNull: false,
     },
-    ZipCode: {
+    zipCode: {
       type: Number,
       allowNull: false,
     },
@@ -32,4 +32,5 @@ const addressSchema = new Schema(
   { versionKey: false }
 );
 
-module.exports = model("Address", addressSchema);
+
+module.exports = model("Address", addressSchema);d
