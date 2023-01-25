@@ -18,7 +18,8 @@ const orderSchema = new Schema(
       type: Number,
       allownull: false,
     }
-    
-  },
-  { versionKey: false })
-  module.exports = model("Order", orderSchema);
+},
+{ versionKey: false })
+  
+  
+module.exports = model("Orders", ordersSchema);
