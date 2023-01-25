@@ -1,46 +1,22 @@
 const express = require("express");
 const { model } = require("mongoose");
-const admin = express.Router();
-const { auth, isUser, isAdmin } = require("../../../middleware/auth");
+const deleteProduct = express.Router();
 const Products = require("../../../models/Products.js");
+const { isAdmin } = require("../../../middleware/auth");
 
-//  elimina.use('/:id', async (req, res) => {
-//     console.log("req.params.name")
-//     Products.findByIdAndRemove(req.params.id, (error) => {
 
-//         if (error) {
-//             res.status(500).send(error);
-//         } else {
-//             res.status(200).send({ message: 'Documento eliminado' });
-//         }
-//     });
-// });
-
-admin.use('/:nombre',isAdmin, (req, res) => {
-
-    console.log(req.params.nombre)
-    Products.deleteOne({name: req.params.nombre}, (error) => {
-        if (error) {
-            res.status(500).send(error);
-        } else {
-            res.status(200).send({ message: 'Documento eliminado' });
-        }
-    });
-})
-
-admin.use('/:id', async (req, res) => {
-    // busca el producto a eliminar
-    const product = await Products.findById(req.params.id);
-    if (!product) return res.status(404).send('Producto no encontrado.');
-    // marca el producto como eliminado
-    product.isDeleted = true;
-    await product.save();
-    // devuelve una respuesta
-    res.send('Producto Fuera de Inventario');
+//Ruta para eliminar el producto
+deleteProduct.use('/:id', isAdmin, async (req, res) => {
+    try {
+        const product = await Products.findById(req.params.id);
+        if (!product) return res.status(404).send('Producto no encontrado.');
+        product.isDeleted = true;
+        await product.save();
+        res.send('Producto Fuera de Inventario'); 
+    } catch (error) {
+        res.status(500).send('Error interno del servidor.');
+    }
 });
 
 
-
-
-
-module.exports = admin;
+module.exports = deleteProduct;
