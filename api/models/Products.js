@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 
+
 const productsSchema = new Schema({
   // Información básica del producto
   name: {
@@ -17,16 +18,17 @@ const productsSchema = new Schema({
     type: String,
   },
 
-  // Estado de existencias
-  stock: {
-    type: Number,
-  },
+    // Estado de existencias
+    stock: {
+      type: Number,
+    },
 
-  // Novedad
-  news: {
-    Type: Boolean,
-    default: false,
-  },
+    // Novedad
+    news: {
+      Type: Boolean,
+      default: false,
+    },
+
 
   // Promociones
   promotion: {
@@ -37,6 +39,7 @@ const productsSchema = new Schema({
       newPrice: 0,
       oldPrice: 0,
     },
+    isDeleted: { type: Boolean, default: false }
   },
   isDeleted: { type: Boolean, default: false },
 

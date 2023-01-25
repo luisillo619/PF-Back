@@ -16,6 +16,6 @@ const ordersSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'Users' }
 },
 { versionKey: false })
-  
-  
+
+
 module.exports = model("Orders", ordersSchema);

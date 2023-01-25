@@ -8,7 +8,7 @@ const { isAdmin } = require("../../../middleware/auth");
 postProduct.post("/", isAdmin ,async (req, res) => {
   try {
     const { name, price, description, category, image } = req.body;
-    if (!name || !price || !description || !category || !image) {
+    if (!name  !price  !description  !category  !image) {
       return res.status(400).send("Faltan datos");
     }
     //utilizar un findOne para verificar si el producto ya está creado  -  IMPORTANTE NO OLVIDAR
