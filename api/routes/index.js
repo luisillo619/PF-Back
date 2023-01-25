@@ -4,26 +4,26 @@ const route = Router();
 
 //ADMIN
 const adminDeleteComment = require("./Admin/Comments Admin/DeleteComment");
-const adminDeleteProducts = require("./Admin/Products/DeleteProducts"); //creada
-const adminPostProducts = require("./Admin/Products/PostProducts"); //Creada
-const adminPutProducts = require("./Admin/Products/PutProducts"); //Creada
+const adminDeleteProducts = require("./Admin/Products/DeleteProducts");
+const adminPostProducts = require("./Admin/Products/PostProducts");
+const adminPutProducts = require("./Admin/Products/PutProducts");
 const adminDeleteUser = require("./Admin/Users/DeleteUsers");
-const adminGetUser = require("./Admin/Users/GetAllUsers"); //creada
+const adminGetUser = require("./Admin/Users/GetAllUsers");
 // const adminPutLockedUser = require("./Admin/Users/PutLockedUser");
 const adminPutUser = require("./Admin/Users/PutUser");
 
 
-//ORDER
+//ORDER 
 const deleteOrder = require("./Order/DeleteOrder");
 const getOrder = require("./Order/GetOrder");
 const postOrder = require("./Order/PostOrder");
 
 
 //USER
-const userDeleteAddres = require("./User/Address/DeleteAddress");
-const userGetAddres = require("./User/Address/GetAddress");
-const userPostAddres = require("./User/Address/PostAddress");
-const userPutAddres = require("./User/Address/PutAddress");
+const userDeleteAddress = require("./User/Address/DeleteAddress");
+const userGetAddress = require("./User/Address/GetAddress");
+const userPostAddress = require("./User/Address/PostAddress");
+const userPutAddress = require("./User/Address/PutAddress");
 const deleteFeedback = require("./User/Comments/DeleteFeedback");
 const deleteAccount = require("./User/Delete/DeleteAccount");
 const deleteFavorites = require("./User/Fav/DeleteFav");
@@ -39,12 +39,12 @@ const putUserInfoEdit = require("./User/InfoPerfilUser/PutUserInfoEdit");
 const adminGetCategories = require("./GetCategories")
 const adminGetComment = require("./GetComment");
 const adminIdProducts = require("./getProducId");
-const adminGetProducts = require("./GetProducts"); //Creada
+const adminGetProducts = require("./GetProducts");
 const login = require("./login")
 const loginGoogle = require("./loginGoogle.js")
 const postComment = require("./PostComment");
 const putComment = require("./PutComment");
-const register = require("./register"); //Creada
+const register = require("./register");
 
 
 /*--------------Rutas--------------*/
@@ -66,10 +66,10 @@ route.use("/postOrder", postOrder);
 
 
 //USER
-route.use("/deleteAddres", userDeleteAddres);
-route.use("/getAdres", userGetAddres);
-route.use("/postAdres", userPostAddres);
-route.use("/putAdress", userPutAddres);
+route.use("/deleteAddres", userDeleteAddress);
+route.use("/getAdres", userGetAddress);
+route.use("/postAdres", userPostAddress);
+route.use("/putAdress", userPutAddress);
 route.use("/deleteFeedback", deleteFeedback);
 route.use("/deleteAccount", deleteAccount);
 route.use("/deleteFav", deleteFavorites);
