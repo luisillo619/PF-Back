@@ -1,3 +1,4 @@
+//3
 const nodemailer = require('nodemailer');               //LIbreria 'nodemailer'
 require('dotenv').config();
 const { SECRET, NODEMAILER } = process.env;             //Variables de entorno

@@ -1,3 +1,4 @@
+//s
 const categories = [
   {
     category: "Mates",
