@@ -1,11 +1,11 @@
 const express = require("express");
 const putUser = express.Router();
 const User = require("../../../models/Users");
-const { isAdmin } = require("../../../middleware/auth");
+const { isUser } = require("../../../middleware/auth");
 
 // UNIFICAR ISUSER
 //Ruta para modificar información de usuario por parte del Admin
-putUser.put("/:id", isAdmin, (req, res) => {
+putUser.put("/:id", isUser, (req, res) => {
   try {
     User.findByIdAndUpdate(
       req.params.id,
@@ -20,9 +20,8 @@ putUser.put("/:id", isAdmin, (req, res) => {
       }
     );
   } catch (error) {
-    res.status(500).send('Error interno del servidor.');
+    res.status(500).send("Error interno del servidor.");
   }
 });
-
 
 module.exports = putUser;

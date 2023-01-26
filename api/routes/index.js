@@ -22,16 +22,16 @@ const deleteFavorites = require("./User/Fav/DeleteFav");
 const getFavorites = require("./User/Fav/getFav");
 const postFavorites = require("./User/Fav/PostFav");
 const getAccountProfile = require("./User/InfoPerfilUser/GetAccountProfile");
-const userPostCompleteInfo = require("./User/InfoPerfilUser/PostCompleteInfo")
+const userPostCompleteInfo = require("./User/InfoPerfilUser/PostCompleteInfo");
 //const putPassword= require('./User/Info Perfil User/PutPassword');
-const putUserInfoEdit = require("./User/InfoPerfilUser/PutUserInfoEdit");
+
 //AMBOS
-const adminGetCategories = require("./GetCategories")
+const adminGetCategories = require("./GetCategories");
 const adminGetComment = require("./GetComment");
 const adminIdProducts = require("./GetProducId");
 const adminGetProducts = require("./GetProducts");
-const login = require("./login")
-const loginGoogle = require("./loginGoogle.js")
+const login = require("./login");
+const loginGoogle = require("./loginGoogle.js");
 const postComment = require("./PostComment");
 const putComment = require("./PutComment");
 const register = require("./register");
@@ -41,34 +41,33 @@ route.use("/deleteComent", adminDeleteComment);
 route.use("/adminDeleteProducts", adminDeleteProducts);
 route.use("/adminPostProducts", adminPostProducts);
 route.use("/adminPutProducts", adminPutProducts);
-route.use("/deleteUser", adminDeleteUser);                              //Si
-route.use("/getAllUsers", adminGetUser);                               //Si
+route.use("/deleteUser", adminDeleteUser); //Si
+route.use("/getAllUsers", adminGetUser); //Si
 //route.use("/adminPutLockedUser", adminPutLockedUser);
 route.use("/putUser", adminPutUser);
 //ORDER
-route.use("/deleteOrder",deleteOrder);
-route.use("/getOrder",getOrder);
+route.use("/deleteOrder", deleteOrder);
+route.use("/getOrder", getOrder);
 route.use("/postOrder", postOrder);
 //USER
 route.use("/deleteAddress", userDeleteAddress);
 route.use("/getAddress", userGetAddress);
 route.use("/postAddress", userPostAddress);
-route.use("/putAddress", userPutAddress);               //Si
+route.use("/putAddress", userPutAddress); //Si
 route.use("/deleteFav", deleteFavorites);
 route.use("/getFav", getFavorites);
 route.use("/postFav", postFavorites);
 route.use("/getAccountProfile", getAccountProfile);
 route.use("/postCompleteInfo", userPostCompleteInfo);
 //route.use("/putPassword", putPassword);
-route.use("/putUserInfoEdit", putUserInfoEdit);
 //RUTAS DE AMBOS
-route.use("/adminGetCategories", adminGetCategories)
+route.use("/adminGetCategories", adminGetCategories);
 route.use("/adminGetComment", adminGetComment);
 route.use("/producId", adminIdProducts);
 route.use("/adminGetProducts", adminGetProducts);
 route.use("/loginCorreo", login);
-route.use("/auth",loginGoogle)
+route.use("/auth", loginGoogle);
 route.use("/postComent", postComment);
 route.use("/updateComent", putComment);
-route.use("/register", register);                               //Si
+route.use("/register", register); //Si
 module.exports = route;
