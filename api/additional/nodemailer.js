@@ -1,5 +1,6 @@
+//3
 const nodemailer = require('nodemailer');               //LIbreria 'nodemailer'
-require('dotenv').config();                             //
+require('dotenv').config();
 const { SECRET, NODEMAILER } = process.env;             //Variables de entorno
 
 
@@ -22,7 +23,8 @@ module.exports = {
         }
     },
 
-    mailDelete: (email) => {                           //^Mail de comunicación de cuenta eliminada para el cliente 
+
+    mailDelete: (email) => {                            //^Mail de comunicación de cuenta eliminada para el cliente 
         return {
             from: 'eltero@gmail.com',
             to: email,
@@ -31,7 +33,6 @@ module.exports = {
             ,
         }
     },
-
 
 
     mailNewPassword: (email, link) => {                 //^Mail de comunicación de cuenta eliminada para el cliente 
@@ -43,7 +44,6 @@ module.exports = {
             ,
         }
     },
-
 
 
     mailResponse: (email, name, response, comment) => {

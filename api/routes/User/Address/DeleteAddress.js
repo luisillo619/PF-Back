@@ -1,18 +1,25 @@
 const express = require("express");
-const deleteAddres = express.Router();
+const deleteAddress = express.Router();
+const Address = require("../../../models/Address");
+const User = require("../../../models/Users");
 
-const Addres = require("../../../models/Address");   
+// ISUSER
 
-deleteAddres.use('/:id', async (req, res) =>{
-    Addres.findByIdAndRemove(req.params.id, (error) => {
-        if (error) {
-            res.status(500).send(error);
-        }else {
-            res.status(200).send({ message: 'eliminado la informacion'});
-        }
-    });
-
+deleteAddress.delete('/:id', (req, res) => {         //id de la address
+    try {
+        Address.findByIdAndDelete(req.params.id, (err, address) => {
+            if (err) {
+              return res.status(500).send(err);
+            }
+            User.findByIdAndUpdate(address.user, { $pull: { address: address._id } }, (err) => {
+              if (err) {
+                return res.status(500).send(err);
+              }
+              return res.send('Dirección eliminado de address y users');
+            });
+          });
+    } catch (error) {
+        res.status(500).send('No se logró eliminar tu dirección.');
+    }
 });
-
-module.exports= deleteAddres;
- 
+module.exports= deleteAddress;

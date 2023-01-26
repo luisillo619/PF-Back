@@ -1,15 +1,15 @@
 const express = require("express");
-const coment = express.Router();
-                      //Ruta administrador
-const Comment = require("../models/Comments");        //Model
+const getComment = express.Router();
+const Comment = require("../models/Comments");
 
-
-coment.use("/", async (req, res) => {
- 
-  const users = await Comment.find();
-  
-  res.status(200).send(users);
+// Ruta para obtener todas los Comentarios
+getComment.get("/", async (req, res) => {
+  try {
+    const users = await Comment.find();
+    res.status(200).send(users);
+  } catch (error) {
+    res.status(500).send("Error en el servidor");
+  }
 });
 
-
-module.exports = coment;
+module.exports = getComment;

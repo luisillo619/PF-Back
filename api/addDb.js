@@ -1,13 +1,15 @@
 const Products = require("./models/Products"); //modelo
-const products = require("./additional/products"); // datos
+const products = require("./additional/ProductsDB"); // datos
 
 const categories = require("./additional/categories"); // datos
 const Categories = require("./models/Categories"); // datos
 
 const Users = require("./models/Users");
-const Favorites = require("./models/Favorites")
+const Favorites = require("./models/Favorites");
+const Address = require("./models/Address.js");
+const Comments = require("./models/Comments");
 
-
+const Order = require("./models/Order")
 
 // paso 3, se agregan los productos al modelo dentro de mongoose y por lo tanto a mongo Atlas
 
@@ -64,7 +66,6 @@ async function loaderProducts() {
   }
 }
 
-
 //reinician la base de datos
 // Products.remove({}, (err) => {
 //   if (err) {
@@ -78,29 +79,50 @@ async function loaderProducts() {
 //   if (err) {
 //     console.log(err);
 //   } else {
-//     console.log("All products removed successfully!");
+//     console.log("All Categories removed successfully!");
+//   }
+// });
+
+// Users.remove({}, (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("All Users removed successfully!");
+//   }
+// });
+
+// Favorites.remove({}, (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("All Favorites removed successfully!");
+//   }
+// });
+
+// Address.remove({}, (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("All Address removed successfully!");
+//   }
+// });
+
+// Comments.remove({}, (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("All Comments removed successfully!");
 //   }
 // });
 
 
-  // Users.remove({}, (err) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log("All products removed successfully!");
-  //   }
-  // });
-  
 
-//reinician la base de datos
- /*Favorites.remove({}, (err) => {
-   if (err) {
+/* Order.remove({}, (err) => {
+  if (err) {
      console.log(err);
    } else {
-     console.log("All favorites removed successfully!");
+    console.log("All Favorites removed successfully!");
    }
  });*/
-
-
 
 module.exports = { loaderProducts, loaderCategories };
