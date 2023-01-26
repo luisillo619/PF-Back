@@ -41,7 +41,6 @@ const productsSchema = new Schema({
     },
   },
   isDeleted: { type: Boolean, default: false },
-
   comments: [{ type: Schema.Types.ObjectId, ref: "comments" }],
   category: { type: Schema.Types.ObjectId, ref: "Categories" }
 },

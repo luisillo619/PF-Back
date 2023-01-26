@@ -1,19 +1,23 @@
 const express = require("express");
 const putUserInfoEdit = express.Router();
 const User = require("../../../models/Users");
+const { isUser } = require("../../../middleware/auth");
 
-
-putUserInfoEdit.use("/:id", (req, res) => {
+// Ruta para Modificar los datos de un ususario especifico
+putUserInfoEdit.put("/:id",isUser, (req, res) => {
     try {
         User.findByIdAndUpdate(
             req.params.id, req.body, { new: true }, (error, datos) => {
                 if (!error) {
                     res.status(200).send('Información cambiada exitosamente.'); 
                 }
+                else{
+                    res.status(500).send('Error al cambiar la información.');
+                }
             }
         );
     } catch (error) {
-        res.status(500).send('Error al cambiar la información.');
+        res.status(500).send('Error en el servidor');
     }
 });
 //GET a http://localhost:3001/getUsers para copiar el id de un usuario --> Ej: 63c9ad3c2a04cc93f10462bc

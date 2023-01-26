@@ -1,20 +1,25 @@
 const express = require("express");
 const deleteAddress = express.Router();
 const Address = require("../../../models/Address");
-const { isUser } = require("../../../middleware/auth");
-//!REVISAR LA RUTA, FALTA ELIMINAR LA DIRECCION DEL MODEL 'USER'
-//Ruta para eliminar una dirección del usuario
-deleteAddress.delete('/:id', isUser, async (req, res) => {
+const User = require("../../../models/Users");
+
+// ISUSER
+
+deleteAddress.delete('/:id', (req, res) => {         //id de la address
     try {
-        Address.findByIdAndRemove(req.params.id, (error) => {
-            if (error) {
-                res.status(500).send(error);
-            }else {
-                res.status(200).send('Eliminado la informacion');
+        Address.findByIdAndDelete(req.params.id, (err, address) => {
+            if (err) {
+              return res.status(500).send(err);
             }
-        });
+            User.findByIdAndUpdate(address.user, { $pull: { address: address._id } }, (err) => {
+              if (err) {
+                return res.status(500).send(err);
+              }
+              return res.send('Dirección eliminado de address y users');
+            });
+          });
     } catch (error) {
-        res.status(500).send('Error interno del servidor.');
+        res.status(500).send('No se logró eliminar tu dirección.');
     }
 });
 module.exports= deleteAddress;

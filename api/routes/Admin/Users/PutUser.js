@@ -3,7 +3,7 @@ const putUser = express.Router();
 const User = require("../../../models/Users");
 const { isAdmin } = require("../../../middleware/auth");
 
-
+// UNIFICAR ISUSER
 //Ruta para modificar información de usuario por parte del Admin
 putUser.put("/:id", isAdmin, (req, res) => {
   try {

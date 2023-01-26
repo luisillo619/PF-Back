@@ -2,24 +2,22 @@ const { Router } = require("express");
 const route = Router();
 //ADMIN
 const adminDeleteComment = require("./Admin/Comments Admin/DeleteComment");
-const adminDeleteProducts = require("./Admin/Products/DeleteProduct");
-const adminPostProducts = require("./Admin/Products/PostProduct");
-const adminPutProducts = require("./Admin/Products/PutProduct");
-const adminDeleteUser = require("./Admin/Users/DeleteUser");
+const adminDeleteProducts = require("./Admin/Products/DeleteProducts");
+const adminPostProducts = require("./Admin/Products/PostProducts");
+const adminPutProducts = require("./Admin/Products/PutProducts");
+const adminDeleteUser = require("./Admin/Users/DeleteUsers");
 const adminGetUser = require("./Admin/Users/GetAllUsers");
 // const adminPutLockedUser = require("./Admin/Users/PutLockedUser");
 const adminPutUser = require("./Admin/Users/PutUser");
 //ORDER
 const deleteOrder = require("./Order/DeleteOrder");
 const getOrder = require("./Order/GetOrder");
-const postOrder = require("./Order/OrderPost");
+const postOrder = require("./Order/PostOrder");
 //USER
 const userDeleteAddress = require("./User/Address/DeleteAddress");
 const userGetAddress = require("./User/Address/GetAddress");
 const userPostAddress = require("./User/Address/PostAddress");
 const userPutAddress = require("./User/Address/PutAddress");
-const deleteFeedback = require("./User/Comments/DeleteFeedback");
-const deleteAccount = require("./User/Delete/DeleteAccount");
 const deleteFavorites = require("./User/Fav/DeleteFav");
 const getFavorites = require("./User/Fav/getFav");
 const postFavorites = require("./User/Fav/PostFav");
@@ -30,7 +28,7 @@ const putUserInfoEdit = require("./User/InfoPerfilUser/PutUserInfoEdit");
 //AMBOS
 const adminGetCategories = require("./GetCategories")
 const adminGetComment = require("./GetComment");
-const adminIdProducts = require("./getProducId");
+const adminIdProducts = require("./GetProducId");
 const adminGetProducts = require("./GetProducts");
 const login = require("./login")
 const loginGoogle = require("./loginGoogle.js")
@@ -55,9 +53,7 @@ route.use("/postOrder", postOrder);
 route.use("/deleteAddress", userDeleteAddress);
 route.use("/getAddress", userGetAddress);
 route.use("/postAddress", userPostAddress);
-route.use("/putAddress", userPutAddress);
-route.use("/deleteFeedback", deleteFeedback);
-route.use("/deleteAccount", deleteAccount);                 //Si
+route.use("/putAddress", userPutAddress);               //Si
 route.use("/deleteFav", deleteFavorites);
 route.use("/getFav", getFavorites);
 route.use("/postFav", postFavorites);

@@ -3,6 +3,7 @@ const deleteOrder = express.Router();
 const Order = require("../../models/Order");
 const { auth } = require("../../middleware/auth");
 
+// VERIFICAR UN POSIBLE PUT
 
 //Ruta para eliminar un producto del carrito de compras
 deleteOrder.use('/', auth, (req, res) => {

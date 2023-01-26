@@ -3,7 +3,7 @@ const Order = require('../../models/Order');
 const getOrder = express.Router();
 const { isUser } = require("../../middleware/auth");
 
-
+// AUTH
 //Ruta para traer todas las ordenes hechas por el usuario en el carrito de compras
 getOrder.get('/:id', isUser, (req, res) => {
   try {
