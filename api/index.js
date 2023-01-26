@@ -2,12 +2,12 @@ const app = require("./app.js");
 require("dotenv").config();
 const { connection } = require("./db.js");
 const { loaderProducts, loaderCategories } = require("./addDb");
-const { PORT } = process.env;
+
 
 // Carga unicamente los datos de Products a la base de datos(mongoDb)
 
 // paso 2 se hace la conexion de la base de datos con el servidor, el servidor le proporciona los datos de products a mongo Atlas
-const port = PORT || 3001;
+const PORT = process.env.PORT || 3001
 
 connection
   .syncIndexes({ force: true })
@@ -16,8 +16,8 @@ connection
     await loaderProducts(); // paso 3
   })
   .then(() => {
-    app.listen(port, () => {
-      console.log(`Server is listening on PORT: ${port}`);
+    app.listen(PORT, () => {
+      console.log(`Server is listening on PORT: ${PORT}`);
     });
   });
 
