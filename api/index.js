@@ -1,7 +1,7 @@
 const app = require("./app.js");
 require("dotenv").config();
 const { connection } = require("./db.js");
-const { loaderProducts, loaderCategories } = require("./addDB");
+const { loaderProducts, loaderCategories } = require("./addDb");
 const { PORT } = process.env;
 
 // Carga unicamente los datos de Products a la base de datos(mongoDb)
