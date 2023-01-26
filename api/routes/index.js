@@ -28,7 +28,7 @@ const userPostCompleteInfo = require("./User/InfoPerfilUser/PostCompleteInfo");
 //AMBOS
 const adminGetCategories = require("./GetCategories");
 const adminGetComment = require("./GetComment");
-const adminIdProducts = require("./GetProducId");
+const adminIdProducts = require("./GetProductId");
 const adminGetProducts = require("./GetProducts");
 const login = require("./login");
 const loginGoogle = require("./loginGoogle.js");
