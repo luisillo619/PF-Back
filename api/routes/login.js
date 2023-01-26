@@ -4,6 +4,7 @@ const express = require("express");
 const login = express.Router();
 const jwt = require("jsonwebtoken");   
 require('dotenv').config();
+
 const generateAuthToken = (user) => {
   const jwtSecretKey = process.env.JWT_SECRET_KEY; //
   const token = jwt.sign(
@@ -21,7 +22,7 @@ const generateAuthToken = (user) => {
   return token;
 };
 
-login.use("/", async (req, res) => {
+login.post("/", async (req, res) => {
   const { userName, email, password } = req.body;
 
   if (userName && email && password) {

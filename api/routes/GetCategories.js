@@ -1,11 +1,16 @@
 const express = require("express"); //Express
-const admin = express.Router(); //Ruta administrador
+const getCategories = express.Router(); //Ruta administrador
 const Categories = require("../models/Categories.js"); //Model
 
-admin.use("/", async (req, res) => {
-  const categories = await Categories.find();
-
-  res.status(200).send(categories);
+// Ruta para obtener todas las categorias
+getCategories.get("/", async (req, res) => {
+  try {
+    const categories = await Categories.find();
+    res.status(200).send(categories);
+  } catch (error) {
+    res.status(500).send('Error en el servidor');
+  }
+ 
 });
 
-module.exports = admin
+module.exports = getCategories;

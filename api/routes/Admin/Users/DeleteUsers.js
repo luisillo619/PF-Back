@@ -1,11 +1,12 @@
 const express = require("express");
 const deleteUser = express.Router();
 const User = require("../../../models/Users.js");
-const { isAdmin } = require("../../../middleware/auth");
+const {  isUser } = require("../../../middleware/auth");
 
+// UNIFICAR ISUSER
 
 //Ruta para eliminar un usuario por parte del Admin
-deleteUser.delete('/:id', isAdmin, async (req, res) =>{
+deleteUser.delete('/:id', isUser, async (req, res) =>{
     try {
         User.findByIdAndRemove(req.params.id, (error) => {
             if (error) {
