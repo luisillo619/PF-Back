@@ -41,6 +41,10 @@ const userSchema = new Schema(
      admin: {
       type: Boolean,
       default: false,
+    }, 
+    isBlocked: {
+      type: Boolean, 
+      default: false 
     },
     favorites: [{ type: Schema.Types.ObjectId, ref: "Favorites" }],
     address: [{ type: Schema.Types.ObjectId, ref: "Address" }],
