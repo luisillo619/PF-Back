@@ -3,7 +3,7 @@ const deleteComent = express.Router();
 const Comment = require("../../../models/Comments");
 const { isUser } = require("../../../middleware/auth");
 
-// UNIFICAR
+
 
 //Ruta para eliminar comentarios por parte del Admin
 deleteComent.use("/:id", isUser, async (req, res) => {
