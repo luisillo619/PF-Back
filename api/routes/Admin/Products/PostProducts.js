@@ -1,17 +1,20 @@
 const express = require("express");
 const postProduct = express.Router();
 const Products = require("../../../models/Products.js");
+const Categories = require("../../../models/Categories");
 const { isAdmin } = require("../../../middleware/auth");
 
-
 //Ruta para crear el producto
-postProduct.post("/", isAdmin ,async (req, res) => {
+
+postProduct.post("/", isAdmin, async (req, res) => {
   try {
     const { name, price, description, category, image } = req.body;
+    const idCategoty = Categories.findOne({ name: category });
     if (!name || !price || !description || !category || !image) {
       return res.status(400).send("Faltan datos");
     }
     //utilizar un findOne para verificar si el producto ya está creado  -  IMPORTANTE NO OLVIDAR
+    req.body.category = idCategoty;
     Products.create(req.body, (error, datos) => {
       if (error) {
         res.status(500).send(error);
@@ -20,9 +23,8 @@ postProduct.post("/", isAdmin ,async (req, res) => {
       }
     });
   } catch (error) {
-    res.status(500).send('Error interno del servidor.');
+    res.status(500).send("Error interno del servidor.");
   }
 });
-
 
 module.exports = postProduct;
