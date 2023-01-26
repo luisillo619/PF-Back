@@ -735,7 +735,7 @@ const products = [
       oldPrice: 0,
     },
     comments: [],
-    category: "ComCorkscrewbos",
+    category: "Corkscrew",
     isDeleted: false,
   },
   {
@@ -754,7 +754,7 @@ const products = [
       oldPrice: 0,
     },
     comments: [],
-    category: "ComCorkscrewbos",
+    category: "Corkscrew",
     isDeleted: false,
   },
 

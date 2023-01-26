@@ -39,7 +39,6 @@ const productsSchema = new Schema({
       newPrice: 0,
       oldPrice: 0,
     },
-    isDeleted: { type: Boolean, default: false }
   },
   isDeleted: { type: Boolean, default: false },
 
