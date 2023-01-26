@@ -23,17 +23,22 @@ router.get("/login/success", async (req, res) => {
   // ver si es admin o no con el middleware auth isUser and isAdmin, unicamente generamos el token aqui mismo y mandar el token por res, despues automaticamente se va a hacer la verificiacion del mismo archivo poniendolo en cada ruta que sea necesaria
 
   // el token necesita llevar lo de admin
-  if (req.user) {
-    let userIsAdmin = {email: req.user.emails[0].value};
-    if (req.user.emails[0].value === "luiscarlosrangellagunes@gmail.com"){
-      userIsAdmin.admin = true
-	}
-    console.log(userIsAdmin)
-    const token = generateAuthToken(userIsAdmin);
-    res.send({ user: req.user._json, token: token });
-  } else {
-    res.status(403).json({ error: true, message: "Not Authorized" });
+  try {
+    if (req.user) {
+      let userIsAdmin = { email: req.user.emails[0].value };
+      if (req.user.emails[0].value === "luiscarlosrangellagunes@gmail.com") {
+        userIsAdmin.admin = true;
+      }
+      console.log(userIsAdmin);
+      const token = generateAuthToken(userIsAdmin);
+      res.send({ user: req.user._json, token: token });
+    } else {
+      res.status(403).json({ error: true, message: "Not Authorized" });
+    }
+  } catch (error) {
+    res.status(500).send('Error en el servidor');
   }
+ 
 });
 
 router.get("/login/failed", (req, res) => {

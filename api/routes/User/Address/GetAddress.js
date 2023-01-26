@@ -1,12 +1,19 @@
 const express = require("express");
-const getAddress = express.Router();
+const address = express.Router();
 const Address = require("../../../models/Address");
-const { isUser } = require("../../../middleware/auth");
-//!REVISAR LA RUTA, CREEMOS QUE FALTA UN ID
-//Ruta para traer
-getAddress.use("/", isUser, async (req, res) => {
-  const adre = await Address.find();
-  res.status(200).send(adre);
+const ObjectId = require("mongoose").Types.ObjectId;
+
+// ISuser
+address.get("/:userId", async (req, res) => {
+    try {
+        const addresses = await Address.find({ user: new ObjectId(req.params.userId) });
+        if (!addresses) {
+            return res.status(404).send("No se encontraron direcciones para este usuario.");
+        }
+        res.status(200).json(addresses);
+    } catch (error) {
+        res.status(500).send("Error al obtener las direcciones. " + error.message);
+    }
 });
-module.exports = getAddress;
- 
+//GET - http://localhost:3001/getAddress/63ce294a89ebe03748fa1f89 --> id del usuario
+module.exports = address;

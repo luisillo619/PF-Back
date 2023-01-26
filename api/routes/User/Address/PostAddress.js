@@ -7,7 +7,7 @@ const { isUser } = require("../../../middleware/auth");
 postAddress.post("/:id", isUser, async (req, res) => {
   try {
     const { Country, City, State, Street, ZipCode } = req.body;
-    if (Country && City && State && Street && ZipCode) {
+    if (!Country  || !City || !State || !Street || !ZipCode) {
       return res.status(400).json("Faltan datos");
     }
     const address = await Address.create(req.body);
@@ -17,7 +17,7 @@ postAddress.post("/:id", isUser, async (req, res) => {
       { $push: { address: addressId } },
       { new: true, upsert: true }
     );
-    res.status(200).send(updatedProduct);
+    res.status(200).send(updatedUsers);
   } catch (error) {
     res.status(500).send('Error interno del servidor.');
   }
