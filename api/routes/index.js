@@ -45,7 +45,7 @@ const putComment = require("./PutComment");
 const register = require("./register");
 
 
-/*--------------Rutas--------------*/
+/*-------------------Rutas-------------------*/
 //ADMIN
 route.use("/deleteComent", adminDeleteComment);
 route.use("/adminDeleteProducts", adminDeleteProducts);
