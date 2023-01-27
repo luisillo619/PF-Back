@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
+const  User  = require("../models/Users");
 
 const generateAuthToken = (user) => {
   const jwtSecretKey = process.env.JWT_SECRET_KEY; //
@@ -28,7 +29,15 @@ router.get("/login/success", async (req, res) => {
       let userIsAdmin = { email: req.user.emails[0].value };
       if (req.user.emails[0].value === "luiscarlosrangellagunes@gmail.com") {
         userIsAdmin.admin = true;
+      } 
+      // Verificar si el usuario está bloqueado
+      if (User.isBlocked === true) {
+        return res.status(401).send({
+            error: true,
+            message: "Usuario bloqueado",
+        });
       }
+     
       console.log(userIsAdmin);
       const token = generateAuthToken(userIsAdmin);
       res.send({ user: req.user._json, token: token });
