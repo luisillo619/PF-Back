@@ -7,7 +7,7 @@ const adminPostProducts = require("./Admin/Products/PostProducts");
 const adminPutProducts = require("./Admin/Products/PutProducts");
 const adminDeleteUser = require("./Admin/Users/DeleteUsers");
 const adminGetUser = require("./Admin/Users/GetAllUsers");
-// const adminPutLockedUser = require("./Admin/Users/PutLockedUser");
+const adminPutLockedUser = require("./Admin/Users/PutLockedUser");
 const adminPutUser = require("./Admin/Users/PutUser");
 //ORDER
 const deleteOrder = require("./Order/DeleteOrder");
@@ -43,7 +43,7 @@ route.use("/adminPostProducts", adminPostProducts);
 route.use("/adminPutProducts", adminPutProducts);
 route.use("/deleteUser", adminDeleteUser); //Si
 route.use("/getAllUsers", adminGetUser); //Si
-//route.use("/adminPutLockedUser", adminPutLockedUser);
+route.use("/adminPutLockedUser", adminPutLockedUser);
 route.use("/putUser", adminPutUser);
 //ORDER
 route.use("/deleteOrder", deleteOrder);
