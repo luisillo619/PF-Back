@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const Users = require("../models/Users");
 require('dotenv').config();
 
 // para autenticar que el ususario esta luego
@@ -12,6 +13,10 @@ const auth = (req, res, next) => {
     const decoded = jwt.verify(token, jwtSecretKey); // me junta el objeto de req, con la codificacion del token, por eso sigue teniendo la propiedad admin
 
     req.user = decoded;
+    const user = Users.findById(decoded.id);
+    if(user.isBlocked){
+      return res.status(401).send("Tu cuenta ha sido bloqueada")
+    }
     console.log(req.user)
     next(); // ejecuta la funcion del tercer parametro de auth en isUser y isAdmin
   } catch (ex) {
