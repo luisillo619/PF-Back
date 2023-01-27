@@ -7,7 +7,7 @@ const { loaderProducts, loaderCategories } = require("./addDb");
 // Carga unicamente los datos de Products a la base de datos(mongoDb)
 
 // paso 2 se hace la conexion de la base de datos con el servidor, el servidor le proporciona los datos de products a mongo Atlas
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT
 
 connection
   .syncIndexes({ force: true })
