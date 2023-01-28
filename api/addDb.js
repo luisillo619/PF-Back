@@ -4,6 +4,9 @@ const products = require("./additional/ProductsDB"); // datos
 const categories = require("./additional/categories"); // datos
 const Categories = require("./models/Categories"); // datos
 
+const Status = require("./models/Status");
+const status = require("./additional/StatusDB");
+
 const Users = require("./models/Users");
 const Favorites = require("./models/Favorites");
 const Address = require("./models/Address.js");
@@ -22,6 +25,21 @@ async function loaderCategories() {
     }
     await Categories.insertMany(categories);
     console.log("categories in mongo Atlas");
+  } catch (err) {
+    console.log(err);
+    return;
+  }
+}
+
+async function loaderStatus() {
+  try {
+    const count = await Status.countDocuments();
+    if (count > 0) {
+      console.log("Status cargados anteriormente");
+      return;
+    }
+    await Status.insertMany(status);
+    console.log("Status in mongo Atlas");
   } catch (err) {
     console.log(err);
     return;
@@ -115,14 +133,20 @@ async function loaderProducts() {
 //   }
 // });
 
+// Status.remove({}, (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("All Status removed successfully!");
+//   }
+// });
 
+//  Order.remove({}, (err) => {
+//   if (err) {
+//      console.log(err);
+//    } else {
+//     console.log("All Favorites removed successfully!");
+//    }
+//  })
 
-/* Order.remove({}, (err) => {
-  if (err) {
-     console.log(err);
-   } else {
-    console.log("All Favorites removed successfully!");
-   }
- });*/
-
-module.exports = { loaderProducts, loaderCategories };
+module.exports = { loaderProducts, loaderCategories,loaderStatus };

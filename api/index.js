@@ -2,7 +2,7 @@ const app = require("./app.js");
 let dotenv = require('dotenv');
 dotenv.config();
 const { connection } = require("./db.js");
-const { loaderProducts, loaderCategories } = require("./addDb");
+const { loaderProducts, loaderCategories, loaderStatus } = require("./addDb");
 
 
 // Carga unicamente los datos de Products a la base de datos(mongoDb)
@@ -14,7 +14,8 @@ connection
   .syncIndexes({ force: true })
   .then(async () => {
     await loaderCategories();
-    await loaderProducts(); // paso 3
+    await loaderProducts();
+    await loaderStatus() // paso 3
   })
   .then(() => {
     app.listen(PORT, () => {
