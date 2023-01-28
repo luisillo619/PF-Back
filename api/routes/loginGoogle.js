@@ -76,3 +76,14 @@ router.get("/login/failed", (req, res) => {
 });
 
 module.exports = router;
+
+
+// FALLO LA AUTH
+router.get("/login/failed", (req, res) => {
+  res.status(401).json({
+    error: true,
+    message: "Log in failure",
+  });
+});
+
+module.exports = router;

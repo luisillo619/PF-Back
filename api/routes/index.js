@@ -1,5 +1,7 @@
 const { Router } = require("express");
 const route = Router();
+
+
 //ADMIN
 const adminDeleteComment = require("./Admin/Comments Admin/DeleteComment");
 const adminDeleteProducts = require("./Admin/Products/DeleteProducts");
@@ -9,11 +11,15 @@ const adminDeleteUser = require("./Admin/Users/DeleteUsers");
 const adminGetUser = require("./Admin/Users/GetAllUsers");
 const adminPutLockedUser = require("./Admin/Users/PutLockedUser");
 const adminPutUser = require("./Admin/Users/PutUser");
+
+
 //ORDER
 const deleteOrder = require("./Order/DeleteOrder");
 const getOrder = require("./Order/GetOrder");
 const postOrder = require("./Order/PostOrder");
-//USERr
+
+
+//USER
 const userDeleteAddress = require("./User/Address/DeleteAddress");
 const userGetAddress = require("./User/Address/GetAddress");
 const userPostAddress = require("./User/Address/PostAddress");
@@ -23,7 +29,9 @@ const getFavorites = require("./User/Fav/GetFav");
 const postFavorites = require("./User/Fav/PostFav");
 const getAccountProfile = require("./User/InfoPerfilUser/GetAccountProfile");
 const userPostCompleteInfo = require("./User/InfoPerfilUser/PostCompleteInfo");
-//const putPassword= require('./User/Info Perfil User/PutPassword');
+const putPassword= require('./User/InfoPerfilUser/PutPassword');
+const postPassword= require('./User/InfoPerfilUser/PostPassword');
+
 
 //AMBOS
 const adminGetCategories = require("./GetCategories");
@@ -35,31 +43,42 @@ const loginGoogle = require("./loginGoogle.js");
 const postComment = require("./PostComment");
 const putComment = require("./PutComment");
 const register = require("./register");
-/*--------------Rutas--------------*/
+
+
+/*-------------------Rutas-------------------*/
 //ADMIN
 route.use("/deleteComent", adminDeleteComment);
 route.use("/adminDeleteProducts", adminDeleteProducts);
 route.use("/adminPostProducts", adminPostProducts);
 route.use("/adminPutProducts", adminPutProducts);
+
 route.use("/deleteUser", adminDeleteUser); //Si
 route.use("/getAllUsers", adminGetUser); //Si
+
 route.use("/adminPutLockedUser", adminPutLockedUser);
 route.use("/putUser", adminPutUser);
+
+
 //ORDER
 route.use("/deleteOrder", deleteOrder);
 route.use("/getOrder", getOrder);
 route.use("/postOrder", postOrder);
+
+
 //USER
 route.use("/deleteAddress", userDeleteAddress);
 route.use("/getAddress", userGetAddress);
 route.use("/postAddress", userPostAddress);
-route.use("/putAddress", userPutAddress); //Si
+route.use("/putAddress", userPutAddress);
 route.use("/deleteFav", deleteFavorites);
 route.use("/getFav", getFavorites);
 route.use("/postFav", postFavorites);
 route.use("/getAccountProfile", getAccountProfile);
 route.use("/postCompleteInfo", userPostCompleteInfo);
-//route.use("/putPassword", putPassword);
+route.use("/putPassword", putPassword);
+route.use("/postPassword", postPassword);
+
+
 //RUTAS DE AMBOS
 route.use("/adminGetCategories", adminGetCategories);
 route.use("/adminGetComment", adminGetComment);
@@ -69,5 +88,7 @@ route.use("/loginCorreo", login);
 route.use("/auth", loginGoogle);
 route.use("/postComent", postComment);
 route.use("/updateComent", putComment);
-route.use("/register", register); //Si
+route.use("/register", register);
+
+
 module.exports = route;
