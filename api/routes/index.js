@@ -51,8 +51,10 @@ route.use("/deleteComent", adminDeleteComment);
 route.use("/adminDeleteProducts", adminDeleteProducts);
 route.use("/adminPostProducts", adminPostProducts);
 route.use("/adminPutProducts", adminPutProducts);
-route.use("/deleteUser", adminDeleteUser);
-route.use("/getAllUsers", adminGetUser);
+
+route.use("/deleteUser", adminDeleteUser); //Si
+route.use("/getAllUsers", adminGetUser); //Si
+
 route.use("/adminPutLockedUser", adminPutLockedUser);
 route.use("/putUser", adminPutUser);
 
