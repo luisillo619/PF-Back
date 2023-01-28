@@ -45,6 +45,7 @@ const userSchema = new Schema(
       type: Boolean, 
       default: false 
     },
+    orders: [{ type: Schema.Types.ObjectId, ref: "Orders" }],
     favorites: [{ type: Schema.Types.ObjectId, ref: "Favorites" }],
     address: [{ type: Schema.Types.ObjectId, ref: "Address" }],
     comments: [{ type: Schema.Types.ObjectId, ref: "Comments" }],

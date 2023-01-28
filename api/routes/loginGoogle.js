@@ -22,14 +22,18 @@ const generateAuthToken = (user) => {
 // PASO 4, UNA VEZ QUE LA AUTH SEA EXITOSA, ME TRAE LOS DATOS DEL USUSARIO
 router.get("/login/success", async (req, res) => {
   try {
+    
     if (req.user) {
       const userEmail = req.user._json.email;
+      const name = req.user._json.name;
       const user = await User.findOne({ email: userEmail });
+      if (!user) {
+        await User.create({ name, email: userEmail });
+      }
       if (User.isBlocked === true) {
         return res.status(401).send("Usuario bloqueado");
       }
-
-      const token = await generateAuthToken(user);
+      const token = generateAuthToken(user);
       res.send({ token, id: user._id });
     } else {
       res.status(401).json("Not Authorized");
@@ -48,17 +52,9 @@ router.get("/google", passport.authenticate("google", ["profile", "email"]));
 router.get(
   "/google/callback",
   passport.authenticate("google", {
+    successRedirect: "http://localhost:3000/home",
     failureRedirect: "/login/failed",
-  }),
-  async (req, res) => {
-    const userEmail = req.user._json.email;
-    const name = req.user._json.name;
-    let user = await User.findOne({ email: userEmail });
-    if (!user) {
-      await User.create({ name, email: userEmail });
-    }
-    res.redirect("http://localhost:3000/home?auth=true");
-  }
+  })
 );
 
 // DESLOGEARSE
