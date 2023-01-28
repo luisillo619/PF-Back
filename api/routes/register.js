@@ -17,7 +17,10 @@ const generateAuthToken = (user) => {
       email: user.email,
       isAdmin: user.admin,
     },
-    jwtSecretKey //El objeto JSON es firmado con la clave secreta 'jwtSecretKey' antes generada
+    jwtSecretKey,
+    {
+      expiresIn: '1h'
+    } //El objeto JSON es firmado con la clave secreta 'jwtSecretKey' antes generada
   );
   return token; //Finalmente, la función devuelve el 'token' generado.
 };
@@ -48,7 +51,7 @@ register.post("/", async (req, res) => {
         const user = new User({ userName, email, password, admin }); //Constante 'user' setea en el modelo 'User' el { userName, email, password }
         const salt = await bcrypt.genSalt(10); //Este es el encriptador
         user.password = await bcrypt.hash(user.password, salt); //De la variable 'user', tomamos la 'password' y hacemos hash con bcrypt a la 'password' para encriptarla
-        console.log(user);
+
         await user.save(); //Esperamos para guardar en la variable 'user'
         const token = generateAuthToken(user); //Y generamos un token con todo encriptado
 

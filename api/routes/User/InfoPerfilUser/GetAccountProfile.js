@@ -3,8 +3,10 @@ const getAccount = express.Router();
 const User = require("../../../models/Users");
 const { isUser } = require("../../../middleware/auth");
 
-// Ruta para obtener los datos de un ususario especifico por ID
+// Ruta para obtener los datos de un ususario especifico por su token
+
 getAccount.get("/:id", isUser, async (req, res) => {
+  console.log(req.user)
   try {
     const infoUser = await User.findOne({ _id: req.params.id });
     res.status(200).send(infoUser);

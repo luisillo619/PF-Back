@@ -10,7 +10,7 @@ getProducId.get("/:id", async(req,res)=>{
     if(id){
       const idProducts= await products.filter((el) =>el.id == id);
       products.length ?
-      res.status(200).send(idProducts):
+      res.status(200).send(idProducts[0]):
       res.status(404).send('No existe un perro con ese id')
     }
   } catch (error) {

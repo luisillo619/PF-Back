@@ -5,7 +5,7 @@ const { isAdmin } = require("../../../middleware/auth");
 
 
 //Ruta para traer todos los usuarios
-getAllUsers.get("/", /*isAdmin*/ async (req, res) => {
+getAllUsers.get("/", isAdmin ,async (req, res) => {
   try {
     const users = await User.find();
     res.status(200).send(users);
