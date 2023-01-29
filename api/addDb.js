@@ -101,13 +101,13 @@ async function loaderProducts() {
 //   }
 // });
 
-/* Users.remove({}, (err) => {
-   if (err) {
-     console.log(err);
-   } else {
-     console.log("All Users removed successfully!");
-   }
- });*/
+//  Users.remove({}, (err) => {
+//    if (err) {
+//      console.log(err);
+//    } else {
+//      console.log("All Users removed successfully!");
+//    }
+//  });
 
 // Favorites.remove({}, (err) => {
 //   if (err) {
