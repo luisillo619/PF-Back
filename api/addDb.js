@@ -85,68 +85,68 @@ async function loaderProducts() {
 }
 
 //reinician la base de datos
-// Products.remove({}, (err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log("All products removed successfully!");
-//   }
-// });
+Products.remove({}, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("All products removed successfully!");
+  }
+});
 
-// Categories.remove({}, (err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log("All Categories removed successfully!");
-//   }
-// });
+Categories.remove({}, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("All Categories removed successfully!");
+  }
+});
 
-//  Users.remove({}, (err) => {
-//    if (err) {
-//      console.log(err);
-//    } else {
-//      console.log("All Users removed successfully!");
-//    }
-//  });
+ Users.remove({}, (err) => {
+   if (err) {
+     console.log(err);
+   } else {
+     console.log("All Users removed successfully!");
+   }
+ });
 
-// Favorites.remove({}, (err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log("All Favorites removed successfully!");
-//   }
-// });
+Favorites.remove({}, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("All Favorites removed successfully!");
+  }
+});
 
-// Address.remove({}, (err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log("All Address removed successfully!");
-//   }
-// });
+Address.remove({}, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("All Address removed successfully!");
+  }
+});
 
-// Comments.remove({}, (err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log("All Comments removed successfully!");
-//   }
-// });
+Comments.remove({}, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("All Comments removed successfully!");
+  }
+});
 
-// Status.remove({}, (err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log("All Status removed successfully!");
-//   }
-// });
+Status.remove({}, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("All Status removed successfully!");
+  }
+});
 
-//  Order.remove({}, (err) => {
-//   if (err) {
-//      console.log(err);
-//    } else {
-//     console.log("All Favorites removed successfully!");
-//    }
-//  })
+ Order.remove({}, (err) => {
+  if (err) {
+     console.log(err);
+   } else {
+    console.log("All Favorites removed successfully!");
+   }
+ })
 
 module.exports = { loaderProducts, loaderCategories,loaderStatus };

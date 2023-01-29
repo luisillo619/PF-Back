@@ -54,7 +54,10 @@ passport.use(
       callbackURL: "/auth/github/callback",
     },
     async function (accessToken, refreshToken, profile, cb) {
-      const user = await Users.findOne({ loginBy: "Github", userName });
+      const user = await Users.findOne({
+        loginBy: "Github",
+        userName: profile._json.login,
+      });
       if (!user)
         Users.create(
           {
