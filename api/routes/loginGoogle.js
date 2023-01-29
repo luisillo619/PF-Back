@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
-const User = require("../models/Users");
+const CLIENT_URL = "http://localhost:3000/";
 
 const generateAuthToken = (user) => {
   const jwtSecretKey = process.env.JWT_SECRET_KEY; //
@@ -19,58 +19,38 @@ const generateAuthToken = (user) => {
   );
   return token;
 };
-// PASO 4, UNA VEZ QUE LA AUTH SEA EXITOSA, ME TRAE LOS DATOS DEL USUSARIO
-router.get("/login/success", async (req, res) => {
-  try {
-    
-    if (req.user) {
-      const userEmail = req.user._json.email;
-      const name = req.user._json.name;
-      const user = await User.findOne({ email: userEmail });
-      if (!user) {
-        await User.create({ name, email: userEmail });
-      }
-      if (User.isBlocked === true) {
-        return res.status(401).send("Usuario bloqueado");
-      }
-      const token = generateAuthToken(user);
-      res.send({ token, id: user._id });
-    } else {
-      res.status(401).json("Not Authorized");
-    }
-  } catch (error) {
-    res.status(500).send("Error en el servidor");
+
+router.get("/login/success", (req, res) => {
+  if (req.user) {
+    res.status(200).json({
+      success: true,
+      message: "successfull",
+      // user: req.user,
+      id: req.user_id,
+      token: generateAuthToken(req.user),
+    });
   }
 });
 
-// aqui esta la autenticacion por google
-//passport.authenticate es un midelware
-router.get("/google", passport.authenticate("google", ["profile", "email"]));
-
-//PASO 3
-//SE EJECUTA DESPUES DE QUE EL USUSARIO DE CLICK EN SU CUENTA Y VERIFICA QUE LA AUTENTICACION SEA CORRECTA. POR ULTIMO CREA AL USUSARIO SI EL LOGIN FUE EXITOSO
-
-
-router.get('/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
-
-// DESLOGEARSE
-router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("http://localhost:3000/");
-});
-
-// FALLO LA AUTH
 router.get("/login/failed", (req, res) => {
   res.status(401).json({
-    error: true,
-    message: "Log in failure",
+    success: false,
+    message: "failure",
   });
 });
 
-module.exports = router;
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect(CLIENT_URL);
+});
 
+router.get("/google", passport.authenticate("google", { scope: ["profile","email"] }));
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: CLIENT_URL,
+    failureRedirect: "/login/failed",
+  })
+);
+module.exports = router;
