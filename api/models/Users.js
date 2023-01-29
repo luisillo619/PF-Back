@@ -44,6 +44,9 @@ const userSchema = new Schema(
       type: Boolean, 
       default: false 
     },
+    loginBy: {
+      type: String, //"GOOGLE"
+    },
     orders: [{ type: Schema.Types.ObjectId, ref: "Orders" }],
     favorites: [{ type: Schema.Types.ObjectId, ref: "Favorites" }],
     address: [{ type: Schema.Types.ObjectId, ref: "Address" }],
