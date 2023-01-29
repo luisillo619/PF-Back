@@ -24,11 +24,11 @@ passport.use(
           },
           (err, user) => {
             
-            return cb(err, profile);
+            return cb(err, user);
           }
         );
       else {
-        return cb(null, profile);
+        return cb(null, user);
       }
     }
   )
