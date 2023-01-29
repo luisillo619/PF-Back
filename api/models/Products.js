@@ -2,6 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const productsSchema = new Schema(
   {
+  
     // Información básica del producto
     name: {
       type: String,
