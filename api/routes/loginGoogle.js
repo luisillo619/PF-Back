@@ -44,23 +44,24 @@ router.get("/login/success", async (req, res) => {
 });
 
 // aqui esta la autenticacion por google
+//passport.authenticate es un midelware
 router.get("/google", passport.authenticate("google", ["profile", "email"]));
 
 //PASO 3
 //SE EJECUTA DESPUES DE QUE EL USUSARIO DE CLICK EN SU CUENTA Y VERIFICA QUE LA AUTENTICACION SEA CORRECTA. POR ULTIMO CREA AL USUSARIO SI EL LOGIN FUE EXITOSO
-//passport.authenticate es un midelware
-router.get(
-  "/google/callback",
-  passport.authenticate("google", {
-    successRedirect: "http://localhost:3000/home",
-    failureRedirect: "/login/failed",
-  })
-);
+
+
+router.get('/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
 
 // DESLOGEARSE
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("http://localhost:3000/home");
+  res.redirect("http://localhost:3000/");
 });
 
 // FALLO LA AUTH
@@ -73,13 +74,3 @@ router.get("/login/failed", (req, res) => {
 
 module.exports = router;
 
-
-// FALLO LA AUTH
-router.get("/login/failed", (req, res) => {
-  res.status(401).json({
-    error: true,
-    message: "Log in failure",
-  });
-});
-
-module.exports = router;
