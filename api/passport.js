@@ -22,8 +22,11 @@ passport.use(
       scope: ["profile", "email"],
     },
     async function (accessToken, refreshToken, profile, cb) {
-      const user = await Users.findOne({ loginBy: "Google" });
-      
+      const user = await Users.findOne({
+        loginBy: "Google",
+        email: profile._json.email,
+      });
+
       if (!user)
         Users.create(
           {
@@ -51,7 +54,7 @@ passport.use(
       callbackURL: "/auth/github/callback",
     },
     async function (accessToken, refreshToken, profile, cb) {
-      const user = await Users.findOne({ loginBy: "Github" });
+      const user = await Users.findOne({ loginBy: "Github", userName });
       if (!user)
         Users.create(
           {
@@ -80,6 +83,7 @@ passport.use(
       callbackURL: "/auth/facebook/callback",
     },
     async function (accessToken, refreshToken, profile, cb) {
+      // PROBAR LO DEL CORREO
       const user = await Users.findOne({ loginBy: "Facebook" });
 
       if (!user)

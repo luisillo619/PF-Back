@@ -29,26 +29,24 @@ postOrder.post("/", async (req, res) => {
       status: "orderCart",
     });
 
-    Order.findOne({ user: user, status: statusCart }, (err, order) => {
+    Order.findOne({ user: user, status: statusCart }, async (err, order) => {
       if (err) return res.status(500).send(err);
       if (!order) {
-        order = new Order({
+        order = await new Order({
           user,
           product: [product],
           amount,
           total,
           status: statusCart._id,
         });
+        await User.findOneAndUpdate({ _id: user }, { orders: order });
+     
       } else {
         order.product.push(product);
         order.status = statusCart._id;
       }
-      order.save((err, updatedOrder) => {
+      order.save(async (err, updatedOrder) => {
         if (err) return res.status(500).send(err);
-        User.findById({_id:user}, (err, usr) => {
-           
-        })
-
         return res.send(updatedOrder);
       });
     });
