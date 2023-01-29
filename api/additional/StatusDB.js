@@ -1,7 +1,7 @@
 //s
 const status = [
   {
-    status: "orderCar",
+    status: "orderCart",
   },
   {
     status: "orderComplete",
