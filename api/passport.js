@@ -23,6 +23,7 @@ passport.use(
     },
     async function (accessToken, refreshToken, profile, cb) {
       const user = await Users.findOne({ loginBy: "Google" });
+      
       if (!user)
         Users.create(
           {
@@ -51,7 +52,6 @@ passport.use(
     },
     async function (accessToken, refreshToken, profile, cb) {
       const user = await Users.findOne({ loginBy: "Github" });
-
       if (!user)
         Users.create(
           {
