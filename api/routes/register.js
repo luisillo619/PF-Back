@@ -3,6 +3,7 @@ const User = require("../models/Users"); //Importamos el modelo 'User', aquí le
 const bcrypt = require("bcrypt"); //Importamos la librería 'bcrypt' para encriptar las contraseñas de los usuarios antes de almacenarlas en la base de datos
 const jwt = require("jsonwebtoken"); //'jwt' codifica y decodificar de manera segura información en formato JSON para la autenticación y la autorización en aplicaciones web, para que el usuario pueda navegar de forma segura en nuestro sitio web
 const register = express.Router(); //Nombre para identificar la ruta de 'register'
+const mailSettings = require("../additional/Nodemailer");
 require("dotenv").config();
 
 // Genera el token de cada ususario en cada registro
@@ -56,6 +57,18 @@ register.post("/", async (req, res) => {
         const token = generateAuthToken(user); //Y generamos un token con todo encriptado
 
         res.send({ token }); //Respondemos con un 200 solo con el 'token' con todo codificado
+
+        
+        const transporter = mailSettings.transporter;
+        const mailDetails = mailSettings.mailDetails(email);
+        transporter.sendMail(mailDetails, (error, info) => {
+          if (error) {
+            console.log(error);
+            res.status(404).send("Error al enviar email de confirmación");
+          } else {
+            console.log("Account creada con éxito.")}
+          })
+
       }
     } else {
       //De lo contrario

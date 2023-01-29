@@ -4,32 +4,35 @@ const { NODEMAILER } = process.env;                                     //Variab
 
 
 module.exports = {
-    transporter: nodemailer.createTransport({                           //
-        service: 'gmail',                                               //
+    transporter: nodemailer.createTransport({
+        service: 'gmail',                                               //Se escribe el servicio de correo
         auth: {
-            user: 'elteroexpresss@gmail.com',                           //Correo de la empresa
+            user: 'elmateexpress@gmail.com',                            //Correo de la empresa
             pass: NODEMAILER,                                           //Contraseña del correo
         },
     }),
 
 
-    mailDetails: (email) => {                                           //^Mail de bienvenida para el cliente
+    mailDetails: ( email) => {                                           //^Mail de bienvenida para el cliente
         return {
-            from: 'elteroexpresss@gmail.com',                           //Correo de la empresa
+            from: 'elmateexpress@gmail.com',                            //Correo de la empresa
             to: email,                                                  //Email del usuario
-            subject: '¡Bienvenido a El Tero Express!',                  //Asunto del corre
+            subject: `¡Bienvenido a El Mate Express!`,                  //Asunto del corre
             html: `
-             <p>Te damos la bienvenida a El Tero Express!</p>
+                <p>Te damos la bienvenida a El Mate Express!</p>
                 <br/>
-                <p><b>Estamos muy felices de que este correo se haya enviado, porque quiere decir que esta ruta está bien, vamos con toda para aprobar el PF.</b></p>
+                <p><b>Nos encontramos muy felices de que desees hacer parte de esta comunidad.</b></p>
+                <p>Contamos con excelentes productos elaboracidos artesanalmente, con el fin de generar emociones únicas para ti, te invitamos a que chequees nuestros productos, danos el gusto de servirte.</p>
+                <img width=50%; text-align=center; src="https://http2.mlstatic.com/D_NQ_NP_626950-MLA52849623093_122022-OO.webp"></img>
             `
         }
     },
 
 
+
     mailDelete: (email) => {                                            //^Mail de comunicación de cuenta eliminada para el cliente 
         return {
-            from: 'elteroexpresss@gmail.com',
+            from: 'elmateexpress@gmail.com',
             to: email,
             subject: '¡Te esperamos pronto!',
             html:`
@@ -43,7 +46,7 @@ module.exports = {
 
     mailNewPassword: (email, link) => {                                 //^Mail de comunicación para cambiar contraseña del cliente 
         return {
-            from: 'elteroexpresss@gmail.com',
+            from: 'elmateexpress@gmail.com',
             to: email,
             subject: 'Nueva contraseña',
             html: `
@@ -60,7 +63,7 @@ module.exports = {
 
     mailResponse: (email, name, response, comment) => {
         return {
-            from: 'elteroexpresss@gmail.com',
+            from: 'elmateexpress@gmail.com',
             to: email,
             subject: 'Respuesta del administrador de El Tero',
             html:
