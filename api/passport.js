@@ -26,11 +26,11 @@ passport.use(
           },
           (err, user) => {
             
-            return cb(err, profile);
+            return cb(err, user);
           }
         );
       else {
-        return cb(null, profile);
+        return cb(null, user);
       }
     }
   )
@@ -42,24 +42,27 @@ passport.use(
       clientID: CLIENT_GITHUB_ID,
       clientSecret: CLIENT_GITHUB_SECRET,
       callbackURL: "/auth/github/callback",
+      scope: ["profile", "email"]
     },
     async function (accessToken, refreshToken, profile, cb) {
-      const user = await Users.findOne({ email: profile._json.email });
-      // console.log(profile)
+      const user = await Users.findOne({ userName: profile._json.login});
+    
       if (!user)
         Users.create(
           {
-            email: profile._json.email,
-            name: profile._json.given_name,
-            lastName: profile._json.family_name,
+            name: profile._json.name.split(' ')[0],
+            lastName: profile._json.name.split(' ')[1],
+            userName: profile._json.login,
+            
           },
           (err, user) => {
-            
-            return cb(err, profile);
-          }
+            console.log(user)
+            return cb(err, user);
+          }  
         );
+        
       else {
-        return cb(null, profile);
+        return cb(null, user);
       }
     }
   )

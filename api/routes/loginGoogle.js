@@ -26,7 +26,7 @@ router.get("/login/success", (req, res) => {
       success: true,
       message: "successfull",
       // user: req.user,
-      id: req.user_id,
+      id: req.user._id,
       token: generateAuthToken(req.user),
     });
   }
