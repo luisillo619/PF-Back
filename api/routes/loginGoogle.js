@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
+const CLIENT_URL = "http://localhost:3000/";
 
 const generateAuthToken = (user) => {
   const jwtSecretKey = process.env.JWT_SECRET_KEY; //
@@ -11,57 +12,76 @@ const generateAuthToken = (user) => {
       email: user.email,
       isAdmin: user.admin,
     },
-    jwtSecretKey
+    jwtSecretKey,
+    {
+      expiresIn: "1h",
+    }
   );
   return token;
 };
-// En este punto el ususario esta logeado por google
-router.get("/login/success", async (req, res) => {
-  // let user = await User.findOne({ email: email });
-  // if (!user) return res.status(400).send("Invalid email or password...");
 
-  // ver si es admin o no con el middleware auth isUser and isAdmin, unicamente generamos el token aqui mismo y mandar el token por res, despues automaticamente se va a hacer la verificiacion del mismo archivo poniendolo en cada ruta que sea necesaria
-
-  // el token necesita llevar lo de admin
-  try {
-    if (req.user) {
-      let userIsAdmin = { email: req.user.emails[0].value };
-      if (req.user.emails[0].value === "luiscarlosrangellagunes@gmail.com") {
-        userIsAdmin.admin = true;
-      }
-      console.log(userIsAdmin);
-      const token = generateAuthToken(userIsAdmin);
-      res.send({ user: req.user._json, token: token });
-    } else {
-      res.status(403).json({ error: true, message: "Not Authorized" });
+router.get("/login/success", (req, res) => {
+  if (req.user) {
+    if(req.user.isBlocked){
+      return res.status(401).send("Tu cuenta ha sido bloqueada");
     }
-  } catch (error) {
-    res.status(500).send('Error en el servidor');
+    res.status(200).json({
+      success: true,
+      message: "successfull",
+      // user: req.user,
+      id: req.user._id,
+      token: generateAuthToken(req.user),
+    });
   }
- 
 });
 
 router.get("/login/failed", (req, res) => {
   res.status(401).json({
-    error: true,
-    message: "Log in failure",
+    success: false,
+    message: "failure",
   });
 });
 
-// aqui esta la autenticacion por google
-router.get("/google", passport.authenticate("google", ["profile", "email"]));
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect(CLIENT_URL);
+});
+
+router.get("/google", passport.authenticate("google", { scope: ["profile","email"] }));
 
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:3000/home",
+    successRedirect: CLIENT_URL,
+    failureRedirect: "/login/failed",
+  })
+);
+// GIT
+router.get("/github", passport.authenticate("github", { scope: ["profile","email"] }));
+
+router.get(
+  "/github/callback",
+  passport.authenticate("github", {
+    successRedirect: CLIENT_URL,
+    failureRedirect: "/login/failed",
+  })
+);
+// FACE
+router.get("/facebook", passport.authenticate("facebook", { scope: ["profile","email"] }));
+
+router.get(
+  "/facebook/callback",
+  passport.authenticate("facebook", {
+    successRedirect: CLIENT_URL,
     failureRedirect: "/login/failed",
   })
 );
 
-router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("http://localhost:3000/home");
-});
+
+
+
+
+
+
 
 module.exports = router;

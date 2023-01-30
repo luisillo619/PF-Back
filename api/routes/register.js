@@ -3,6 +3,7 @@ const User = require("../models/Users"); //Importamos el modelo 'User', aquí le
 const bcrypt = require("bcrypt"); //Importamos la librería 'bcrypt' para encriptar las contraseñas de los usuarios antes de almacenarlas en la base de datos
 const jwt = require("jsonwebtoken"); //'jwt' codifica y decodificar de manera segura información en formato JSON para la autenticación y la autorización en aplicaciones web, para que el usuario pueda navegar de forma segura en nuestro sitio web
 const register = express.Router(); //Nombre para identificar la ruta de 'register'
+const mailSettings = require("../additional/Nodemailer");
 require("dotenv").config();
 
 // Genera el token de cada ususario en cada registro
@@ -17,7 +18,10 @@ const generateAuthToken = (user) => {
       email: user.email,
       isAdmin: user.admin,
     },
-    jwtSecretKey //El objeto JSON es firmado con la clave secreta 'jwtSecretKey' antes generada
+    jwtSecretKey,
+    {
+      expiresIn: '1h'
+    } //El objeto JSON es firmado con la clave secreta 'jwtSecretKey' antes generada
   );
   return token; //Finalmente, la función devuelve el 'token' generado.
 };
@@ -48,11 +52,23 @@ register.post("/", async (req, res) => {
         const user = new User({ userName, email, password, admin }); //Constante 'user' setea en el modelo 'User' el { userName, email, password }
         const salt = await bcrypt.genSalt(10); //Este es el encriptador
         user.password = await bcrypt.hash(user.password, salt); //De la variable 'user', tomamos la 'password' y hacemos hash con bcrypt a la 'password' para encriptarla
-        console.log(user);
+
         await user.save(); //Esperamos para guardar en la variable 'user'
         const token = generateAuthToken(user); //Y generamos un token con todo encriptado
 
         res.send({ token }); //Respondemos con un 200 solo con el 'token' con todo codificado
+
+        
+        const transporter = mailSettings.transporter;
+        const mailDetails = mailSettings.mailDetails(email);
+        transporter.sendMail(mailDetails, (error, info) => {
+          if (error) {
+            console.log(error);
+            res.status(404).send("Error al enviar email de confirmación");
+          } else {
+            console.log("Account creada con éxito.")}
+          })
+
       }
     } else {
       //De lo contrario

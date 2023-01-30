@@ -27,8 +27,11 @@ login.post("/", async (req, res) => {
 
   if (userName && email && password) {
    
-    let user = await User.findOne({ email: email });
+    const user = await User.findOne({ email: email });
     if (!user) return res.status(400).send("Invalid email or password...");
+    if(user.isBlocked){
+      return res.status(401).send("Tu cuenta ha sido bloqueada");
+  }
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword)
       return res.status(400).send("Invalid email or password...");

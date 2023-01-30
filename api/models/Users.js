@@ -17,17 +17,15 @@ const userSchema = new Schema(
     },
     userName: {
       type: String,
-      required: true,
+      // required: true,
     },
     email: {
       type: String,
-      required: true,
       unique: true,
     },
     password: {
       type: String,
-      unique: true,
-      required: true,
+      // required: true,
     },
     signupDate: {
       //fecha de registro
@@ -41,7 +39,15 @@ const userSchema = new Schema(
      admin: {
       type: Boolean,
       default: false,
+    }, 
+    isBlocked: {
+      type: Boolean, 
+      default: false 
     },
+    loginBy: {
+      type: String, //"GOOGLE"
+    },
+    orders: [{ type: Schema.Types.ObjectId, ref: "Orders" }],
     favorites: [{ type: Schema.Types.ObjectId, ref: "Favorites" }],
     address: [{ type: Schema.Types.ObjectId, ref: "Address" }],
     comments: [{ type: Schema.Types.ObjectId, ref: "Comments" }],

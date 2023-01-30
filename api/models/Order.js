@@ -14,6 +14,7 @@ const ordersSchema = new Schema(
 
     product: [{ type: Schema.Types.ObjectId, ref: "Products" }],
     user: { type: Schema.Types.ObjectId, ref: "Users" },
+    status: { type: Schema.Types.ObjectId, ref: "Status" },
   },
   { versionKey: false }
 );
