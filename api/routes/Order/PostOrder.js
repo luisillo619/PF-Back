@@ -34,15 +34,14 @@ postOrder.post("/", async (req, res) => {
       if (!order) {
         order = await new Order({
           user,
-          product: [product],
+          product: product,
           amount,
           total,
           status: statusCart._id,
         });
         await User.findOneAndUpdate({ _id: user }, { orders: order });
-     
       } else {
-        order.product.push(product);
+        order.product.push(...product);
         order.status = statusCart._id;
       }
       order.save(async (err, updatedOrder) => {
