@@ -65,6 +65,7 @@ passport.use(
             lastName: profile._json.name.split(" ")[1],
             userName: profile._json.login,
             loginBy: "Github",
+  
           },
           (err, user) => {
             console.log(user);

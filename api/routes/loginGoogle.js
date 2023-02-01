@@ -30,6 +30,7 @@ router.get("/login/success", (req, res) => {
       message: "successfull",
       // user: req.user,
       id: req.user._id,
+      status: 200,
       token: generateAuthToken(req.user),
     });
   }

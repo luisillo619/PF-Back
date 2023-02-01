@@ -145,7 +145,7 @@ async function loaderProducts() {
 //   if (err) {
 //      console.log(err);
 //    } else {
-//     console.log("All Favorites removed successfully!");
+//     console.log("All Order removed successfully!");
 //    }
 //  })
 
