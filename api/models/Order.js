@@ -3,10 +3,13 @@ const { Schema, model } = require("mongoose");
 //Model Order
 const ordersSchema = new Schema(
   {
-    amount: {
-      type: Number,
-      allownull: false,
-    },
+    amount: [
+      {
+        product: { type: Schema.Types.ObjectId, ref: "Products" },
+        quantity: 0,
+      },
+    ],
+
     total: {
       type: Number,
       allownull: false,

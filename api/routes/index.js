@@ -11,8 +11,10 @@ const adminPutLockedUser = require("./Admin/Users/PutLockedUser");
 const adminPutUser = require("./Admin/Users/PutUser");
 //ORDER
 const deleteOrder = require("./Order/DeleteOrder");
-const getOrder = require("./Order/GetOrder");
+const getNumberProducts = require("./Order/GetNumberProducts");
+const getOrderDetails = require("./Order/GetOrderDetails");
 const postOrder = require("./Order/PostOrder");
+const postOrderStripe = require("./Order/PostOrderStripe")
 //USERr
 const userDeleteAddress = require("./User/Address/DeleteAddress");
 const userGetAddress = require("./User/Address/GetAddress");
@@ -47,8 +49,10 @@ route.use("/adminPutLockedUser", adminPutLockedUser);
 route.use("/putUser", adminPutUser);
 //ORDER
 route.use("/deleteOrder", deleteOrder);
-route.use("/getOrder", getOrder);
+route.use("/getNumberProducts", getNumberProducts);
+route.use("/getOrderDetails", getOrderDetails);
 route.use("/postOrder", postOrder);
+route.use("/postOrderStripe", postOrderStripe)
 //USER
 route.use("/deleteAddress", userDeleteAddress);
 route.use("/getAddress", userGetAddress);
