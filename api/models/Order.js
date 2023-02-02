@@ -7,6 +7,8 @@ const ordersSchema = new Schema(
       {
         product: { type: Schema.Types.ObjectId, ref: "Products" },
         quantity: 0,
+        unitPrice: 0,
+        image: ""
       },
     ],
 
