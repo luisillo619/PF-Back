@@ -7,8 +7,8 @@ const { auth } = require("../../middleware/auth");
 
 postOrder.post("/", async (req, res) => {
   try {
-    const { product, user, amount, total } = req.body;
-
+    const { product, user, amount, total, unitPrice, image } = req.body;
+  
     const statusCart = await Status.findOne({
       status: "orderCart",
     });
@@ -22,7 +22,7 @@ postOrder.post("/", async (req, res) => {
         order = await new Order({
           user,
           product: product,
-          amount: [{ product, quantity: 5 }],
+          amount: [{ product, quantity: amount, unitPrice, image }],
           total,
           status: statusCart._id,
         });
@@ -38,16 +38,18 @@ postOrder.post("/", async (req, res) => {
         });
 
         if (!productExists) {
-          order.amount.push({ product, quantity: amount });
+          order.amount.push({ product, quantity: amount, unitPrice, image });
           order.product.push(product);
         }
         order.total = order.total + total;
+        order.status = statusCart._id;
       }
       order.save(async (err, updatedOrder) => {
         if (err) return res.status(500).send(err);
         const numberOfProductsInCart = updatedOrder.amount
           .map((e) => e.quantity)
           .reduce((a, b) => a + b);
+        console.log(updatedOrder);
         return res.status(200).send({ numberOfProductsInCart });
       });
     });
