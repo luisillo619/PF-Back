@@ -49,7 +49,7 @@ postOrder.post("/", async (req, res) => {
         const numberOfProductsInCart = updatedOrder.amount
           .map((e) => e.quantity)
           .reduce((a, b) => a + b);
-        console.log(updatedOrder);
+        // console.log(updatedOrder);
         return res.status(200).send({ numberOfProductsInCart });
       });
     });

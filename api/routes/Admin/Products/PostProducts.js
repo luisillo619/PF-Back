@@ -9,7 +9,7 @@ const { isAdmin } = require("../../../middleware/auth");
 postProduct.post("/", async (req, res) => {
   try {
     const { name, price, description, category, image } = req.body;
-    console.log(req.body)
+
     const categoryDB = await Categories.findOne({ category: category });
 
     if (!name || !price || !description || !category || !image) {
