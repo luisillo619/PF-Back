@@ -2,7 +2,7 @@ const router = require("express").Router();
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-const CLIENT_URL = "https://pf-front-swart.vercel.app/";
+const CLIENT_URL = "https://pf-front-hb6cf8z59-luisillo619.vercel.app/";
 
 
 const generateAuthToken = (user) => {
