@@ -69,6 +69,7 @@ router.get(
     failureRedirect: "/login/failed",
   })
 );
+
 // FACE
 router.get("/facebook", passport.authenticate("facebook", { scope: ["profile","email"] }));
 
