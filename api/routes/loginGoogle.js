@@ -23,7 +23,9 @@ const generateAuthToken = (user) => {
 };
 
 router.get("/login/success", (req, res) => {
+  console.log("ruta login")
   if (req.user) {
+   console.log("hay un ususario en la ruta", req.user)
     if(req.user.isBlocked){
       return res.status(401).send("Tu cuenta ha sido bloqueada");
     }
