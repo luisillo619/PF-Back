@@ -2,7 +2,7 @@ const router = require("express").Router();
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-const CLIENT_URL = "https://pf-front-hb6cf8z59-luisillo619.vercel.app/";
+const CLIENT_URL = "https://pf-front-swart.vercel.app";
 
 
 const generateAuthToken = (user) => {
@@ -59,6 +59,8 @@ router.get(
     failureRedirect: "/login/failed",
   })
 );
+
+
 // GIT
 router.get("/github", passport.authenticate("github", { scope: ["profile","email"] }));
 //s
