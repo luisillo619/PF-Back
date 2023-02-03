@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
-const CLIENT_URL = "http://localhost:3000/";
+require("dotenv").config();
+const CLIENT_URL = process.env.CLIENT_URL;
+
 
 const generateAuthToken = (user) => {
   const jwtSecretKey = process.env.JWT_SECRET_KEY; //

@@ -13,11 +13,11 @@ getOrder.get("/:id", (req, res) => {
     Order.findOne({ user: id }).exec((err, order) => {
       if (err) return res.status(500).send(err);
       if (order) {
-        return res
-          .status(200)
-          .send({ numberOfProductsInCart: order.product.length });
-      } else
-        res.status(404).send({ numberOfProductsInCart: 0 });
+        const numberOfProductsInCart = order.amount
+          .map((e) => e.quantity)
+          .reduce((a, b) => a + b);
+        return res.status(200).send({ numberOfProductsInCart });
+      } else res.status(404).send({ numberOfProductsInCart: 0 });
     });
   } catch (error) {
     res.status(500).send("Error interno del servidor.");

@@ -15,6 +15,7 @@ const getNumberProducts = require("./Order/GetNumberProducts");
 const getOrderDetails = require("./Order/GetOrderDetails");
 const postOrder = require("./Order/PostOrder");
 const postOrderStripe = require("./Order/PostOrderStripe")
+const putQuantityOrder = require("./Order/PutQuantityOrder")
 //USERr
 const userDeleteAddress = require("./User/Address/DeleteAddress");
 const userGetAddress = require("./User/Address/GetAddress");
@@ -53,6 +54,7 @@ route.use("/getNumberProducts", getNumberProducts);
 route.use("/getOrderDetails", getOrderDetails);
 route.use("/postOrder", postOrder);
 route.use("/postOrderStripe", postOrderStripe)
+route.use("/putQuantityOrder", putQuantityOrder)
 //USER
 route.use("/deleteAddress", userDeleteAddress);
 route.use("/getAddress", userGetAddress);
