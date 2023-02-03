@@ -17,5 +17,5 @@ getProducts.get("/", async (req, res) => {
 //         "price": 60.00,
 //         "description":"Alpaca, also known as german silver, bottle saver with ﻿Gallonado motifs.",
 //         "image":"https://login.eltero.net/modules/products/uploads/product_40.jpeg",
-//         "category
+//         "categorys
 module.exports = getProducts;
