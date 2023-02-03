@@ -38,7 +38,7 @@ router.get("/login/success", (req, res) => {
       status: 200,
       token: generateAuthToken(req.user),
     });
-  }
+  } else return res.status(404).send("Tu cuenta ha sido bloqueada");
 });
 
 router.get("/login/failed", (req, res) => {
