@@ -12,7 +12,7 @@ postOrder.post("/", async (req, res) => {
       amount,
       currency: "usd",
     });
-    status = "succes";
+    status = "succes";         
 
    
   } catch (err) {
