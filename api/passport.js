@@ -27,7 +27,7 @@ passport.use(
         loginBy: "Google",
         email: profile._json.email,
       });
-
+      console.log("login GOGLEEEEEEEEEEEEEEEEEEEEEE")
       if (!user)
         Users.create(
           {
