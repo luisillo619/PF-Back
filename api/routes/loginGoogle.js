@@ -61,7 +61,7 @@ router.get(
 );
 // GIT
 router.get("/github", passport.authenticate("github", { scope: ["profile","email"] }));
-
+//s
 router.get(
   "/github/callback",
   passport.authenticate("github", {
