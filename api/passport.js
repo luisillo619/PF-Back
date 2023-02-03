@@ -38,6 +38,7 @@ passport.use(
             loginBy: "Google",
           },
           (err, user) => {
+            console.log("eeeee", user)
             return cb(err, user);
           }
         );
