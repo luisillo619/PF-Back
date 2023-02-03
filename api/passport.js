@@ -27,8 +27,9 @@ passport.use(
         loginBy: "Google",
         email: profile._json.email,
       });
-      console.log("login GOGLEEEEEEEEEEEEEEEEEEEEEE")
-      if (!user)
+      console.log("login GOGLEEEEEEEEEEEEEEEEEEEEEE");
+      console.log("eeeee", user)
+      if (!user) {
         Users.create(
           {
             email: profile._json.email,
@@ -40,7 +41,7 @@ passport.use(
             return cb(err, user);
           }
         );
-      else {
+      } else {
         return cb(null, user);
       }
     }
@@ -66,7 +67,6 @@ passport.use(
             lastName: profile._json.name.split(" ")[1],
             userName: profile._json.login,
             loginBy: "Github",
-  
           },
           (err, user) => {
             console.log(user);
