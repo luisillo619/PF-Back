@@ -29,7 +29,7 @@ router.get("/login/success", (req, res) => {
     if(req.user.isBlocked){
       return res.status(401).send("Tu cuenta ha sido bloqueada");
     }
-    console.log("login exitosooooooooooooooooooooo")
+    // console.log("login exitosooooooooooooooooooooo")
     res.status(200).json({
       success: true,
       message: "successfull",
