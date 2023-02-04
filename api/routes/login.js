@@ -23,9 +23,9 @@ const generateAuthToken = (user) => {
 };
 
 login.post("/", async (req, res) => {
-  const { userName, email, password } = req.body;
-
-  if (userName && email && password) {
+  const { email, password } = req.body.form;
+  
+  if ( email && password) {
    
     const user = await User.findOne({ email: email });
     if (!user) return res.status(400).send("Invalid email or password...");
@@ -38,7 +38,7 @@ login.post("/", async (req, res) => {
 
     const token = generateAuthToken(user);
 
-    res.send({ token, login: "login exitoso" });
+    res.send({ token, id: user._id });
   } else {
     res.status(400).send("Datos incompletos");
   }
