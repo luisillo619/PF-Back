@@ -71,7 +71,7 @@ route.use("/adminGetCategories", adminGetCategories);
 route.use("/adminGetComment", adminGetComment);
 route.use("/producId", adminIdProducts);
 route.use("/adminGetProducts", adminGetProducts);
-route.use("/loginCorreo", login);
+route.use("/login", login);
 route.use("/auth", loginGoogle);
 route.use("/postComent", postComment);
 route.use("/updateComent", putComment);
