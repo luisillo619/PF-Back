@@ -26,7 +26,9 @@ postOrder.post("/", async (req, res) => {
           total,
           status: statusCart._id,
         });
-        await User.findOneAndUpdate({ _id: user }, { orders: order });
+        const userOrder = await User.findOne({ _id: user });
+        userOrder.orders.push(order)
+        await userOrder.save()
       } else {
         // actualiza la cantidad del producto especifico
         let productExists = false;

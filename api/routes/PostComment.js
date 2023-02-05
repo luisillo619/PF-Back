@@ -7,11 +7,12 @@ const { auth } = require("../middleware/auth");
 
 postComment.post('/',auth, async (req, res) => {
   try {
+    console.log(req.body) 
     const newComment = new Comments({
-      user: req.body.user,
-      products: req.body.products,
-      comment: req.body.comment,
-      rating: req.body.rating
+      user: req.body.commentInfo.user,
+      products: req.body.commentInfo.product,
+      comment: req.body.commentInfo.comment,
+      rating: req.body.commentInfo.rating
     });
   
     // el ususario tiene que hacer una peticion por una peticion
