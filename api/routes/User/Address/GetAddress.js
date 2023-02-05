@@ -6,7 +6,8 @@ const ObjectId = require("mongoose").Types.ObjectId;
 // ISuser
 address.get("/:userId", async (req, res) => {
     try {
-        const addresses = await Address.find({ user: new ObjectId(req.params.userId) });
+        const addresses = await Address.find({ user: req.params.userId });
+        
         if (!addresses) {
             return res.status(404).send("No se encontraron direcciones para este usuario.");
         }
