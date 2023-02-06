@@ -6,7 +6,7 @@ const { isUser } = require("../../../middleware/auth");
 // Ruta para obtener los datos de un ususario especifico por su token
 
 getAccount.get("/:id", async (req, res) => {
-  console.log(req.params.id)
+ 
   try {
     const infoUser = await User.findOne({ _id: req.params.id });
     res.status(200).send(infoUser);

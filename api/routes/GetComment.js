@@ -3,10 +3,16 @@ const getComment = express.Router();
 const Comment = require("../models/Comments");
 
 // Ruta para obtener todas los Comentarios
-getComment.get("/", async (req, res) => {
+
+// id producto
+// consultar a la coleccion de Usuarios el nombre para retornornalo al front
+getComment.get("/:id", async (req, res) => {
   try {
-    const users = await Comment.find();
-    res.status(200).send(users);
+    Comment.find({ product: req.params.id }).exec((err, comments) => {
+      if (err) return res.status(500).send(err);
+      return res.status(200).send(comments);
+    });
+
   } catch (error) {
     res.status(500).send("Error en el servidor");
   }
