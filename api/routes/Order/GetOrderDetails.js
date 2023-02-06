@@ -14,7 +14,7 @@ getOrder.get('/:id',async (req, res) => {
     });
 
     const { id } = req.params;      //id del usuario
-    Order.findOne({ user: id, status: statusCart }) .exec((err, order) => {
+    Order.findOne({ user: id, status: statusCart }).exec((err, order) => {
       if (err) return res.status(500).send(err);
        
       return res.status(200).send(order);

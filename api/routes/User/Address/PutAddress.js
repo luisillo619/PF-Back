@@ -16,11 +16,11 @@ putAdress.use("/:userId/:addressId", async (req, res) => {
         if (!address) {
             return res.status(404).send({ msg: "No se encontró la dirección." });
         }
-        address.Country = req.body.Country;
-        address.City = req.body.City;
-        address.State = req.body.State;
-        address.Street = req.body.Street;
-        address.ZipCode = req.body.ZipCode;
+        address.country = req.body.country;
+        address.city = req.body.city;
+        address.state = req.body.state;
+        address.street = req.body.street;
+        address.zipCode = req.body.zipCode;
         await address.save();
         res.status(200).send(address);
     } catch (error) {

@@ -10,7 +10,7 @@ const { isUser } = require("../../middleware/auth");
 getOrder.get("/:id", (req, res) => {
   try {
     const { id } = req.params; //id del usuario
-    Order.findOne({ user: id }).exec((err, order) => {
+    Order.findOne({ user: id, status: statusCart}).exec((err, order) => {
       if (err) return res.status(500).send(err);
       if (order) {
         const numberOfProductsInCart = order.amount
