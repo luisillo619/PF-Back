@@ -7,7 +7,7 @@ const { isUser } = require("../../middleware/auth");
 //Ruta para traer todas las ordenes hechas por el usuario en el carrito de compras
 
 //AGREGAR LO DE AUTH Y TIENE QUE VENIR POR CABECERA
-getOrder.get('/:id', (req, res) => {
+getOrder.get('/:id', isUser, (req, res) => {
   try {
     const { id } = req.params;      //id del usuario
     Order.findOne({ user: id }) .exec((err, order) => {
