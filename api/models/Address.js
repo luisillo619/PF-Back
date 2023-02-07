@@ -19,7 +19,7 @@ const addressSchema = new Schema({
     allowNull: false,
   },
   zipCode: {
-    type: Number,
+    type: String,
     allowNull: false,
   },
 
