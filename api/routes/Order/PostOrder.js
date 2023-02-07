@@ -52,7 +52,7 @@ postOrder.post("/", auth, async (req, res) => {
           .map((e) => e.quantity)
           .reduce((a, b) => a + b);
         // console.log(updatedOrder);
-        return res.status(200).send({ numberOfProductsInCart });
+        return res.status(200).send({ numberOfProductsInCart, message:"Producto añadido correctamente" });
       });
     });
   } catch (error) {
