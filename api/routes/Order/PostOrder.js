@@ -8,7 +8,7 @@ const { auth } = require("../../middleware/auth");
 postOrder.post("/", auth, async (req, res) => {
   try {
     const { product, user, amount, total, unitPrice, image } = req.body;
-  
+
     const statusCart = await Status.findOne({
       status: "orderCart",
     });
@@ -27,8 +27,11 @@ postOrder.post("/", auth, async (req, res) => {
           status: statusCart._id,
         });
         const userOrder = await User.findOne({ _id: user });
-        userOrder.orders.push(order)
-        await userOrder.save()
+        if (userOrder) {
+          userOrder.orders.push(order);
+          await userOrder.save();
+        }
+        else  res.status(400).send("No exite el ususario.");
       } else {
         // actualiza la cantidad del producto especifico
         let productExists = false;
@@ -52,7 +55,12 @@ postOrder.post("/", auth, async (req, res) => {
           .map((e) => e.quantity)
           .reduce((a, b) => a + b);
         // console.log(updatedOrder);
-        return res.status(200).send({ numberOfProductsInCart, message:"Producto añadido correctamente" });
+        return res
+          .status(200)
+          .send({
+            numberOfProductsInCart,
+            message: "Producto añadido correctamente",
+          });
       });
     });
   } catch (error) {

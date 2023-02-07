@@ -39,6 +39,7 @@ const loginGoogle = require("./loginGoogle.js");
 const postComment = require("./PostComment");
 const putComment = require("./PutComment");
 const register = require("./register");
+const deleteCookies = require("./DeleteCookies")
 /*--------------Rutas--------------*/
 //ADMIN
 route.use("/deleteComment", adminDeleteComment);
@@ -78,4 +79,5 @@ route.use("/auth", loginGoogle);
 route.use("/postComent", postComment);
 route.use("/updateComent", putComment);
 route.use("/register", register); //Si
+route.use("/deleteCookies",deleteCookies)
 module.exports = route;

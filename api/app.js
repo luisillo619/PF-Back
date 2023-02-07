@@ -17,6 +17,8 @@ app.use(
 );
 
 app.use(passport.initialize());
+
+// sincroniza cookies con passport y hace que el login de inicio de sesion dure 1 hora
 app.use(passport.session());
 
 app.use(express.json());
