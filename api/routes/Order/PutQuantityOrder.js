@@ -5,8 +5,9 @@ const Status = require("../../models/Status");
 
 putQuantity.put("/", async (req, res) => {
   // id usuario
+ 
   try {
-    const { action, product, user, price } = req.body;
+    const { action, product, user, unitPrice } = req.body;
 
     const statusCart = await Status.findOne({
       status: "orderCart",
@@ -26,6 +27,7 @@ putQuantity.put("/", async (req, res) => {
           e.quantity += 1;
         }
         if (action === "decrement") {
+         
           e.quantity -= 1;
           if (e.quantity === 0) {
           
@@ -36,8 +38,8 @@ putQuantity.put("/", async (req, res) => {
     //   else { return res.status(404).send("Product not found")};
     });
 
-    if (action === "increment") order.total += price;
-    if (action === "decrement") order.total -= price;
+    if (action === "increment") order.total += unitPrice;
+    if (action === "decrement") order.total -= unitPrice;
 
     if (productDelete) {
       const deleteProduct = order.product.filter((e) => {
@@ -49,12 +51,21 @@ putQuantity.put("/", async (req, res) => {
       order.product = deleteProduct;
       order.amount = deleteProductAmount;
     }
-
-    await order.save((err, updatedOrder) => {
+   
+    // NO ELIMINAR LA ORDEN, SOLO CAMBIAR ALGUNA PROPIEDAD
+    await order.save(async (err, updatedOrder) => {
       if (err) return res.status(500).send(err);
-      res.send(updatedOrder);
+      const numberOfProductsInCart = updatedOrder.amount.length !== 0 ? updatedOrder.amount
+          .map((e) => e.quantity)
+          .reduce((a, b) => a + b): await Order.deleteOne({_id: order._id})
+
+   
+      res.send({updatedOrder,numberOfProductsInCart: numberOfProductsInCart ? numberOfProductsInCart : 0});
     });
+
+
   } catch (error) {
+    console.log(error)
     res.status(500).send(error.message);
   }
 });

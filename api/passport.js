@@ -24,7 +24,7 @@ passport.use(
     },
     async function (accessToken, refreshToken, profile, cb) {
       const user = await Users.findOne({
-        loginBy: "Google",
+        // loginBy: "Google",
         email: profile._json.email,
       });
       // console.log("login GOGLEEEEEEEEEEEEEEEEEEEEEE");

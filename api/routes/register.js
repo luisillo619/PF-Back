@@ -20,7 +20,7 @@ const generateAuthToken = (user) => {
     },
     jwtSecretKey,
     {
-      expiresIn: '1h'
+      expiresIn: "1h",
     } //El objeto JSON es firmado con la clave secreta 'jwtSecretKey' antes generada
   );
   return token; //Finalmente, la función devuelve el 'token' generado.
@@ -28,7 +28,7 @@ const generateAuthToken = (user) => {
 
 register.post("/", async (req, res) => {
   try {
-    const { userName, email, password, isAdmin } = req.body; //Traigo por destructuring el 'userName', 'email', 'password'
+    const { userName, email, password, isAdmin } = req.body.form; //Traigo por destructuring el 'userName', 'email', 'password'
 
     if (userName && email && password) {
       //Si tengo 'userName' && 'email' && 'password'
@@ -37,13 +37,13 @@ register.post("/", async (req, res) => {
 
       if (userEmail2 && userName2) {
         //Si tenemos tenemos datos en las variables anteriores 'userEmail2' y 'userName2'
-        res.status(404).send("Username and email already in use"); //Respondemos con error 404
-      } else if (userEmail2 && !userName2) {
+        return res.status(400).send("Username and email already in use"); //Respondemos con error 404
+      } else if (userEmail2) {
         //Si tenemos 'userEmail2' y no tenemos '!userName2'
-        res.status(404).send("Email already in use"); //Respondemos con error 404
-      } else if (!userEmail2 && userName2) {
+        return res.status(400).send("Email already in use"); //Respondemos con error 404
+      } else if (userName2) {
         //Si no tenemos '!userEmail2' y tenemos 'userName2'
-        res.status(404).send("Username already in use"); //Respondemos con error 404
+        return res.status(400).send("Username already in use"); //Respondemos con error 404
       } else {
         //De lo contrario, es decir, si no hay 'userEmail2' y 'userName2'
         let admin;
@@ -54,28 +54,30 @@ register.post("/", async (req, res) => {
         user.password = await bcrypt.hash(user.password, salt); //De la variable 'user', tomamos la 'password' y hacemos hash con bcrypt a la 'password' para encriptarla
 
         await user.save(); //Esperamos para guardar en la variable 'user'
-        const token = generateAuthToken(user); //Y generamos un token con todo encriptado
+          //Y generamos un token con todo encriptado
 
-        res.send({ token }); //Respondemos con un 200 solo con el 'token' con todo codificado
+        // res.send({ token, id: user._id }); //Respondemos con un 200 solo con el 'token' con todo codificado
+        res.status(200).send("Account creada con éxito.");
 
-        
         const transporter = mailSettings.transporter;
         const mailDetails = mailSettings.mailDetails(email);
         transporter.sendMail(mailDetails, (error, info) => {
           if (error) {
             console.log(error);
-            res.status(404).send("Error al enviar email de confirmación");
+            return res
+              .status(500)
+              .send("Error al enviar email de confirmación");
           } else {
-            console.log("Account creada con éxito.")}
-          })
-
+            return res.status(200).send("Account creada con éxito.");
+          }
+        });
       }
     } else {
       //De lo contrario
-      res.status(404).send("Datos incompletos"); //Respondemos con un 404 y su mensaje de error
+      return res.status(400).send("Datos incompletos"); //Respondemos con un 404 y su mensaje de error
     }
   } catch (error) {
-    res.status(500).send("Error en el servidor");
+    return res.status(500).send("Error en el servidor");
   }
 });
 

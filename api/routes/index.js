@@ -9,6 +9,7 @@ const adminDeleteUser = require("./Admin/Users/DeleteUsers");
 const adminGetUser = require("./Admin/Users/GetAllUsers");
 const adminPutLockedUser = require("./Admin/Users/PutLockedUser");
 const adminPutUser = require("./Admin/Users/PutUser");
+const adminChangeUser = require("./Admin/Users/ChangeAdmin"); 
 //ORDER
 const deleteOrder = require("./Order/DeleteOrder");
 const getNumberProducts = require("./Order/GetNumberProducts");
@@ -40,7 +41,7 @@ const putComment = require("./PutComment");
 const register = require("./register");
 /*--------------Rutas--------------*/
 //ADMIN
-route.use("/deleteComent", adminDeleteComment);
+route.use("/deleteComment", adminDeleteComment);
 route.use("/adminDeleteProducts", adminDeleteProducts);
 route.use("/adminPostProducts", adminPostProducts);
 route.use("/adminPutProducts", adminPutProducts);
@@ -48,6 +49,7 @@ route.use("/deleteUser", adminDeleteUser); //Si
 route.use("/getAllUsers", adminGetUser); //Si
 route.use("/adminPutLockedUser", adminPutLockedUser);
 route.use("/putUser", adminPutUser);
+route.use("/adminChangeUser", adminChangeUser);
 //ORDER
 route.use("/deleteOrder", deleteOrder);
 route.use("/getNumberProducts", getNumberProducts);
