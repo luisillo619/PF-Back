@@ -3,6 +3,7 @@ const Address = require("../../../models/Address");
 const Users = require("../../../models/Users");
 const putAdress= express.Router();
 
+
 // isUser
 putAdress.use("/:userId/:addressId", async (req, res) => {
     try {
@@ -30,5 +31,7 @@ putAdress.use("/:userId/:addressId", async (req, res) => {
 });
 //PUT - a http://localhost:3001/putAddress/63cb884fb9589559482c110d/63cbf717eebef06fe8fbf9c7
 //                                            id del usuario        +       id de la address
-//{ "Country": "kakaroto", "City": "kakaroto City", "State": "kakaroto State", "Street": "kakaroto kakaroto", "ZipCode": 2000, "User": "63ce0c100ecad4df6985cecd" }
+//{ "country": "Kakaroto", "city": "Kakaroto City", "state": "Kakaroto State", "street": "Kakaroto Calle", "zipCode": 2000, "user": "63ce0c100ecad4df6985cecd" }
+
+
 module.exports = putAdress;

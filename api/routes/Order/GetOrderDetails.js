@@ -1,7 +1,7 @@
 const express = require('express');
 const Order = require('../../models/Order');
 const getOrder = express.Router();
-const { isUser } = require("../../middleware/auth");
+//const { isUser } = require("../../middleware/auth");
 const Status = require("../../models/Status")
 // AUTH
 //Ruta para traer todas las ordenes hechas por el usuario en el carrito de compras
