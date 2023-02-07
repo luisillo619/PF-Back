@@ -8,8 +8,8 @@ const { isAdmin } = require("../../../middleware/auth");
 
 postProduct.post("/", async (req, res) => {
   try {
-    const { name, price, description, category, image } = req.body;
-
+    const { name, price, description, category, image, promotion } = req.body;
+    
     const categoryDB = await Categories.findOne({ category: category });
 
     if (!name || !price || !description || !category || !image) {
@@ -24,6 +24,7 @@ postProduct.post("/", async (req, res) => {
         description,
         image,
         category: categoryDB._id,
+        promotion
       },
       (error, datos) => {
         if (error) {
@@ -34,6 +35,7 @@ postProduct.post("/", async (req, res) => {
       }
     );
   } catch (error) {
+    console.log(error)
     res.status(500).send("Error interno del servidor.");
   }
 });
