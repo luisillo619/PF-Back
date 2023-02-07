@@ -6,8 +6,8 @@ const Products = require("../models/Products.js");
 getProducts.get("/", async (req, res) => {
   try {
     const products = await Products.find({}).populate("category").exec();
-    const response = products.filter((e) => e.isDeleted === false);
-    res.status(200).send(response);
+   
+    res.status(200).send(products);
   } catch (error) {
     res.status(500).send("Error en el servidor");
   }
