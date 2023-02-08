@@ -17,6 +17,7 @@ const getOrderDetails = require("./Order/GetOrderDetails");
 const postOrder = require("./Order/PostOrder");
 const postOrderStripe = require("./Order/PostOrderStripe")
 const putQuantityOrder = require("./Order/PutQuantityOrder")
+const userAllOrders = require("./Order/AllOrders")
 //USERr
 const userDeleteAddress = require("./User/Address/DeleteAddress");
 const userGetAddress = require("./User/Address/GetAddress");
@@ -27,6 +28,7 @@ const getFavorites = require("./User/Fav/GetFav");
 const postFavorites = require("./User/Fav/PostFav");
 const getAccountProfile = require("./User/InfoPerfilUser/GetAccountProfile");
 const userPostCompleteInfo = require("./User/InfoPerfilUser/PostCompleteInfo");
+const userDeleteAccount = require("./User/Delete/DeleteAccount");
 //const putPassword= require('./User/Info Perfil User/PutPassword');
 
 //AMBOS
@@ -58,6 +60,7 @@ route.use("/getOrderDetails", getOrderDetails);
 route.use("/postOrder", postOrder);
 route.use("/postOrderStripe", postOrderStripe)
 route.use("/putQuantityOrder", putQuantityOrder)
+route.use("/allOrders", userAllOrders);
 //USER
 route.use("/deleteAddress", userDeleteAddress);
 route.use("/getAddress", userGetAddress);
@@ -68,6 +71,7 @@ route.use("/getFav", getFavorites);
 route.use("/postFav", postFavorites);
 route.use("/getAccountProfile", getAccountProfile);
 route.use("/postCompleteInfo", userPostCompleteInfo);
+route.use("/deleteAccount", userDeleteAccount);
 //route.use("/putPassword", putPassword);
 //RUTAS DE AMBOS
 route.use("/adminGetCategories", adminGetCategories);
