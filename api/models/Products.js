@@ -19,9 +19,9 @@ const productsSchema = new Schema(
     },
 
     // Estado de existencias
-     stock: {
-       type: Number,
-     },
+    stock: {
+      type: Number,
+    },
 
     // Novedad
     // news: {
@@ -51,3 +51,4 @@ const productsSchema = new Schema(
 );
 
 module.exports = model("Products", productsSchema);
+

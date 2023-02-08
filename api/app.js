@@ -5,7 +5,10 @@ const passport = require("passport");
 const routes = require("./routes/index");
 const cookieSession = require("cookie-session");
 const passportStrategy = require("./passport");
-
+require("dotenv").config();
+const {
+  CLIENT_URL
+} = process.env;
 const app = express();
 
 app.use(
@@ -25,7 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: CLIENT_URL,
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
@@ -34,7 +37,7 @@ app.use(
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "http://localhost:3000"
+    CLIENT_URL
   );
 
   // "https://pf-front-swart.vercel.app"
