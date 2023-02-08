@@ -24,7 +24,7 @@ const generateAuthToken = (user) => {
 // req.user solo va a existir una vez, esto debido a las cookies que configuramos en la app por 1 hora
 //req.user va a existir despues de 1 hora o si se deslogea y se vuelve a logear
 router.get("/login/success", (req, res) => {
-
+console.log(req.user)
   if (req.user) {
   //  console.log("hay un ususario en la ruta", req.user)
     if(req.user.isBlocked){
@@ -32,12 +32,9 @@ router.get("/login/success", (req, res) => {
     }
     // console.log("login exitosooooooooooooooooooooo")
     res.status(200).json({
-      success: true,
-      message: "successfull",
-      // user: req.user,
       id: req.user._id,
-      status: 200,
       token: generateAuthToken(req.user),
+      type: req.user.admin
     });
   } 
 });

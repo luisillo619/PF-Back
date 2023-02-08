@@ -7,7 +7,6 @@ const { isAdmin } = require("../../../middleware/auth")
 
 // ruta change admin
 adminChangeUser.put('/:id', isAdmin, async (req, res) =>{
-    console.log("aqui ando")
     try {
         const user = await Users.findById(req.params.id)
         if (!user) return res.status(404).send('Usuario no encontrado//');
