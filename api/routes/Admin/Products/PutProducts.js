@@ -7,7 +7,7 @@ const Categories = require("../../../models/Categories");
 putProduct.put("/:id", isAdmin, async (req, res) => {
   try {
     const { idProduct, form } = req.body;
-    console.log(idProduct)
+    console.log(idProduct);
     const {
       category,
       description,
@@ -20,12 +20,16 @@ putProduct.put("/:id", isAdmin, async (req, res) => {
     } = form;
     const categoryDB = await Categories.findOne({ category: category });
 
+    const product = Products.findOne({ _id: idProduct });
+    if (!product) res.status(404).send("no existe");
+    const imgProduct = product.image;
+
     Products.findByIdAndUpdate(
       idProduct,
       {
         category: categoryDB._id,
         description,
-        image: image && image,
+        image: image || imgProduct,
         isDeleted,
         name,
         news,
