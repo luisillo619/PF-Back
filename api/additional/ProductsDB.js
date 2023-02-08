@@ -8,8 +8,8 @@ const products = [
       "Gourd mate hand wrapped and sewed in cow leather with alpaca finish around the opening.",
     image: "https://login.eltero.net/modules/products/uploads/product_1.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -27,8 +27,8 @@ const products = [
       "Gourd mate hand wrapped and sewed in cow leather. The alpaca finish around the opening has a chiseled Real design.",
     image: "https://login.eltero.net/modules/products/uploads/product_2.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: true,
       stock: 0,
       newPrice: 0,
@@ -45,8 +45,8 @@ const products = [
     description: "Gourd mate hand wrapped and sewed in cow leather.",
     image: "https://login.eltero.net/modules/products/uploads/product_3.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: true,
       stock: 0,
       newPrice: 0,
@@ -65,8 +65,8 @@ const products = [
       "Gourd mate with Alpaca opening with chiseled Colonial design.",
     image: "https://login.eltero.net/modules/products/uploads/product_5.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: true,
       stock: 0,
       newPrice: 0,
@@ -84,8 +84,8 @@ const products = [
       "Gourd mate with alpaca finish around the opening. The mate comes with a stand base of cow leather.",
     image: "https://login.eltero.net/modules/products/uploads/product_6.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -103,8 +103,8 @@ const products = [
       "Gourd mate from Corrientes, an Argentine province known from it´s mate culture.",
     image: "https://login.eltero.net/modules/products/uploads/product_7.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: true,
       stock: 0,
       newPrice: 0,
@@ -124,8 +124,8 @@ const products = [
       "Alpaca Bombilla. It has a Pasador and bomba esterillada motifs and the coco is weld.",
     image: "https://login.eltero.net/modules/products/uploads/product_8.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -143,8 +143,8 @@ const products = [
       "Alpaca Bombilla. It has a Pasador Esterillado motif and the coco is weld.",
     image: "https://login.eltero.net/modules/products/uploads/product_9.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: true,
       stock: 0,
       newPrice: 0,
@@ -162,8 +162,8 @@ const products = [
       "Alpaca bombilla. It has a Pasador Real motif and the coco is weld.",
     image: "https://login.eltero.net/modules/products/uploads/product_10.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: true,
       stock: 0,
       newPrice: 0,
@@ -180,8 +180,8 @@ const products = [
     description: "Alpaca bombilla. It has a Real motif and the coco is weld.",
     image: "https://login.eltero.net/modules/products/uploads/product_11.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -198,8 +198,8 @@ const products = [
     description: "Alpaca bombilla. It has a Real motif and the coco is weld.",
     image: "https://login.eltero.net/modules/products/uploads/product_12.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: true,
+    promotion: {
       salesOff: true,
       stock: 0,
       newPrice: 0,
@@ -216,8 +216,8 @@ const products = [
     description: "Alpaca Bombilla. It has a Bomba motifs and the coco is weld.",
     image: "https://login.eltero.net/modules/products/uploads/product_13.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: true,
       stock: 0,
       newPrice: 0,
@@ -234,8 +234,8 @@ const products = [
     description: "Alpaca Bombilla. It has a Bomba motifs and the coco is weld.",
     image: "https://login.eltero.net/modules/products/uploads/product_14.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -252,8 +252,8 @@ const products = [
     description: "Alpaca Bombilla. It has a Bomba motifs and the coco is weld.",
     image: "https://login.eltero.net/modules/products/uploads/product_15.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -271,8 +271,8 @@ const products = [
       "Alpaca bombilla. It has a Bomba Galloneada motifs and the coco is weld. ",
     image: "https://login.eltero.net/modules/products/uploads/product_16.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -289,8 +289,8 @@ const products = [
     description: "Classic Alpaca bombilla. The coco is weld.",
     image: "https://login.eltero.net/modules/products/uploads/product_17.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -309,8 +309,8 @@ const products = [
     description: "The Matepa is made of Alpaca, also known as german silver.",
     image: "https://login.eltero.net/modules/products/uploads/product_18.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -327,8 +327,8 @@ const products = [
     description: "The Matepa is made of Alpaca, also known as german silver.",
     image: "https://login.eltero.net/modules/products/uploads/product_19.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -345,8 +345,8 @@ const products = [
     description: "The Matepa is made of Alpaca, also known as german silver. ",
     image: "https://login.eltero.net/modules/products/uploads/product_20.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -363,8 +363,8 @@ const products = [
     description: "The Matepa is made of Alpaca, also known as german silver. ",
     image: "https://login.eltero.net/modules/products/uploads/product_21.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -381,8 +381,8 @@ const products = [
     description: "The Matepa is made of Alpaca, also known as german silver. ",
     image: "https://login.eltero.net/modules/products/uploads/product_22.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -401,8 +401,8 @@ const products = [
     description: "The Tacuara replaces the classic gaucho handbag.",
     image: "https://login.eltero.net/modules/products/uploads/product_23.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -421,8 +421,8 @@ const products = [
     description: "A Yerbera is a leather bag use to fill it with yerba mate.",
     image: "https://login.eltero.net/modules/products/uploads/product_24.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -439,8 +439,8 @@ const products = [
     description: "A Yerbera is a leather bag use to fill it with yerba mate. ",
     image: "https://login.eltero.net/modules/products/uploads/product_25.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -460,8 +460,8 @@ const products = [
       "This combo has a gourd mate hand wrapped and sewed in cow leather, ",
     image: "https://login.eltero.net/modules/products/uploads/product_26.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -479,8 +479,8 @@ const products = [
       "This combo has a gourd mate hand wrapped and sewed in cow leathe with alpaca finish around the opening. ",
     image: "https://login.eltero.net/modules/products/uploads/product_27.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -498,8 +498,8 @@ const products = [
       "This combo has a gourd mate with Alpaca finish around the opening that has a Colonial design. ",
     image: "https://login.eltero.net/modules/products/uploads/product_28.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -517,8 +517,8 @@ const products = [
       "This combo has a gourd mate with alpaca finish around the opening.",
     image: "https://login.eltero.net/modules/products/uploads/product_29.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -536,8 +536,8 @@ const products = [
       "This combo has a mate gourd, hand wrapped and sewed in cow leather. ",
     image: "https://login.eltero.net/modules/products/uploads/product_30.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -555,8 +555,8 @@ const products = [
       "This combo has a gourd mate hand wrapped and sewed in cow leather.",
     image: "https://login.eltero.net/modules/products/uploads/product_31.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -574,8 +574,8 @@ const products = [
       "This combo has a gourd mate with Alpaca finish around the opening that has a Real design.",
     image: "https://login.eltero.net/modules/products/uploads/product_32.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -593,8 +593,8 @@ const products = [
       "This combo has a mate handwrapped and sewed in cow leather, it can be brown or black, with a bombillon of your choice.",
     image: "https://login.eltero.net/modules/products/uploads/product_33.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -611,8 +611,8 @@ const products = [
     description: "This combo has a gourd mate and a bombilla of your choosing.",
     image: "https://login.eltero.net/modules/products/uploads/product_34.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -630,8 +630,8 @@ const products = [
       "This combo has a gourd mate with alpaca finish around the opening.",
     image: "https://login.eltero.net/modules/products/uploads/product_35.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -649,8 +649,8 @@ const products = [
       "Gourd mate hand wrapped and sewed in cow leather with alpaca finish around the opening.",
     image: "https://login.eltero.net/modules/products/uploads/product_36.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -668,8 +668,8 @@ const products = [
       "Gourd mate hand wrapped and sewed in cow leather with alpaca finish around the opening.",
     image: "https://login.eltero.net/modules/products/uploads/product_37.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -687,8 +687,8 @@ const products = [
       "Gourd mate hand wrapped and sewed in cow leather with alpaca finish around the opening. ",
     image: "https://login.eltero.net/modules/products/uploads/product_38.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -706,8 +706,8 @@ const products = [
       "Gourd mate hand wrapped and sewed in cow leather with alpaca finish around the opening. ",
     image: "https://login.eltero.net/modules/products/uploads/product_39.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -727,8 +727,8 @@ const products = [
       "Our Corkscrew is made of Alpaca and quebracho colorado wood. ",
     image: "https://login.eltero.net/modules/products/uploads/product_47.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -746,8 +746,8 @@ const products = [
       "Our Corkscrew is made of Alpaca and quebracho colorado wood. It comes in a wooden box with velveteen interiors. ",
     image: "https://login.eltero.net/modules/products/uploads/product_48.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -767,8 +767,8 @@ const products = [
       "This set contains two bottle savers, two wine bottle collars. ",
     image: "https://login.eltero.net/modules/products/uploads/product_49.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -786,8 +786,8 @@ const products = [
       "Wine Set that contains a Bottle saver, a wine bottle collar and a corkscrew. ",
     image: "https://login.eltero.net/modules/products/uploads/product_50.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -805,8 +805,8 @@ const products = [
       "This set comes with an alpaca wine bottle collar that has, in it´s interior, a felt lined to avoid wine spilling.",
     image: "https://login.eltero.net/modules/products/uploads/product_51.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -826,8 +826,8 @@ const products = [
       "Set of stainless steel knife and fork with Alpaca hilt. It has exclusively handcrafted designs. Blade: 12 cm. Handle: 10. Knife: 22.",
     image: "https://login.eltero.net/modules/products/uploads/product_55.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -845,8 +845,8 @@ const products = [
       "Set of stainless steel knife and fork with Alpaca hilt. It has exclusively handcrafted designs. Blade: 12 cm. Handle: 10. Knife: 22.",
     image: "https://login.eltero.net/modules/products/uploads/product_56.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -864,8 +864,8 @@ const products = [
       "Set of stainless steel knife and fork with Alpaca hilt. It has on it exclusively desing motifs. Blade: 20 cm. Hilt: 12,5 cm Knife: 32,5.",
     image: "https://login.eltero.net/modules/products/uploads/product_57.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -883,8 +883,8 @@ const products = [
       "Set of stainless steel knife and fork with Alpaca hilt. It has on it exclusively desing motifs. Blade: 20 cm. Hilt: 12,5 cm Knife: 32,5.",
     image: "https://login.eltero.net/modules/products/uploads/product_58.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -902,8 +902,8 @@ const products = [
       "Set of stainless steel knife and fork. Each one has a Quebracho Colorado rounded hilt with finishing touches of Alpaca.",
     image: "https://login.eltero.net/modules/products/uploads/product_59.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -921,8 +921,8 @@ const products = [
       "Set of stainless steel knife and fork. Each one has a Quebracho Colorado rounded hilt with finishing touches of Alpaca.",
     image: "https://login.eltero.net/modules/products/uploads/product_59.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -940,8 +940,8 @@ const products = [
       "Alpaca knife with stainless steel blade. The hilt´s desing, 'Vizcacha', it´s exclusively made.",
     image: "https://login.eltero.net/modules/products/uploads/product_61.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -961,8 +961,8 @@ const products = [
       "Alpaca, also known as german silver, bottle saver with ﻿Gallonado motifs.",
     image: "https://login.eltero.net/modules/products/uploads/product_40.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -980,8 +980,8 @@ const products = [
       "German silver bottle saver with Flor Grande motifs. It has a silicone stopper that expands to form a seal and keep the beverage fresh.",
     image: "https://login.eltero.net/modules/products/uploads/product_41.jpeg",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -999,8 +999,8 @@ const products = [
       "German silver bottle saver with Flor Grande motifs. It has a silicone stopper that expands to form a seal and keep the beverage fresh.",
     image: "https://login.eltero.net/modules/products/uploads/product_42.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -1018,8 +1018,8 @@ const products = [
       "Alpaca, also known as german silver, bottle saver with Roseton motifs.",
     image: "https://login.eltero.net/modules/products/uploads/product_43.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -1037,8 +1037,8 @@ const products = [
       "Alpaca, also known as german silver, bottle saver with Liso con guarda motifs. It has a silicone stopper that expands to form a seal.",
     image: "https://login.eltero.net/modules/products/uploads/product_44.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -1056,8 +1056,8 @@ const products = [
       "Alpaca, also known as german silver, bottle saver with Liso motifs.",
     image: "https://login.eltero.net/modules/products/uploads/product_45.png",
     stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
@@ -1075,8 +1075,8 @@ const products = [
       "German silver bottle saver with Colonial motifs. It has a silicone stopper that expands to form a seal and keep the beverage fresh.",
     image: "https://login.eltero.net/modules/products/uploads/product_46.png",
    stock: "500",
-    news: "",
-    promotions: {
+    news: false,
+    promotion: {
       salesOff: false,
       stock: 0,
       newPrice: 0,
