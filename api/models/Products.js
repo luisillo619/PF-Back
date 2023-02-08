@@ -19,15 +19,15 @@ const productsSchema = new Schema(
     },
 
     // Estado de existencias
-    stock: {
-      type: Number,
-    },
+    // stock: {
+    //   type: Number,
+    // },
 
     // Novedad
-    news: {
-      Type: Boolean,
-      default: false,
-    },
+    // news: {
+    //   Type: Boolean,
+    //   default: false,
+    // },
 
     // Promociones
     promotion: {
