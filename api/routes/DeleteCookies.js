@@ -1,7 +1,7 @@
 const express = require("express"); //Express
 const deleteCookies = express.Router(); //Ruta administrador
 const Users = require("../models/Users"); //Model
-const clearCookie = require("cookie-session");
+
 
 // Ruta para obtener todas las categorias
 deleteCookies.get("/:id", async (req, res) => {
