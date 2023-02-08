@@ -12,7 +12,7 @@ const { isAdmin } = require("../../../middleware/auth");
 //ID USER === ID TOKEN
 getAllUsers.get("/:id", isAdmin ,async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await User.find().populate("orders");
     res.status(200).send(users);
   } catch (error) {
     res.status(500).send('Error interno del servidor.');
