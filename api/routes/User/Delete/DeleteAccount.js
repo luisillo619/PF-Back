@@ -2,7 +2,7 @@ const express = require("express");
 const userDelete = express.Router();
 const User = require("../../../models/Users.js");
 const { isUser } = require("../../../middleware/auth");
-const mailSettings = require("../../../additional/Nodemailer");
+const mailSettings = require("../../../additional/nodemailer");
 
 
 //Ruta para eliminar la cuenta por parte del usuario
