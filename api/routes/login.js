@@ -38,7 +38,8 @@ login.post("/", async (req, res) => {
 
     const token = generateAuthToken(user);
 
-    res.send({ token, id: user._id });
+    res.send({ token, id: user._id, type: user.admin});
+
   } else {
     res.status(400).send("Datos incompletos");
   }

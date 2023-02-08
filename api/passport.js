@@ -1,6 +1,7 @@
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const GithubStrategy = require("passport-github2").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
+const mailSettings = require("./additional/nodemailer");
 const passport = require("passport");
 require("dotenv").config();
 const {
@@ -11,6 +12,7 @@ const {
   CLIENT_FACEBOOK_ID,
   CLIENT_FACEBOOK_SECRET,
 } = process.env;
+
 const Users = require("./models/Users");
 const mongoose = require("mongoose");
 //PASO 2
@@ -24,12 +26,22 @@ passport.use(
     },
     async function (accessToken, refreshToken, profile, cb) {
       const user = await Users.findOne({
-        loginBy: "Google",
+        // loginBy: "Google",
         email: profile._json.email,
       });
       // console.log("login GOGLEEEEEEEEEEEEEEEEEEEEEE");
       // console.log("eeeee", user)
       if (!user) {
+        const transporter = mailSettings.transporter;
+        const mailDetails = mailSettings.mailDetails(profile._json.email);
+        transporter.sendMail(mailDetails, (error, info) => {
+          if (error) {
+            res.status(500).send("Error al enviar email de confirmación");
+          } else {
+            res.status(200).send("Account creada con éxito.");
+          }
+        });
+
         Users.create(
           {
             email: profile._json.email,
@@ -61,7 +73,7 @@ passport.use(
         loginBy: "Github",
         userName: profile._json.login,
       });
-      if (!user)
+      if (!user) {
         Users.create(
           {
             name: profile._json.name.split(" ")[0],
@@ -74,7 +86,8 @@ passport.use(
             return cb(err, user);
           }
         );
-      else {
+        
+      } else {
         return cb(null, user);
       }
     }
@@ -92,7 +105,7 @@ passport.use(
       // PROBAR LO DEL CORREO
       const user = await Users.findOne({ loginBy: "Facebook" });
 
-      if (!user)
+      if (!user) {
         Users.create(
           {
             name: profile._json.name.split(" ")[0],
@@ -104,7 +117,19 @@ passport.use(
             return cb(err, user);
           }
         );
-      else {
+        // const transporter = mailSettings.transporter;
+        // const mailDetails = mailSettings.mailDetails(email);
+        // transporter.sendMail(mailDetails, (error, info) => {
+        //   if (error) {
+        //     console.log(error);
+        //     return res
+        //       .status(500)
+        //       .send("Error al enviar email de confirmación");
+        //   } else {
+        //     return res.status(200).send("Account creada con éxito.");
+        //   }
+        // });
+      } else {
         return cb(null, user);
       }
     }

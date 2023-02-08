@@ -5,7 +5,12 @@ const { isAdmin } = require("../../../middleware/auth");
 
 
 //Ruta para traer todos los usuarios
-getAllUsers.get("/", isAdmin ,async (req, res) => {
+
+//ID USER
+// TOKEN: IDTOKEN
+
+//ID USER === ID TOKEN
+getAllUsers.get("/:id", isAdmin ,async (req, res) => {
   try {
     const users = await User.find();
     res.status(200).send(users);

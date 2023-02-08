@@ -5,10 +5,7 @@ const commentsSchema = new Schema({
   comment: String,
   email: String, //comentar esto
   response: String,
-  products: {
-    type: Schema.Types.ObjectId,
-    ref: "Products",
-  },
+ 
   user: {
     type: Schema.Types.ObjectId,
     ref: "Users",
@@ -19,7 +16,7 @@ const commentsSchema = new Schema({
   },
   
   product: { type: Schema.Types.ObjectId, ref: "Products" },
-  user: { type: Schema.Types.ObjectId, ref: "Users" }
+ 
 },
 { versionKey: false });
 

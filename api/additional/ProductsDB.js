@@ -29,7 +29,7 @@ const products = [
     stock: "500",
     news: "",
     promotions: {
-      salesOff: false,
+      salesOff: true,
       stock: 0,
       newPrice: 0,
       oldPrice: 0,
@@ -47,7 +47,7 @@ const products = [
     stock: "500",
     news: "",
     promotions: {
-      salesOff: false,
+      salesOff: true,
       stock: 0,
       newPrice: 0,
       oldPrice: 0,
@@ -67,7 +67,7 @@ const products = [
     stock: "500",
     news: "",
     promotions: {
-      salesOff: false,
+      salesOff: true,
       stock: 0,
       newPrice: 0,
       oldPrice: 0,
@@ -105,7 +105,7 @@ const products = [
     stock: "500",
     news: "",
     promotions: {
-      salesOff: false,
+      salesOff: true,
       stock: 0,
       newPrice: 0,
       oldPrice: 0,
@@ -145,7 +145,7 @@ const products = [
     stock: "500",
     news: "",
     promotions: {
-      salesOff: false,
+      salesOff: true,
       stock: 0,
       newPrice: 0,
       oldPrice: 0,
@@ -164,7 +164,7 @@ const products = [
     stock: "500",
     news: "",
     promotions: {
-      salesOff: false,
+      salesOff: true,
       stock: 0,
       newPrice: 0,
       oldPrice: 0,
@@ -200,7 +200,7 @@ const products = [
     stock: "500",
     news: "",
     promotions: {
-      salesOff: false,
+      salesOff: true,
       stock: 0,
       newPrice: 0,
       oldPrice: 0,
@@ -218,7 +218,7 @@ const products = [
     stock: "500",
     news: "",
     promotions: {
-      salesOff: false,
+      salesOff: true,
       stock: 0,
       newPrice: 0,
       oldPrice: 0,
