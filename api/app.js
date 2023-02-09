@@ -6,9 +6,7 @@ const routes = require("./routes/index");
 const cookieSession = require("cookie-session");
 const passportStrategy = require("./passport");
 require("dotenv").config();
-const {
-  CLIENT_URL
-} = process.env;
+const { CLIENT_URL } = process.env;
 const app = express();
 
 app.use(
@@ -28,7 +26,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Origin",
+    'https://pf-front-deploy-nine.vercel.app'
+  );
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",
@@ -41,4 +42,3 @@ app.use((req, res, next) => {
 app.use("/", routes);
 
 module.exports = app;
-
