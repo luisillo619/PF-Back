@@ -42,7 +42,7 @@ passport.use(
           }
         });
 
-        Users.create(
+       await Users.create(
           {
             email: profile._json.email,
             name: profile._json.given_name,
@@ -50,11 +50,12 @@ passport.use(
             loginBy: "Google",
           },
           (err, user) => {
-            // console.log("eeeee", user)
+            console.log("creadoooo", user)
             return cb(err, user);
           }
         );
       } else {
+        console.log("existenteee", user)
         return cb(null, user);
       }
     }
@@ -74,7 +75,7 @@ passport.use(
         userName: profile._json.login,
       });
       if (!user) {
-        Users.create(
+        await Users.create(
           {
             name: profile._json.name.split(" ")[0],
             lastName: profile._json.name.split(" ")[1],
