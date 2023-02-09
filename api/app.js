@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
   app.use(cors({
-    origin: 'https://pf-front-deploy-nine.vercel.app',
+    origin: '*',
     credentials: true,
   }));
   res.header(
