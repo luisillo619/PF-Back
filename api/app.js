@@ -32,7 +32,7 @@ app.use(
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "http://localhost:3000"
+    CLIENT_URL
   );
 
   // "https://pf-front-swart.vercel.app"
