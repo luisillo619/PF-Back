@@ -16,7 +16,7 @@ app.use(
     name: "session",
     keys: ["cyberwolve"],
     maxAge: 60 * 60,
-    sameSite : none
+    sameSite : "none"
   })
 );
 
