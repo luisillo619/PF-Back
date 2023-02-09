@@ -9,6 +9,7 @@ require("dotenv").config();
 const {
   CLIENT_URL
 } = process.env;
+
 const app = express();
 
 app.use(
@@ -16,11 +17,12 @@ app.use(
     name: "session",
     keys: ["cyberwolve"],
     maxAge: 60 * 60,
-    sameSite : "none"
   })
 );
 
 app.use(passport.initialize());
+
+// sincroniza cookies con passport y hace que el login de inicio de sesion dure 1 hora
 app.use(passport.session());
 
 app.use(express.json());
