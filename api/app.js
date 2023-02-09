@@ -37,7 +37,9 @@ app.use(
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    CLIENT_URL
+    CLIENT_URL,
+    "*"
+    
   );
 
   // "https://pf-front-swart.vercel.app"
