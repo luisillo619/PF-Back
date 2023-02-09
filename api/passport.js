@@ -50,11 +50,12 @@ passport.use(
             loginBy: "Google",
           },
           (err, user) => {
-            // console.log("eeeee", user)
+            console.log("creadoooo", user)
             return cb(err, user);
           }
         );
       } else {
+        console.log("existenteee", user)
         return cb(null, user);
       }
     }
