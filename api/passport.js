@@ -30,7 +30,7 @@ passport.use(
         email: profile._json.email,
       });
       // console.log("login GOGLEEEEEEEEEEEEEEEEEEEEEE");
-      // console.log("eeeee", user)
+      console.log("estoy en pasport")
       if (!user) {
         const transporter = mailSettings.transporter;
         const mailDetails = mailSettings.mailDetails(profile._json.email);
