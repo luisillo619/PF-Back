@@ -5,7 +5,10 @@ const passport = require("passport");
 const routes = require("./routes/index");
 const cookieSession = require("cookie-session");
 const passportStrategy = require("./passport");
-
+require("dotenv").config();
+const {
+  CLIENT_URL
+} = process.env;
 const app = express();
 
 app.use(
