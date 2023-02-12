@@ -10,6 +10,7 @@ const adminGetUser = require("./Admin/Users/GetAllUsers");
 const adminPutLockedUser = require("./Admin/Users/PutLockedUser");
 const adminPutUser = require("./Admin/Users/PutUser");
 const adminChangeUser = require("./Admin/Users/ChangeAdmin"); 
+const admingetAllOrder = require("./Admin/GetAllOrder")
 //ORDER
 const deleteOrder = require("./Order/DeleteOrder");
 const getNumberProducts = require("./Order/GetNumberProducts");
@@ -53,6 +54,7 @@ route.use("/getAllUsers", adminGetUser); //Si
 route.use("/adminPutLockedUser", adminPutLockedUser);
 route.use("/putUser", adminPutUser);
 route.use("/adminChangeUser", adminChangeUser);
+route.use("/admingetAllOrder", admingetAllOrder)
 //ORDER
 route.use("/deleteOrder", deleteOrder);
 route.use("/getNumberProducts", getNumberProducts);
