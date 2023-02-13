@@ -6,7 +6,7 @@ const { auth } = require("../../middleware/auth");
 // VERIFICAR UN POSIBLE PUT
 
 //Ruta para eliminar un producto del carrito de compras
-deleteOrder.use('/', auth, (req, res) => {
+deleteOrder.use('/', (req, res) => {
     try {
         const { product, order }= req.body
         Order.findByIdAndUpdate(order, { $pull: { product: product } }, (err) => {

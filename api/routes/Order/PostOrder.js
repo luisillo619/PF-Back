@@ -5,7 +5,7 @@ const User = require("../../models/Users");
 const postOrder = express.Router();
 const { auth } = require("../../middleware/auth");
 
-postOrder.post("/", auth, async (req, res) => {
+postOrder.post("/",  async (req, res) => {
   try {
     const { product, user, amount, total, unitPrice, image } = req.body;
 

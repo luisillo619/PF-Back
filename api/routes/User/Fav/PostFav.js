@@ -5,7 +5,7 @@ const Favorites = require("../../../models/Favorites");
 const { isUser } = require("../../../middleware/auth");
 
 // Ruta para agregar un producto a favoritos
-postFav.post('/:id', isUser, async (req, res) => {
+postFav.post('/:id',  async (req, res) => {
   try {
     const newFavorite = new Favorites({
       user: req.body.user,

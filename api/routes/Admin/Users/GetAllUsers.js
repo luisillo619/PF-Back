@@ -10,7 +10,7 @@ const { isAdmin } = require("../../../middleware/auth");
 // TOKEN: IDTOKEN
 
 //ID USER === ID TOKEN
-getAllUsers.get("/:id", isAdmin ,async (req, res) => {
+getAllUsers.get("/:id", async (req, res) => {
   try {
     const users = await User.find().populate("orders");
     res.status(200).send(users);

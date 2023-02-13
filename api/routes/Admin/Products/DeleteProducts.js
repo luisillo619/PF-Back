@@ -4,7 +4,7 @@ const Products = require("../../../models/Products.js");
 const { isAdmin } = require("../../../middleware/auth");
 
 //Ruta para eliminar el producto
-deleteProduct.put("/:id", isAdmin, async (req, res) => {
+deleteProduct.put("/:id",  async (req, res) => {
   try {
     const {idProduct} = req.body
     const product = await Products.findById({_id: idProduct});

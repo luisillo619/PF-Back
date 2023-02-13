@@ -4,7 +4,7 @@ const Products = require("../../../models/Products.js");
 const { isAdmin } = require("../../../middleware/auth");
 const Categories = require("../../../models/Categories");
 //Ruta para modificar un producto
-putProduct.put("/:id", isAdmin, async (req, res) => {
+putProduct.put("/:id", async (req, res) => {
   try {
     const { idProduct, form } = req.body;
     console.log(idProduct);

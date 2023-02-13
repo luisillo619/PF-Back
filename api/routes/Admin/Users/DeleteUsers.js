@@ -6,7 +6,7 @@ const {  isUser } = require("../../../middleware/auth");
 
 
 //Ruta para eliminar un usuario por parte del Admin
-deleteUser.delete('/:id', isUser, async (req, res) =>{
+deleteUser.delete('/:id', async (req, res) =>{
     try {
         User.findByIdAndRemove(req.params.id, (error) => {
             if (error) {

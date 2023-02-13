@@ -6,7 +6,7 @@ const { isUser } = require("../../../middleware/auth");
 
 
 //Ruta para eliminar comentarios por parte del Admin
-deleteComent.use("/:id", isUser, async (req, res) => {
+deleteComent.use("/:id",  async (req, res) => {
   Comment.findByIdAndRemove(req.params.id, (error) => {
     if (error) {
       res.status(500).send(error);
