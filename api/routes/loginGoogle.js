@@ -59,9 +59,9 @@ router.get("/google", passport.authenticate("google", { scope: ["profile","email
 
 router.get(
   "/google/callback",
-  passport.authenticate("google"),(req,res)=>{
+  passport.authenticate("google"),async (req,res)=>{
     console.log("antes de redireccionar", req.user)
-    req.session.user = req.user;
+    req.session.user = await req.user;
     if(req.user) res.redirect(CLIENT_URL)
  
   }

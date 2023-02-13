@@ -51,12 +51,12 @@ passport.use(
           },
           (err, user) => {
             console.log("creadoooo", user)
-            return cb(err, profile);
+            return cb(err, user);
           }
         );
       } else {
         console.log("existenteee", user)
-        return cb(null, profile);
+        return cb(null, user);
       }
     }
   )
