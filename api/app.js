@@ -17,7 +17,9 @@ app.use(
     name: "session",
     keys: ["cyberwolve"],
     maxAge: 60 * 60,
-    sameSite: false
+    sameSite: false,
+    secure: false,
+    httpOnly: false
   })
 );
 
