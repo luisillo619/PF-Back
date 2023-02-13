@@ -29,6 +29,7 @@ router.get("/login/success", (req, res) => {
   console.log("ando aqui en login suces", req.user)
 // console.log(req.user)
   if (username) {
+    console.log("triston")
   //  console.log("hay un ususario en la ruta", req.user)
     if(username.isBlocked){
       return res.status(401).send("Tu cuenta ha sido bloqueada");
@@ -61,7 +62,8 @@ router.get(
   passport.authenticate("google"),(req,res)=>{
     console.log("antes de redireccionar", req.user)
     req.session.user = req.user;
-    res.redirect(CLIENT_URL)
+    if(req.user) res.redirect(CLIENT_URL)
+ 
   }
 );
 // GIT
