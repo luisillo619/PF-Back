@@ -60,7 +60,16 @@ router.get(
     // successRedirect: CLIENT_URL, //localhost
     failureRedirect: "/login/failed",
   }),(req,res)=>{
-    console.log("vamos a proba,", req)
+    if (req.user) {
+      req.session.save(function (err) {
+          if (err) {
+              console.log("tengo miedoooo")
+          }
+          // res.redirect("/user/" + req.user._id);
+          res.redirect(CLIENT_URL);
+      });
+      return;
+  }
   }
 );
 // GIT
