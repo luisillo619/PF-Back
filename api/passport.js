@@ -140,9 +140,15 @@ passport.use(
 //ESTO SON LAS COOKIES
 
 passport.serializeUser((user, done) => {
-  done(null, user);
+  done(null, user._id);
 });
 
-passport.deserializeUser((user, done) => {
-  done(null, user);
+passport.deserializeUser((_id, done) => {
+Users.findById( _id, (err, user) => {
+  if(err){
+      done(null, false, {error:err});
+  } else {
+      done(null, user);
+  }
+});
 });
