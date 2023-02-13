@@ -61,6 +61,7 @@ router.get(
     // successRedirect: CLIENT_URL, //localhost
     failureRedirect: "/login/failed",
   }),(req,res)=>{
+    console.log("antes de redireccionar", req.user)
     req.session.user = req.user;
     res.redirect(CLIENT_URL)
   }
