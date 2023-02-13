@@ -4,7 +4,7 @@ const cors = require("cors");
 const passport = require("passport");
 const routes = require("./routes/index");
 const cookieSession = require("cookie-session");
-const passportStrategy = require("./passport");
+// const passportStrategy = require("./passport");
 require("dotenv").config();
 const {
   CLIENT_URL
@@ -27,7 +27,7 @@ app.use(passport.initialize());
 
 // sincroniza cookies con passport y hace que el login de inicio de sesion dure 1 hora
 app.use(passport.session());
-
+require("./passport.js")
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
