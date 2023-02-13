@@ -59,9 +59,9 @@ router.get(
   passport.authenticate("google", {
     // successRedirect: CLIENT_URL, //localhost
     failureRedirect: "/login/failed",
-  },(req,res)=>{
+  }),(req,res)=>{
     console.log("vamos a proba,", req)
-  })
+  }
 );
 // GIT
 router.get("/github", passport.authenticate("github", { scope: ["profile","email"] }));
