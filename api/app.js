@@ -17,23 +17,14 @@ app.use(
     name: "session",
     keys: ["cyberwolve"],
     maxAge: 60 * 60,
-    sameSite : "none"
+    sameSite: false
   })
 );
 
 app.use(passport.initialize());
 
 // sincroniza cookies con passport y hace que el login de inicio de sesion dure 1 hora
-app.use(passport.session({
-  secret: "secretsssss",
-  rolling: false,
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    sameSite: false, // i think this is default to false
-    maxAge: 60 * 60 
-  }
-}));
+app.use(passport.session());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
