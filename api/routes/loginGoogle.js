@@ -41,6 +41,7 @@ router.get("/login/success", (req, res) => {
 });
 
 router.get("/login/failed", (req, res) => {
+  console.log("falle xd")
   res.status(401).json({
     success: false,
     message: "failure",
