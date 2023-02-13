@@ -5,7 +5,7 @@ const { isUser } = require("../../../middleware/auth");
 
 
 // Ruta para agregar los datos completos de un usuario
-completeInfo.use("/:id", isUser, async (req, res) => {
+completeInfo.use("/:id", async (req, res) => {
   try {
     const { name, lastName, docIdentity } = req.body;
     if (!name || !lastName || !docIdentity)

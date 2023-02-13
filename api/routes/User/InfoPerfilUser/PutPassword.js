@@ -9,7 +9,7 @@ const putPassword = express.Router();
 const { isUser } = require("../../../middleware/auth");
 
 
-putPassword.put('/', isUser, async (req, res) => {
+putPassword.put('/',  async (req, res) => {
     const { email } = req.body;
     console.log(req.body)
     try {

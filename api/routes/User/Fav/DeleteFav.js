@@ -5,7 +5,7 @@ const Favorites = require("../../../models/Favorites");
 const { isUser } = require("../../../middleware/auth");
 //Ruta para eliminar un favorito
 
-deleteFav.delete('/:id', isUser, (req, res) => {
+deleteFav.delete('/:id',(req, res) => {
   try {
     Favorites.findByIdAndDelete(req.params.id, (err, favorite) => {
       if (err) {

@@ -3,7 +3,7 @@ const Order = require("../../models/Order");
 const allOrders = express.Router();
 const { isUser } = require("../../middleware/auth");
 
-allOrders.get("/:id", isUser, async (req, res) => {
+allOrders.get("/:id", async (req, res) => {
   try {
     const order = await Order.find({ user: req.params.id }).populate("status");
 

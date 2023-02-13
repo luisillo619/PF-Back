@@ -6,7 +6,7 @@ const { isUser } = require("../../../middleware/auth");
 
 
 //Ruta para crear una drección del usuario
-postAddress.post("/:id", isUser, async (req, res) => {
+postAddress.post("/:id",  async (req, res) => {
   try {
     const { country, city, state, street, zipCode } = req.body;
     if (!country  || !city || !state || !street || !zipCode) {
