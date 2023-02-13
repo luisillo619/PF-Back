@@ -26,6 +26,7 @@ const generateAuthToken = (user) => {
 router.get("/login/success", (req, res) => {
   const username = req.session.user
   console.log("username", username)
+  console.log("ando aqui en login suces", req.user)
 // console.log(req.user)
   if (username) {
   //  console.log("hay un ususario en la ruta", req.user)
