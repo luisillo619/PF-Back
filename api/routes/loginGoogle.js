@@ -24,18 +24,19 @@ const generateAuthToken = (user) => {
 // req.user solo va a existir una vez, esto debido a las cookies que configuramos en la app por 1 hora
 //req.user va a existir despues de 1 hora o si se deslogea y se vuelve a logear
 router.get("/login/success", (req, res) => {
-  console.log("req.user", req.user)
-console.log(req.user)
-  if (req.user) {
+  const username = req.session.user
+  console.log("username", username)
+// console.log(req.user)
+  if (username) {
   //  console.log("hay un ususario en la ruta", req.user)
-    if(req.user.isBlocked){
+    if(username.isBlocked){
       return res.status(401).send("Tu cuenta ha sido bloqueada");
     }
     // console.log("login exitosooooooooooooooooooooo")
     res.status(200).json({
-      id: req.user._id,
-      token: generateAuthToken(req.user),
-      type: req.user.admin
+      id: username._id,
+      token: generateAuthToken(username),
+      type: username.admin
     });
   } 
 });
@@ -57,9 +58,12 @@ router.get("/google", passport.authenticate("google", { scope: ["profile","email
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: CLIENT_URL, //localhost
+    // successRedirect: CLIENT_URL, //localhost
     failureRedirect: "/login/failed",
-  })
+  }),(req,res)=>{
+    req.session.user = req.user;
+    res.redirect(CLIENT_URL)
+  }
 );
 // GIT
 router.get("/github", passport.authenticate("github", { scope: ["profile","email"] }));
