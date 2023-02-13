@@ -62,7 +62,7 @@ router.get(
     failureRedirect: "/login/failed",
   }),(req,res)=>{
     console.log("cebollin")
-    console.log(req)
+    res.redirect(CLIENT_URL)
   }
 );
 // GIT
