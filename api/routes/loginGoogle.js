@@ -24,21 +24,18 @@ const generateAuthToken = (user) => {
 // req.user solo va a existir una vez, esto debido a las cookies que configuramos en la app por 1 hora
 //req.user va a existir despues de 1 hora o si se deslogea y se vuelve a logear
 router.get("/login/success", (req, res) => {
-  const username = req.session.user
-  console.log("username", username)
-  console.log("ando aqui en login suces", req.user)
-// console.log(req.user)
-  if (username) {
-    console.log("triston")
+ 
+  if (req.user) {
+ 
   //  console.log("hay un ususario en la ruta", req.user)
-    if(username.isBlocked){
+    if(req.user.isBlocked){
       return res.status(401).send("Tu cuenta ha sido bloqueada");
     }
     // console.log("login exitosooooooooooooooooooooo")
     res.status(200).json({
-      id: username._id,
-      token: generateAuthToken(username),
-      type: username.admin
+      id: req.user._id,
+      token: generateAuthToken(req.user),
+      type: req.user.admin
     });
   } 
 });
@@ -96,3 +93,4 @@ router.get(
 
 
 module.exports = router;
+
