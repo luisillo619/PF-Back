@@ -128,19 +128,29 @@ app.get("/auth/logout", (req, res) => {
 });
 
 app.get("/auth/login/success", (req, res) => {
-  if (Object.keys(req.session.passport).length !== 0) {
-    console.log("hay un ususario en la ruta", req.session.passport.user);
-    if (req.session.passport.user.isBlocked) {
-      return res.status(401).send("Tu cuenta ha sido bloqueada");
+  try {
+   
+    if(req.session){
+      console.log("sesiooooon",req.session)
+      if (Object.keys(req.session.passport).length !== 0) {
+        console.log("hay un ususario en la ruta", req.session.passport.user);
+        if (req.session.passport.user.isBlocked) {
+          return res.status(401).send("Tu cuenta ha sido bloqueada");
+        }
+    
+        return res.status(200).json({
+          id: req.session.passport.user._id,
+          token: generateAuthToken(req.session.passport.user),
+          type: req.session.passport.user.admin,
+        });
+      }
+      return;
     }
-
-    return res.status(200).json({
-      id: req.session.passport.user._id,
-      token: generateAuthToken(req.session.passport.user),
-      type: req.session.passport.user.admin,
-    });
+  } catch (error) {
+    console.log(error)
   }
-  return;
+ 
+  
 });
 
 app.get(
