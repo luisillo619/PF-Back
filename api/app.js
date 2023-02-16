@@ -38,6 +38,7 @@ app.use(
       secure: false,
       httpOnly: true,
       maxAge: 3600000, // duración de la sesión en milisegundos
+      sameSite: "none"
     },
   })
 );
