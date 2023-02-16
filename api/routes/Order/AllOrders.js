@@ -7,7 +7,7 @@ allOrders.get("/:id", async (req, res) => {
   try {
     const order = await Order.find({ user: req.params.id }).populate("status");
 
-    if (!order) {
+    if (order.length === 0) {
       return res.status(404).send({ error: "No orders found for this user" });
     }
     console.log("Order after if statement:", order);
