@@ -7,7 +7,7 @@ const mailSettings = require("../../../additional/nodemailer");
 
 //Ruta para eliminar la cuenta por parte del usuario
 // RECORDAR ELIMINAR LAS ORDENES, DIRECCIONES, COMENTARIOS ETC DEL USUSARIO
-userDelete.delete("/:id", isUser, async (req, res) => {
+userDelete.delete("/:id",  async (req, res) => {
   try {
     const user = await User.findByIdAndRemove(req.params.id);
     if (!user) {

@@ -6,7 +6,7 @@ const { isUser } = require("../../../middleware/auth");
 
 
 // params id user
-deleteAddress.delete('/:id/:addressId', isUser, (req, res) => {         //id es el id del usuario
+deleteAddress.delete('/:id/:addressId', (req, res) => {         //id es el id del usuario
     try {
       // const {} = req.body;
       Address.findByIdAndDelete({_id:req.params.addressId}, (err, address) => {

@@ -4,7 +4,7 @@ const Router = express.Router();
 const User = require("../../../models/Users.js");
 
 
-Router.put('/:id',isAdmin, async (req, res) => {
+Router.put('/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) {

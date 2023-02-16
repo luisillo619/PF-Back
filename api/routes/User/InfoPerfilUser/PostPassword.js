@@ -8,7 +8,7 @@ const resetPassword = express.Router();
 const { isUser } = require("../../../middleware/auth");
 
 
-resetPassword.put('/:token', isUser, async (req, res) => {
+resetPassword.put('/:token',  async (req, res) => {
     const { token } = req.params;
     const { password } = req.body;
     try {

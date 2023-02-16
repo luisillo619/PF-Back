@@ -6,7 +6,7 @@ const { isAdmin } = require("../../../middleware/auth");
 
 //Ruta para crear el producto
 
-postProduct.post("/:id", isAdmin ,async (req, res) => {
+postProduct.post("/:id",async (req, res) => {
   try {
   
     const { name, price, description, category, image, promotion } = req.body;

@@ -5,7 +5,7 @@ const { isUser } = require("../../../middleware/auth");
 
 // UNIFICAR ISUSER
 //Ruta para modificar información de usuario por parte del Admin
-putUser.put("/:id", isUser, (req, res) => {
+putUser.put("/:id",  (req, res) => {
   try {
     User.findByIdAndUpdate(
       req.params.id,

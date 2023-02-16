@@ -140,6 +140,7 @@ passport.use(
 //ESTO SON LAS COOKIES
 
 passport.serializeUser((user, done) => {
+  console.log("serializar", user)
   done(null, user);
 });
 

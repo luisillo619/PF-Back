@@ -4,7 +4,7 @@ const express = require("express");
 const getOrder = express.Router();
 const { isAdmin } = require("../../middleware/auth");
 
-getOrder.get('/:id', isAdmin, async (req, res) => {
+getOrder.get('/:id',  async (req, res) => {
   try {
     const statusCart = await Status.findOne({ status: "orderCart" });
 
