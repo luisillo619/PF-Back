@@ -36,9 +36,10 @@ app.use(
     saveUninitialized: false,
     cookie: {
       secure: false,
-      httpOnly: true,
+      httpOnly: false,
       maxAge: 3600000, // duración de la sesión en milisegundos
-      sameSite: "none"
+      sameSite: "none",
+      path:"/"
     },
   })
 );
