@@ -130,7 +130,7 @@ app.get("/auth/logout", (req, res) => {
 app.get("/auth/login/success", (req, res) => {
   try {
    
-    if(req.session){
+    if(req.session.passport){
       console.log("sesiooooon",req.session)
       if (Object.keys(req.session.passport).length !== 0) {
         console.log("hay un ususario en la ruta", req.session.passport.user);
