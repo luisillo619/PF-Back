@@ -3,6 +3,7 @@ const { Schema, model } = require("mongoose");
 
 const commentsSchema = new Schema({
   comment: String,
+  ask:String,
   email: String, //comentar esto
   response: String,
  

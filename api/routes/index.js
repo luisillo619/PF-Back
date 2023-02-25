@@ -40,6 +40,7 @@ const adminGetProducts = require("./GetProducts");
 const login = require("./login");
 const loginGoogle = require("./loginGoogle.js");
 const postComment = require("./PostComment");
+const postAsk = require("./PostAsk");
 const putComment = require("./PutComment");
 const register = require("./register");
 const deleteCookies = require("./DeleteCookies")
@@ -83,6 +84,7 @@ route.use("/adminGetProducts", adminGetProducts);
 route.use("/login", login);
 // route.use("/auth", loginGoogle);
 route.use("/postComent", postComment);
+route.use("/postAsk", postAsk);
 route.use("/updateComent", putComment);
 route.use("/register", register); //Si
 route.use("/deleteCookies",deleteCookies)
